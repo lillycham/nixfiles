@@ -75,5 +75,7 @@
 		time_format = "%T"
 		utc_time_offset = "-5"
 		time_range = "10:00:00-14:00:00"
+
+		command_timeout = 1000
 	'';
 }

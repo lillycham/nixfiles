@@ -30,6 +30,12 @@
 		onefetch
 		python3
 		neovim
+		git
+		openssl
+		go
+		spotifyd
+		spotify-tui
+		curl
 	];
 	imports = [
 		./config/starship.toml.nix
