@@ -1,0 +1,49 @@
+/Users/lillycham/nixfiles
+/mnt/font/GoMono/15a/font
+/lib/font/bit/lucm/unicode.9.font
+  0.0000000  49.0606061
+w win sudo sudo Newcol Kill Putall Dump ./acme.dump Exit 
+c          0 New Cut Paste Snarf Sort Zerox Delcol 
+c          1 New Cut Paste Snarf Sort Zerox Delcol win rc
+F          0           0         772         772   2.0580475         779 
+          2          77         779           0           1 /Users/lillycham/nixfiles/home.nix Del Snarf Undo Put | Look Edit s,\ \ ,\	,g
+{ config, pkgs, ... }:
+
+{
+	# Home Manager needs a bit of information about you and the
+	# paths it should manage.
+	home.username = "lillycham";
+	home.homeDirectory = "/Users/lillycham";
+
+	# This value determines the Home Manager release that your
+	# configuration is compatible with. This helps avoid breakage
+	# when a new Home Manager release introduces backwards
+	# incompatible changes.
+	#
+	# You can update Home Manager without changing this value. See
+	# the Home Manager release notes for a list of state version
+	# changes in each release.
+	home.stateVersion = "22.05";
+
+	# Let Home Manager install and manage itself.
+	programs.home-manager.enable = true;
+
+	# Packages to install
+	home.packages = [
+		pkgs.tmux
+		pkgs.fish
+		pkgs.plan9port
+		pkgs.iterm2
+		pkgs.fzf
+	];
+}
+f          1           1           0           0   2.0580475 
+          1          48          16           1           0 /Users/lillycham/nixfiles/ Del Snarf Get | Look 
+f          1           5           0           0  17.4670185 
+          5          39        1999           1           0 /Users/lillycham/ Del Snarf Get | Look 
+f          1          29           0           0  32.8759894 
+         29          42        1999           1           1 /Users/lillycham/ Del Snarf Get | Look Get
+e          1           0           0           0  67.2823219 
+         32          55        5557           0           1 /Users/lillycham/nixfiles/-mirai Del Snarf | Look  Send
+/Users/lillycham/nixfiles/
+win rc
