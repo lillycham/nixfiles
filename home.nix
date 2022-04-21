@@ -5,6 +5,7 @@
 	# paths it should manage.
 	home.username = "lillycham";
 	home.homeDirectory = "/Users/lillycham";
+	home.file."lib/profile".source = ./acmeprofile;
 
 	# This value determines the Home Manager release that your
 	# configuration is compatible with. This helps avoid breakage
@@ -29,6 +30,7 @@
 		pkgs.neofetch
 		pkgs.onefetch
 		pkgs.python3
+		pkgs.neovim
 	];
 	programs.git = {
 		enable = true;
