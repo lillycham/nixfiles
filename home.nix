@@ -21,21 +21,21 @@
 
 	# Packages to install
 	home.packages = with pkgs; [
-		tmux
-		fish
-		plan9port
-		iterm2
-		fzf
-		neofetch
-		onefetch
-		python3
-		neovim
-		git
-		openssl
-		go
-		spotifyd
-		spotify-tui
 		curl
+		fish
+		fzf
+		git
+		go
+		iterm2
+		neofetch
+		neovim
+		onefetch
+		openssl
+		plan9port
+		python3
+		spotify-tui
+		spotifyd
+		tmux
 	];
 	imports = [
 		./config/starship.toml.nix
