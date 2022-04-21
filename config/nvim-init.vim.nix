@@ -1,97 +1,74 @@
-/Users/lillycham/nixfiles
-/mnt/font/GoMono/15a/font
-/lib/font/bit/lucm/unicode.9.font
-  0.0000000  66.9047619
-w win win sudo sudo Newcol Kill Putall Dump ./acme.dump Exit 
-c          0 New Cut Paste Snarf Sort Zerox Delcol 
-c          1 New Cut Paste Snarf Sort Zerox Delcol win rc
-f          0           1         221         221   1.9948849 
-          1          70        1264           0           0 /Users/lillycham/nixfiles/home.nix Del Snarf Undo | Look Edit s,\.,,g 
-f          0          34           0           0  50.0767263 
-         34          59         441           0           0 /Users/lillycham/nixfiles/config/acme.nix Del Snarf | Look 
-f          0          21          54          54  81.5856777 
-         21          86         921           0           0 /Users/lillycham/nixfiles/config/starship.toml.nix Del Snarf Undo | Look Edit s,^,\	,g
-f          1           2           0           0   1.9948849 
-          2          48          36           1           0 /Users/lillycham/nixfiles/ Del Snarf Get | Look 
-f          1          22          48          48  15.0895141 
-         22          87          48           1           0 /Users/lillycham/nixfiles/config/ Del Snarf Get | Look mv acmeprofile nvim-init.vim.nix
-e          1           0           0           0  41.0741688 
-          5          55       58002           0           1 /Users/lillycham/nixfiles/-mirai Del Snarf | Look  Send
-/Users/lillycham/nixfiles/
-win rc
-F          1           3          40          40  79.9488491        4245 
-         25          92        4245           0           1 /Users/lillycham/nixfiles/config/nvim-init.vim.nix Del Snarf Undo Put | Look Edit s,^,\	\	,g
 {
 	home.file.".config/nvim/nvim-init.vim".text = ''
 		let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 		" NOTE: If barbar's option dict isn't created yet, create it
 		let bufferline = get(g:, 'bufferline', {})
-		
+
 		" New tabs are opened next to the currently selected tab.
 		" Enable to insert them in buffer number order.
 		let bufferline.add_in_buffer_number_order = v:false
-		
+
 		" Enable/disable animations
 		let bufferline.animation = v:true
-		
+
 		" Enable/disable auto-hiding the tab bar when there is a single buffer
 		let bufferline.auto_hide = v:false
-		
+
 		" Enable/disable current/total tabpages indicator (top right corner)
 		let bufferline.tabpages = v:true
-		
+
 		" Enable/disable close button
 		let bufferline.closable = v:true
-		
+
 		" Enables/disable clickable tabs
 		"  - left-click: go to buffer
 		"  - middle-click: delete buffer
 		let bufferline.clickable = v:true
-		
+
 		" Excludes buffers from the tabline
 		let bufferline.exclude_ft = ['javascript']
 		let bufferline.exclude_name = ['package.json']
-		
+
 		" Enable/disable icons
 		" if set to 'buffer_number', will show buffer number in the tabline
 		" if set to 'numbers', will show buffer index in the tabline
 		" if set to 'both', will show buffer index and icons in the tabline
 		let bufferline.icons = v:true
-		
+
 		" Sets the icon's highlight group.
 		" If false, will use nvim-web-devicons colors
 		let bufferline.icon_custom_colors = v:false
-		
+
 		" Configure icons on the bufferline.
 		let bufferline.icon_separator_active = '▎'
 		let bufferline.icon_separator_inactive = '▎'
 		let bufferline.icon_close_tab = ''
 		let bufferline.icon_close_tab_modified = '●'
 		let bufferline.icon_pinned = '車'
-		
+
 		" If true, new buffers will be inserted at the start/end of the list.
 		" Default is to insert after current buffer.
 		let bufferline.insert_at_start = v:false
 		let bufferline.insert_at_end = v:false
-		
+
 		" Sets the maximum padding width with which to surround each tab.
 		let bufferline.maximum_padding = 4
-		
+
 		" Sets the maximum buffer name length.
 		let bufferline.maximum_length = 30
-		
+
 		" If set, the letters for each buffer in buffer-pick mode will be
 		" assigned based on their name. Otherwise or in case all letters are
 		" already assigned, the behavior is to assign letters in order of
 		" usability (see order below)
 		let bufferline.semantic_letters = v:true
-		
+
 		" New buffer letters are assigned in this order. This order is
 		" optimal for the qwerty keyboard layout but might need adjustement
 		" for other layouts.
 		let bufferline.letters =
 		  \ 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP'
-		
+
 		" Sets the name of unnamed buffers. By default format is "[Buffer X]"
 		" where X is the buffer number. But only a static string is accepted here.
 		let bufferline.no_name_title = v:null
@@ -110,17 +87,17 @@ F          1           3          40          40  79.9488491        4245
 		if &compatible
 		  set nocompatible               " Be iMproved
 		endif
-		
+
 		" Required:
 		set runtimepath+=/Users/lillycham/.cache/dein/repos/github.com/Shougo/dein.vim
-		
+
 		" Required:
 		call dein#begin('/Users/lillycham/.cache/dein')
-		
+
 		" Let dein manage dein
 		" Required:
 		call dein#add('/Users/lillycham/.cache/dein/repos/github.com/Shougo/dein.vim')
-		
+
 		" Add or remove your plugins here like this:
 		"call dein#add('Shougo/neosnippet.vim')
 		"call dein#add('Shougo/neosnippet-snippets')
@@ -135,16 +112,16 @@ F          1           3          40          40  79.9488491        4245
 		call dein#add('LoricAndre/OneTerm.nvim')
 		" Required:
 		call dein#end()
-		
+
 		" Required:
 		filetype plugin indent on
 		syntax enable
-		
+
 		" If you want to install not installed plugins on startup.
 		"if dein#check_install()
 		"  call dein#install()
 		"endif
-		
+
 		"End dein Scripts-------------------------
 	'';
 }

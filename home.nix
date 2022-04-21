@@ -5,8 +5,7 @@
 	# paths it should manage.
 	home.username = "lillycham";
 	home.homeDirectory = "/Users/lillycham";
-	home.file."lib/profile".source = ./acmeprofile;
-	home.file.".config/nvim/init.vim".source = ./nvim-init.vim;
+	nixpkgs.config.allowUnfree = true;
 	# This value determines the Home Manager release that your
 	# configuration is compatible with. This helps avoid breakage
 	# when a new Home Manager release introduces backwards
@@ -21,17 +20,22 @@
 	programs.home-manager.enable = true;
 
 	# Packages to install
-	home.packages = [
-		pkgs.tmux
-		pkgs.fish
-		pkgs.plan9port
-		pkgs.iterm2
-		pkgs.fzf
-		pkgs.neofetch
-		pkgs.onefetch
-		pkgs.python3
-		pkgs.neovim
+	home.packages = with pkgs; [
+		tmux
+		fish
+		plan9port
+		iterm2
+		fzf
+		neofetch
+		onefetch
+		python3
+		neovim
 	];
+	imports = [
+		./config/starship.toml.nix
+		./config/rc.nix
+		./config/nvim-init.vim.nix
+    ];
 	programs.git = {
 		enable = true;
 		userName = "Lilly";
