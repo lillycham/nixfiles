@@ -26,7 +26,6 @@
 		fzf
 		git
 		go
-		iterm2
 		neofetch
 		neovim
 		onefetch
