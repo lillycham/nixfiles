@@ -77,5 +77,10 @@
 		time_range = "10:00:00-14:00:00"
 
 		command_timeout = 1000
+
+		[character]
+		success_symbol = "[λ](bold green)"
+		error_symbol = "[λ](bold red)"
+		vicmd_symbol = "[γ](bold green)"
 	'';
 }
