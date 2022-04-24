@@ -1,5 +1,7 @@
 {
 	home.file.".config/starship.toml".text = ''
+		format = "$shell$all"
+
 		[aws]
 		symbol = "  "
 
@@ -11,7 +13,7 @@
 
 		[directory]
 		read_only = " "
-
+		format = "in [$path]($style)[$read_only]($read_only_style) "
 		[docker_context]
 		symbol = " "
 
@@ -82,5 +84,33 @@
 		success_symbol = "[λ](bold green)"
 		error_symbol = "[λ](bold red)"
 		vicmd_symbol = "[γ](bold green)"
+		
+		[hostname]
+		ssh_only = false
+		format = "on [$hostname](bold red) "
+		disabled = false
+		
+		[shell]
+		fish_indicator = "Fish"
+		bash_indicator = "Bash"
+		zsh_indicator = "Zsh"
+		ion_indicator = "Ion"
+		elvish_indicator = "Elvish"
+		tcsh_indicator = "Tcsh"
+		xonsh_indicator = "Xonsh"
+		cmd_indicator = "DOS Prompt!"
+		nu_indicator = "Nu Shell"
+		powershell_indicator = "PowerShell"
+		unknown_indicator = "Unknown shell"
+		format = "[✿ $indicator]($style)"
+		style = "cyan bold"
+		disabled = false
+		
+		[username]
+		style_user = "pink bold"
+		style_root = "black bold"
+		format = " as [$user]($style) "
+		disabled = false	
+		show_always = true
 	'';
 }

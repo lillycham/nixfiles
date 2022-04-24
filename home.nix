@@ -35,6 +35,8 @@
 		spotify-tui
 		spotifyd
 		tmux
+		yarn
+		nodejs
 	];
 	imports = [
 		./config/starship.toml.nix
