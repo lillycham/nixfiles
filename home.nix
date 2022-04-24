@@ -32,6 +32,7 @@
 		openssl
 		plan9port
 		python3
+		starship
 		spotify-tui
 		spotifyd
 		tmux
