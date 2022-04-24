@@ -45,6 +45,7 @@
 		./config/starship.toml.nix
 		./config/rc.nix
 		./config/nvim-init.vim.nix
+		./config/fish.nix
     ];
 	programs.git = {
 		enable = true;
