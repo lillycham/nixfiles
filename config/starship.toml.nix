@@ -82,9 +82,9 @@
 		command_timeout = 1000
 
 		[character]
-		success_symbol = "[λ](bold green)"
+		success_symbol = "[λ](bold #ffb6c1)"
 		error_symbol = "[λ](bold red)"
-		vicmd_symbol = "[γ](bold green)"
+		vicmd_symbol = "[γ](bold #ffb6c1)"
 		
 		[hostname]
 		ssh_only = false
@@ -109,12 +109,12 @@
 		
 		[username]
 		style_user = "#ffb6c1 bold"
-		style_root = "black bold"
+		style_root = "red bold"
 		format = " as [$user]($style) "
 		disabled = false	
 		show_always = true
 		
 		[cmd_duration]
-		format = "took [$duration](bold #ffb6c1)"
+		format = "took [$duration](bold #0c819c)"
 	'';
 }
