@@ -42,6 +42,8 @@
 		clang
 		alacritty
 		kitty
+		ghc
+		smartmontools
 	];
 	imports = [
 		./config/starship.toml.nix

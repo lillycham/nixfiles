@@ -83,7 +83,7 @@
 
 		[character]
 		success_symbol = "[λ](bold #ffb6c1)"
-		error_symbol = "[λ](bold red)"
+		error_symbol = "[ƛ](bold red)"
 		vicmd_symbol = "[γ](bold #ffb6c1)"
 		
 		[hostname]
@@ -99,7 +99,7 @@
 		elvish_indicator = "Elvish"
 		tcsh_indicator = "Tcsh"
 		xonsh_indicator = "Xonsh"
-		cmd_indicator = "DOS Prompt!"
+		cmd_indicator = "Windows Command Prompt"
 		nu_indicator = "Nu Shell"
 		powershell_indicator = "PowerShell"
 		unknown_indicator = "Unknown shell"
