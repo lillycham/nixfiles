@@ -10,7 +10,10 @@
 			o = "open";
 			nix-install = "nix-env -iA nixpkgs.";
 		};
-		shellInit = "starship init fish | source";
+		shellInit = ''
+		starship init fish | source
+		set -U NIX_SSL_CERT_FILE /nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt
+		'';
 		functions = {
 			fish_greeting = {
 				description = "Greeting to show when starting a fish shell";

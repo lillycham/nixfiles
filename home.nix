@@ -3,8 +3,8 @@
 {
 	# Home Manager needs a bit of information about you and the
 	# paths it should manage.
-	home.username = "lillycham";
-	home.homeDirectory = "/Users/lillycham";
+	home.username = ("lillycham");
+	home.homeDirectory = if pkgs.stdenv.isLinux then "/home/lillycham" else "/Users/lillycham";
 	nixpkgs.config.allowUnfree = true;
 	# This value determines the Home Manager release that your
 	# configuration is compatible with. This helps avoid breakage
