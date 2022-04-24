@@ -9,6 +9,7 @@
 			a = "acme";
 			o = "open";
 			nix-install = "nix-env -iA nixpkgs.";
+			pwsh = "pwsh -nologo";
 		};
 		shellInit = ''
 		starship init fish | source

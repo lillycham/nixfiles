@@ -48,6 +48,7 @@
 		./config/rc.nix
 		./config/nvim-init.vim.nix
 		./config/fish.nix
+		./config/pwsh.nix
     ];
 	programs.git = {
 		enable = true;
