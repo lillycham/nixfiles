@@ -31,6 +31,7 @@
 		onefetch
 		openssl
 		plan9port
+		powershell
 		python3
 		starship
 		spotify-tui
