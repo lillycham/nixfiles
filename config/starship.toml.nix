@@ -14,6 +14,7 @@
 		[directory]
 		read_only = " "
 		format = "in [$path]($style)[$read_only]($read_only_style) "
+
 		[docker_context]
 		symbol = " "
 
@@ -28,6 +29,7 @@
 
 		[golang]
 		symbol = " "
+
 		[hg_branch]
 		symbol = " "
 
@@ -77,7 +79,6 @@
 		time_format = "%T"
 		utc_time_offset = "-5"
 		time_range = "10:00:00-14:00:00"
-
 		command_timeout = 1000
 
 		[character]
@@ -103,14 +104,17 @@
 		powershell_indicator = "PowerShell"
 		unknown_indicator = "Unknown shell"
 		format = "[✿ $indicator]($style)"
-		style = "cyan bold"
+		style = "#9866c7 bold"
 		disabled = false
 		
 		[username]
-		style_user = "pink bold"
+		style_user = "#ffb6c1 bold"
 		style_root = "black bold"
 		format = " as [$user]($style) "
 		disabled = false	
 		show_always = true
+		
+		[cmd_duration]
+		format = "took [$duration](bold #ffb6c1)"
 	'';
 }
