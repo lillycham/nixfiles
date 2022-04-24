@@ -37,6 +37,9 @@
 		tmux
 		yarn
 		nodejs
+		clang
+		alacritty
+		kitty
 	];
 	imports = [
 		./config/starship.toml.nix
