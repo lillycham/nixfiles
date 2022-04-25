@@ -60,6 +60,7 @@
     ./config/pwsh.nix
     ./config/tmux.nix
     ./config/bash.nix
+    ./config/neofetch.nix
   ];
   programs.git = {
     enable = true;
