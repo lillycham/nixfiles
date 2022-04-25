@@ -45,6 +45,7 @@
 		ghc
 		smartmontools
 		ed
+		boxes
 	];
 	imports = [
 		./config/starship.toml.nix
