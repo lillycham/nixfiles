@@ -51,6 +51,7 @@
     jq
     bash
     nixfmt
+    cloc
   ];
   imports = [
     ./config/starship.nix
