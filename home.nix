@@ -48,6 +48,7 @@
 		boxes
 		tree
 		jq
+		bash
 	];
 	imports = [
 		./config/starship.toml.nix
@@ -55,6 +56,8 @@
 		./config/nvim-init.vim.nix
 		./config/fish.nix
 		./config/pwsh.nix
+		./config/tmux.nix
+		./config/bash.nix
     	];
 	programs.git = {
 		enable = true;
