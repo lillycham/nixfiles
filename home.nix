@@ -44,6 +44,7 @@
 		kitty
 		ghc
 		smartmontools
+		ed
 	];
 	imports = [
 		./config/starship.toml.nix
