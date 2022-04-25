@@ -14,6 +14,7 @@
 		[directory]
 		read_only = " "
 		format = "in [$path]($style)[$read_only]($read_only_style) "
+		style = "bold #f88278"
 
 		[docker_context]
 		symbol = " "
@@ -88,7 +89,7 @@
 		
 		[hostname]
 		ssh_only = false
-		format = "on [$hostname](bold red) "
+		format = "on [$hostname](bold #fd6c9e) "
 		disabled = false
 		
 		[shell]
@@ -103,25 +104,25 @@
 		nu_indicator = "Nu Shell"
 		powershell_indicator = "PowerShell"
 		unknown_indicator = "Unknown shell"
-		format = "[✿ $indicator]($style)"
+		format = "[✿ $indicator]($style) "
 		style = "#9866c7 bold"
 		disabled = false
 		
 		[username]
 		style_user = "#ffb6c1 bold"
 		style_root = "red bold"
-		format = " as [$user]($style) "
+		format = "as [$user]($style) "
 		disabled = false	
 		show_always = true
 		
 		[cmd_duration]
-		format = "took [$duration](bold #0c819c)"
+		format = "took [$duration](bold #0c819c) "
 		
 		[custom.tailscale]
 		description = "Shows the current tailscale status"
 		symbol = "歷"
-		format = "connected to [Tailscale](bold #ff9899) "
-		disabled = false
+		format = "(connected to [Tailscale](bold #ff9899)) "
+		disabled = true
 		when = "/Applications/Tailscale.app/Contents/MacOS/Tailscale status == 0"
 	'';
 }

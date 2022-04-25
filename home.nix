@@ -47,6 +47,7 @@
 		ed
 		boxes
 		tree
+		jq
 	];
 	imports = [
 		./config/starship.toml.nix
