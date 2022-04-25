@@ -46,14 +46,15 @@
 		smartmontools
 		ed
 		boxes
+		tree
 	];
 	imports = [
 		./config/starship.toml.nix
-		./config/rc.nix
+		./config/profile-plan9.nix
 		./config/nvim-init.vim.nix
 		./config/fish.nix
 		./config/pwsh.nix
-    ];
+    	];
 	programs.git = {
 		enable = true;
 		userName = "Lilly";
@@ -64,7 +65,7 @@
 		};
 		extraConfig = {
 			core = {
-				excludesfile = "/Users/lillycham/.gitignore_global";
+				excludesfile = "/Users/lillycham/.config/git/.gitignore_global";
 			};
 			init = {
 				defaultBranch = "main";

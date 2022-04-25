@@ -116,5 +116,12 @@
 		
 		[cmd_duration]
 		format = "took [$duration](bold #0c819c)"
+		
+		[custom.tailscale]
+		description = "Shows the current tailscale status"
+		symbol = "歷"
+		format = "connected to [Tailscale](bold #ff9899) "
+		disabled = false
+		when = "/Applications/Tailscale.app/Contents/MacOS/Tailscale status == 0"
 	'';
 }
