@@ -52,7 +52,10 @@
     bash
     nixfmt
     cloc
-  ];
+    emacs
+    chromium
+    gitAndTools.gh
+    ];
   imports = [
     ./config/starship.nix
     ./config/profile-plan9.nix
