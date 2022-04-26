@@ -55,14 +55,14 @@
   ];
 
   imports = [
-    ./config/starship.nix
-    ./config/profile-plan9.nix
-    ./config/nvim-init.vim.nix
-    ./config/fish.nix
-    ./config/pwsh.nix
-    ./config/tmux.nix
-    ./config/bash.nix
-    ./config/neofetch.nix
     ./config/git.nix
+    ./config/neofetch.nix
+    ./config/nvim-init.vim.nix
+    ./config/plan9port/profile-plan9.nix
+    ./config/shell/bash.nix
+    ./config/shell/fish.nix
+    ./config/shell/pwsh.nix
+    ./config/shell/starship.nix
+    ./config/tmux.nix
   ];
 }
