@@ -3,19 +3,22 @@
   programs.fish = {
     enable = true;
     shellAbbrs = {
+      a = "acme";
       hms = "home-manager switch";
       m = "make";
       n = "nvim";
-      a = "acme";
-      o = "open";
       nix-install = "nix-env -iA nixpkgs.";
-      pwsh = "pwsh -nologo";
+      o = "open";
+      pwsh = "pwsh -nologo";              # Set powershell to start with nologo
     };
+
+    # Initialize starship, export Nix's SSL Cert to prevent SSL errors on macOS
     shellInit = ''
       starship init fish | source
       set -U NIX_SSL_CERT_FILE /nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt
     '';
     functions = {
+      # MOTD message
       fish_greeting = {
         description = "Greeting to show when starting a fish shell";
         body =

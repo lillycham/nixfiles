@@ -54,6 +54,7 @@
     gitAndTools.gh
   ];
 
+  # Files to import.
   imports = [
     ./config/git.nix
     ./config/neofetch.nix

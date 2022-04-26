@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+# define text in gitignore files
 let gitignore = ''
 	# General
 	.DS_Store
@@ -28,12 +29,14 @@ let gitignore = ''
 	Temporary Items
 	.apdisk
 
+	# Acme Editor config files
 	acme.dump
 	acme.guide
 '';
 in {
   programs.git = {
     enable = true;
+		# Git user information
     userName = "Lilly";
     userEmail = "54189319+lillycat332@users.noreply.github.com";
     aliases = {
@@ -44,6 +47,7 @@ in {
       core = {
         excludesfile = "~/.config/git/.gitignore_global";
       };
+			# Set default branch name to main, not master
       init = { defaultBranch = "main"; };
     };
   };
