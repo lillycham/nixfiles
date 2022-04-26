@@ -53,7 +53,6 @@
     nixfmt
     cloc
     emacs
-    chromium
     gitAndTools.gh
     ];
   imports = [
