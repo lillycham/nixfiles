@@ -3,9 +3,7 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = ("lillycham");
-  home.homeDirectory =
-    if pkgs.stdenv.isLinux then "/home/lillycham" else "/Users/lillycham";
+
   nixpkgs.config.allowUnfree = true;
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -54,7 +52,8 @@
     cloc
     emacs
     gitAndTools.gh
-    ];
+  ];
+
   imports = [
     ./config/starship.nix
     ./config/profile-plan9.nix
@@ -64,20 +63,6 @@
     ./config/tmux.nix
     ./config/bash.nix
     ./config/neofetch.nix
+    ./config/git.nix
   ];
-  programs.git = {
-    enable = true;
-    userName = "Lilly";
-    userEmail = "54189319+lillycat332@users.noreply.github.com";
-    aliases = {
-      st = "status";
-      co = "checkout";
-    };
-    extraConfig = {
-      core = {
-        excludesfile = "/Users/lillycham/.config/git/.gitignore_global";
-      };
-      init = { defaultBranch = "main"; };
-    };
-  };
 }
