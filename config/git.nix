@@ -45,7 +45,8 @@ in {
     };
     extraConfig = {
       core = {
-        excludesfile = "~/.config/git/.gitignore_global";
+        pager = "less";
+	excludesfile = "~/.config/git/.gitignore_global";
       };
 			# Set default branch name to main, not master
       init = { defaultBranch = "main"; };
