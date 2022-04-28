@@ -38,7 +38,6 @@
     tmux
     yarn
     nodejs
-    clang
     alacritty
     kitty
     ghc
