@@ -31,7 +31,6 @@
       memory_usage.symbol = " ";
       nim.symbol = " ";
       nix_shell.symbol = " ";
-      container.symbol = " ";
       perl.symbol = " ";
       php.symbol = " ";
       python = {
@@ -57,7 +56,6 @@
         elvish_indicator = "Elvish";
         tcsh_indicator = "Tcsh";
         xonsh_indicator = "Xonsh";
-        cmd_indicator = "Windows Command Prompt";
         nu_indicator = "Nu Shell";
         powershell_indicator = "PowerShell";
         unknown_indicator = "Unknown shell";
