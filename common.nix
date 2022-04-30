@@ -49,6 +49,7 @@
     nixfmt
     cloc
     emacs
+    fontforge
     googler
     gitAndTools.gh
   ];
