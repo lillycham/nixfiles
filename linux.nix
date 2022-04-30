@@ -7,5 +7,5 @@
 		chromium
 		doas
 		clang
-	]
+	];
 }
