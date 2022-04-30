@@ -50,6 +50,7 @@
     nixfmt
     cloc
     emacs
+    googler
     gitAndTools.gh
   ];
 
