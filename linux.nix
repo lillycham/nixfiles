@@ -13,15 +13,16 @@
 		tdesktop
 		wineWowPackages.staging
 		winetricks
-		chromium
 		code-server
+		konsole
 		wayfire
+		libsForQt5.qt5.qtwayland
 		gnome.dconf-editor
-		discord
+		discord-canary
 		google-chrome
 		chrome-gnome-shell
-		firefox
 		doas
+		gnome3.gnome-tweaks
 		fbterm
 		fontconfig
 		yaft
