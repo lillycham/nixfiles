@@ -22,6 +22,10 @@
     curl
     fish
     fzf
+    rustc
+    cargo
+    vscode
+		wget
     git
     go
     neofetch

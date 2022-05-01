@@ -10,8 +10,11 @@
   	home.homeDirectory = "/home/lillycham";
 	home.packages = with pkgs; [
 		parted
+		tdesktop
+		wineWowPackages.staging
+		winetricks
 		chromium
-		enlightenment.terminology
+		code-server
 		wayfire
 		gnome.dconf-editor
 		discord
@@ -19,7 +22,6 @@
 		chrome-gnome-shell
 		firefox
 		doas
-		clang
 		fbterm
 		fontconfig
 		yaft
