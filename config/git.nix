@@ -1,42 +1,43 @@
 { config, pkgs, ... }:
 # define text in gitignore files
-let gitignore = ''
-	# General
-	.DS_Store
-	.AppleDouble
-	.LSOverride
+let
+  gitignore = ''
+    # General
+    .DS_Store
+    .AppleDouble
+    .LSOverride
 
-	# Icon must end with two \r
-	Icon
+    # Icon must end with two \r
+    Icon
 
 
-	# Thumbnails
-	._*
+    # Thumbnails
+    ._*
 
-	# Files that might appear in the root of a volume
-	.DocumentRevisions-V100
-	.fseventsd
-	.Spotlight-V100
-	.TemporaryItems
-	.Trashes
-	.VolumeIcon.icns
-	.com.apple.timemachine.donotpresent
+    # Files that might appear in the root of a volume
+    .DocumentRevisions-V100
+    .fseventsd
+    .Spotlight-V100
+    .TemporaryItems
+    .Trashes
+    .VolumeIcon.icns
+    .com.apple.timemachine.donotpresent
 
-	# Directories potentially created on remote AFP share
-	.AppleDB
-	.AppleDesktop
-	Network Trash Folder
-	Temporary Items
-	.apdisk
+    # Directories potentially created on remote AFP share
+    .AppleDB
+    .AppleDesktop
+    Network Trash Folder
+    Temporary Items
+    .apdisk
 
-	# Acme Editor config files
-	acme.dump
-	acme.guide
-'';
+    # Acme Editor config files
+    acme.dump
+    acme.guide
+  '';
 in {
   programs.git = {
     enable = true;
-		# Git user information
+    # Git user information
     userName = "Lilly";
     userEmail = "54189319+lillycat332@users.noreply.github.com";
     aliases = {
@@ -46,15 +47,15 @@ in {
     extraConfig = {
       core = {
         pager = "less";
-	excludesfile = "~/.config/git/.gitignore_global";
+        excludesfile = "~/.config/git/.gitignore_global";
       };
-			# Set default branch name to main, not master
+      # Set default branch name to main, not master
       init = { defaultBranch = "main"; };
     };
   };
 
-	home.file.gitignore_global = {
-		target = ".config/git/.gitignore_global";
-		text = gitignore;
-	};
+  home.file.gitignore_global = {
+    target = ".config/git/.gitignore_global";
+    text = gitignore;
+  };
 }

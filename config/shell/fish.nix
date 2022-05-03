@@ -9,7 +9,7 @@
       n = "nvim";
       nix-install = "nix-env -iA nixpkgs.";
       o = "open";
-      pwsh = "pwsh -nologo";              # Set powershell to start with nologo
+      pwsh = "pwsh -nologo"; # Set powershell to start with nologo
     };
 
     # Initialize starship, export Nix's SSL Cert to prevent SSL errors on macOS
