@@ -3,8 +3,11 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-
-  nixpkgs.config.allowUnfree = true;
+  
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+  
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
@@ -19,43 +22,45 @@
 
   # Packages to install
   home.packages = with pkgs; [
-    curl
-    fish
-    fzf
-    rustc
+    alacritty
+    bash
+    boxes
+    cabal-install
     cargo
-    vscode
-		wget
+    cloc
+    curl
+    ed
+    emacs
+    fish
+    fontforge
+    fzf
+    ghc
     git
+    gitAndTools.gh
     go
+    googler
+    jq
+    kitty
     neofetch
     neovim
+    nixfmt
+    nodejs
     onefetch
     openssl
     plan9port
     powershell
     python3
-    starship
+    rustc
+    smartmontools
     spotify-tui
     spotifyd
+    stack
+    starship
     tmux
-    yarn
-    nodejs
-    alacritty
-    kitty
-    ghc
-    smartmontools
-    ed
-    boxes
     tree
-    jq
-    bash
-    nixfmt
-    cloc
-    emacs
-    fontforge
-    googler
-    gitAndTools.gh
+    vscode
+    wget
+    yarn
   ];
 
   # Files to import.
