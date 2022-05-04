@@ -14,11 +14,11 @@
       set-window-option -g status-left " #S "
       set-window-option -g window-status-format " #I: #W "
       set-window-option -g window-status-current-format " #I: #W "
-      set -g status-style bg='#ffb6c1',fg=default
+      set -g status-style bg='#ffb6c1',fg="#000000"
       set -g status-interval 1
       
       # Message Style
-      set -g message-style bg='#ffb6c1',fg=default
+      set -g message-style bg='#ffb6c1',fg="#000000"
 
       # List of plugins
       set -g @plugin 'tmux-plugins/tpm'

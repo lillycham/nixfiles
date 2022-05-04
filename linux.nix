@@ -23,6 +23,7 @@
     tdesktop
     appimage-run
     kmscon
+    st
     swift
     drawterm
     gnome-builder
@@ -37,6 +38,7 @@
     gnome.dconf-editor
     discord
     google-chrome
+    lsof
     chrome-gnome-shell
     doas
     gnome3.gnome-tweaks
