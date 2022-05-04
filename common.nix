@@ -42,7 +42,6 @@
     jq
     kitty
     neofetch
-    neovim
     nixfmt
     nodejs
     onefetch
@@ -67,7 +66,7 @@
   imports = [
     ./config/git.nix
     ./config/neofetch.nix
-    ./config/nvim-init.vim.nix
+    ./config/nvim.nix
     ./config/plan9port/profile-plan9.nix
     ./config/shell/bash.nix
     ./config/shell/fish.nix
