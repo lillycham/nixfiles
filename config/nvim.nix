@@ -6,10 +6,10 @@
     viAlias = true;
     
     plugins = with pkgs.vimPlugins; [ 
-      ale 
-      vim-go 
-      vim-nix 
-      swift-vim 
+      ale
+      vim-go
+      vim-nix
+      swift-vim
       vim-gitgutter
       vim-airline
       YouCompleteMe
@@ -32,6 +32,6 @@
       tabstop = 2;
       hidden = true;
     };
-  }; 
+  };
 }
 
