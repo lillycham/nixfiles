@@ -13,7 +13,6 @@
       vim-gitgutter
       vim-airline
       YouCompleteMe
-      rainbow_parentheses-vim
     ];
     
     extraConfig = ''
@@ -24,12 +23,6 @@
 
       " C-a C-e to home and end, as it should be
       map <C-a> <Home>
-      map <C-e> <End>
-      
-      " Bracket pair colorizing
-      let g:rainbow#max_level = 16
-      let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-      autocmd FileType * RainbowParentheses
     '';
   };
 
