@@ -13,16 +13,22 @@
       vim-gitgutter
       vim-airline
       YouCompleteMe
+      vim-css-color
+      rainbow
     ];
     
     extraConfig = ''
-      " Set 2 space tabs
+      " Set relative line numbers
       set nu rnu
+      " Set 80 col ruler
       set ruler
       set colorcolumn=80
 
       " C-a C-e to home and end, as it should be
       map <C-a> <Home>
+      map <C-e> <End>
+      
+      syntax on
     '';
   };
 

@@ -26,7 +26,6 @@
     bash
     boxes
     cabal-install
-    cargo
     cloc
     curl
     ed
@@ -49,7 +48,8 @@
     plan9port
     powershell
     python3
-    rustc
+    pywal
+    rustup
     smartmontools
     spotify-tui
     spotifyd

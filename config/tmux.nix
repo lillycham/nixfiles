@@ -19,6 +19,8 @@
       
       # Message Style
       set -g message-style bg='#ffb6c1',fg="#000000"
+      
+      set-option -sa terminal-overrides ',screen-256color:RGB'
 
       # List of plugins
       set -g @plugin 'tmux-plugins/tpm'
