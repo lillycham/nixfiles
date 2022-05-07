@@ -40,6 +40,11 @@
     googler
     jq
     kitty
+    mercurial
+    llvmPackages_latest.llvm
+    llvmPackages_latest.llvm-manpages
+    llvmPackages_latest.libllvm
+    llvmPackages_latest.clang
     neofetch
     nixfmt
     nodejs
