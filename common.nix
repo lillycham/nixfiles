@@ -27,6 +27,7 @@
     boxes
     cabal-install
     cloc
+    clojure
     curl
     ed
     emacs
@@ -41,6 +42,7 @@
     jq
     kitty
     mercurial
+    leiningen
     llvmPackages_latest.llvm
     llvmPackages_latest.llvm-manpages
     llvmPackages_latest.libllvm
