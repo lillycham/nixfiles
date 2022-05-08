@@ -7,14 +7,14 @@
     
     plugins = with pkgs.vimPlugins; [ 
       ale
+      rainbow
+      swift-vim
+      vim-airline
+      vim-css-color
+      vim-gitgutter
       vim-go
       vim-nix
-      swift-vim
-      vim-gitgutter
-      vim-airline
       YouCompleteMe
-      vim-css-color
-      rainbow
     ];
     
     extraConfig = ''

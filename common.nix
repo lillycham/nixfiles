@@ -26,6 +26,7 @@
     bash
     boxes
     cabal-install
+    cbonsai
     cloc
     clojure
     curl
@@ -41,12 +42,12 @@
     googler
     jq
     kitty
-    mercurial
     leiningen
+    llvmPackages_latest.clang
+    llvmPackages_latest.libllvm
     llvmPackages_latest.llvm
     llvmPackages_latest.llvm-manpages
-    llvmPackages_latest.libllvm
-    llvmPackages_latest.clang
+    mercurial
     neofetch
     nixfmt
     nodejs
@@ -72,14 +73,15 @@
   # Files to import.
   imports = [
     ./config/git.nix
+    ./config/kitty.nix
     ./config/neofetch.nix
     ./config/nvim.nix
+    ./config/plan9port/plumber-plan9.nix
     ./config/plan9port/profile-plan9.nix
     ./config/shell/bash.nix
     ./config/shell/fish.nix
     ./config/shell/pwsh.nix
     ./config/shell/starship.nix
     ./config/tmux.nix
-    ./config/kitty.nix
   ];
 }
