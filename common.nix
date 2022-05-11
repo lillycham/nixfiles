@@ -68,6 +68,7 @@
     vscode
     wget
     yarn
+    yt-dlp
   ];
 
   # Files to import.
