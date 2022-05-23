@@ -77,7 +77,6 @@
     ./config/kitty.nix
     ./config/neofetch.nix
     ./config/nvim.nix
-    ./config/plan9port/plumber-plan9.nix
     ./config/plan9port/profile-plan9.nix
     ./config/shell/bash.nix
     ./config/shell/fish.nix
