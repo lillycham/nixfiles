@@ -18,6 +18,8 @@
         read_only = " ";
         format = "in [$path]($style)[$read_only]($read_only_style) ";
         style = "bold #f88278";
+        truncation_symbol = "../";
+        home_symbol = "";
       };
 
       docker_context.symbol = " ";

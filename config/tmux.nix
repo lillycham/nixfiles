@@ -10,12 +10,15 @@
       set -g pane-active-border-style fg='#ffb6c1'
 
       # Statusbar style
-      set-window-option -g status-right "%a %d %B %H:%M"
-      set-window-option -g status-left " #S "
-      set-window-option -g window-status-format " #I: #W "
-      set-window-option -g window-status-current-format " #I: #W "
+      set -g window-status-current-format "#[fg=cyan] #[fg=magenta]#[bg=#ffb6c1]#I #[bg=#ffb6c1]#[fg=black] #W#[fg=black]#[bg=#ffb6c1]#[bg=#ffb6c1] #[fg=magenta] #[fg=magenta]#[bg=#ffb6c1]λ #[fg=black]#[bg=#ffb6c1] %a %d %b #[fg=magenta]%R#[fg=black]#[bg=default] "
+      set -g window-status-format "#[fg=magenta] #[fg=black]#[bg=#ffb6c1]#I #[bg=#ffb6c1]#[fg=black] #W#[fg=black]#[bg=default]  "
       set -g status-style bg='#ffb6c1',fg="#000000"
       set -g status-interval 1
+      set -g status-style fg=black,bg=default
+      set -g status-left ""
+      set -g status-right ""
+      set -g status-justify centre
+      set -g status-position bottom
       
       # Message Style
       set -g message-style bg='#ffb6c1',fg="#000000"
@@ -27,8 +30,12 @@
       set -g @plugin 'tmux-plugins/tmux-sensible'
       set -g @plugin 'tmux-plugins/tmux-resurrect'
 
-	    # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-	    run '~/.tmux/plugins/tpm/tpm'
+      # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+      run '~/.tmux/plugins/tpm/tpm'
+
+      # so that escapes register immidiately in vim
+      set -sg escape-time 1
+      set -g focus-events on
     '';
   };
 }
