@@ -10,8 +10,8 @@
       set -g pane-active-border-style fg='#ffb6c1'
 
       # Statusbar style
-      set -g window-status-current-format "#[fg=cyan] #[fg=magenta]#[bg=#ffb6c1]#I #[bg=#ffb6c1]#[fg=black] #W#[fg=black]#[bg=#ffb6c1]#[bg=#ffb6c1] #[fg=magenta] #[fg=magenta]#[bg=#ffb6c1]λ #[fg=black]#[bg=#ffb6c1] %a %d %b #[fg=magenta]%R#[fg=black]#[bg=default] "
-      set -g window-status-format "#[fg=magenta] #[fg=black]#[bg=#ffb6c1]#I #[bg=#ffb6c1]#[fg=black] #W#[fg=black]#[bg=default]  "
+      set -g window-status-current-format "#[fg=#ffb6c1]\ue0b6#[bg=#ffb6c1] #[fg=magenta]#I #[fg=black] λ #W #[fg=magenta] #H #[fg=black] %a %d %b #[fg=magenta]%R #[bg=default]#[fg=#ffb6c1]\ue0b4 "
+      set -g window-status-format "#[fg=#ffb6c1]\ue0b6#[fg=magenta] #[fg=black]#[bg=#ffb6c1]#I #[bg=#ffb6c1]#[fg=black] #W#[fg=black]#[bg=default]  #[bg=default]#[fg=#ffb6c1]\ue0b4 "
       set -g status-style bg='#ffb6c1',fg="#000000"
       set -g status-interval 1
       set -g status-style fg=black,bg=default

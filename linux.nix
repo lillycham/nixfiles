@@ -27,7 +27,7 @@
     appimage-run
     kmscon
     st
-    swift
+    # swift
     drawterm
     gnome-builder
     wineWowPackages.staging

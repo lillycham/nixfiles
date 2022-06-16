@@ -58,5 +58,6 @@
     ./config/shell/pwsh.nix
     ./config/shell/starship.nix
     ./config/tmux.nix
+    ./config/alacritty.nix
   ];
 }
