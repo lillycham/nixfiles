@@ -8,8 +8,7 @@ let
     .LSOverride
 
     # Icon must end with two \r
-    Icon
-
+    Icon\r\r
 
     # Thumbnails
     ._*
@@ -33,13 +32,16 @@ let
     # Acme Editor config files
     acme.dump
     acme.guide
+
+    # VSCode
+    .vscode
   '';
 in {
   programs.git = {
     enable = true;
     # Git user information
     userName = "Lilly";
-    userEmail = "54189319+lillycat332@users.noreply.github.com";
+    userEmail = "lilly@lillycat.tech";
     aliases = {
       st = "status";
       co = "checkout";
