@@ -22,33 +22,34 @@
 
   # Packages to install - specific to linux
   home.packages = with pkgs; [
-    parted
-    tdesktop
-    appimage-run
-    kmscon
-    st
     # swift
-    drawterm
-    gnome-builder
-    wineWowPackages.staging
-    winetricks
-    code-server
-    gnumake
-    qemu_full
-    konsole
-    obs-studio
-    wayfire
-    libsForQt5.qt5.qtwayland
-    gnome.dconf-editor
-    discord
-    google-chrome
-    lsof
+    appimage-run
     chrome-gnome-shell
+    code-server
+    discord
     doas
-    gnome3.gnome-tweaks
+    drawterm
     fbterm
     fontconfig
-    yaft
     freetype
+    gnome-builder
+    gnome.dconf-editor
+    gnome3.gnome-tweaks
+    gnumake
+    google-chrome
+    kmscon
+    konsole
+    libsForQt5.qt5.qtwayland
+    lm_sensors
+    lsof
+    obs-studio
+    parted
+    qemu_full
+    st
+    tdesktop
+    wayfire
+    winetricks
+    wineWowPackages.staging
+    yaft
   ];
 }
