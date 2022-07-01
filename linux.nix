@@ -36,6 +36,7 @@
     gnumake
     qemu_full
     konsole
+    obs-studio
     wayfire
     libsForQt5.qt5.qtwayland
     gnome.dconf-editor
