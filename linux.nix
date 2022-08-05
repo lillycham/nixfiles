@@ -37,6 +37,14 @@
     gnome3.gnome-tweaks
     gnumake
     google-chrome
+    jdk
+    jetbrains.idea-ultimate
+    jetbrains.clion
+    jetbrains.webstorm
+    jetbrains.datagrip
+    jetbrains.pycharm-professional
+    jetbrains.ruby-mine
+    jetbrains.rider
     kmscon
     konsole
     libsForQt5.qt5.qtwayland
@@ -47,6 +55,7 @@
     qemu_full
     st
     tdesktop
+    transmission-gtk
     wayfire
     winetricks
     wineWowPackages.staging

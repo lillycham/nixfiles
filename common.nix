@@ -44,6 +44,7 @@
     wget
     yarn
     yt-dlp
+    racket
   ];
 
   # Files to import.
@@ -51,7 +52,7 @@
     ./config/git.nix
     ./config/kitty.nix
     ./config/neofetch.nix
-    ./config/nvim.nix
+    ./config/editors/nvim.nix
     ./config/plan9port/profile-plan9.nix
     ./config/shell/bash.nix
     ./config/shell/fish.nix
@@ -59,5 +60,6 @@
     ./config/shell/starship.nix
     ./config/tmux.nix
     ./config/alacritty.nix
+    ./config/editors/emacs/emacs.nix
   ];
 }
