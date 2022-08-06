@@ -13,6 +13,7 @@
 
   # Packages to install
   home.packages = with pkgs; [
+    # plan9port
     alacritty
     bash
     boxes
@@ -20,7 +21,26 @@
     cloc
     curl
     ed
-    emacs
+    ((emacsPackagesFor emacsNativeComp).emacsWithPackages
+      (epkgs: with epkgs; [
+        ayu-theme
+        go-mode
+        haskell-mode
+        lsp-haskell
+        lsp-mode
+        magit
+        nix-mode
+        racket-mode
+        slime
+        typescript-mode
+        use-package
+        vterm
+        rust-mode
+        smooth-scroll
+        company-tabnine
+        python-mode
+        web-mode
+      ]))
     fish
     fzf
     git
@@ -30,7 +50,6 @@
     neofetch
     nixpkgs-fmt
     onefetch
-    # plan9port
     powershell
     rustup
     smartmontools
@@ -44,22 +63,22 @@
     wget
     yarn
     yt-dlp
-    racket
   ];
 
   # Files to import.
-  imports = [
-    ./config/git.nix
-    ./config/kitty.nix
-    ./config/neofetch.nix
-    ./config/editors/nvim.nix
-    ./config/plan9port/profile-plan9.nix
-    ./config/shell/bash.nix
-    ./config/shell/fish.nix
-    ./config/shell/pwsh.nix
-    ./config/shell/starship.nix
-    ./config/tmux.nix
-    ./config/alacritty.nix
-    ./config/editors/emacs/emacs.nix
-  ];
+  imports =
+    [
+      ./config/git.nix
+      ./config/kitty.nix
+      ./config/neofetch.nix
+      ./config/editors/nvim.nix
+      ./config/plan9port/profile-plan9.nix
+      ./config/shell/bash.nix
+      ./config/shell/fish.nix
+      ./config/shell/pwsh.nix
+      ./config/shell/starship.nix
+      ./config/tmux.nix
+      ./config/alacritty.nix
+      # ./config/editors/emacs/emacs.nix
+    ];
 }

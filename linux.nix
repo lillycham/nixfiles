@@ -38,13 +38,13 @@
     gnumake
     google-chrome
     jdk
-    jetbrains.idea-ultimate
     jetbrains.clion
-    jetbrains.webstorm
     jetbrains.datagrip
+    jetbrains.idea-ultimate
     jetbrains.pycharm-professional
-    jetbrains.ruby-mine
     jetbrains.rider
+    jetbrains.ruby-mine
+    jetbrains.webstorm
     kmscon
     konsole
     libsForQt5.qt5.qtwayland
@@ -53,6 +53,7 @@
     obs-studio
     parted
     qemu_full
+    racket
     st
     tdesktop
     transmission-gtk
