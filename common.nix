@@ -40,6 +40,7 @@
         company-tabnine
         python-mode
         web-mode
+        elcord
       ]))
     fish
     fzf
