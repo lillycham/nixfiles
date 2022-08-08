@@ -55,6 +55,7 @@
     qemu_full
     racket
     st
+    stepmania
     tdesktop
     transmission-gtk
     wayfire

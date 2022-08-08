@@ -23,24 +23,32 @@
     ed
     ((emacsPackagesFor emacsNativeComp).emacsWithPackages
       (epkgs: with epkgs; [
+        all-the-icons
+        atom-one-dark-theme
         ayu-theme
+        company
+        company-tabnine
+        dashboard
+        doom-modeline
+        elcord
         go-mode
         haskell-mode
         lsp-haskell
         lsp-mode
         magit
         nix-mode
+        org
+        page-break-lines
+        projectile
+        python-mode
         racket-mode
+        rust-mode
         slime
+        smooth-scroll
         typescript-mode
         use-package
         vterm
-        rust-mode
-        smooth-scroll
-        company-tabnine
-        python-mode
         web-mode
-        elcord
       ]))
     fish
     fzf
