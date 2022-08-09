@@ -5,6 +5,7 @@
   imports = [
     ./common.nix
     ./config/xinit.nix
+    ./config/wm/wms.nix
   ];
 
   # Override Swift's tests, as they seem to be broken on Linux.
@@ -31,11 +32,13 @@
     drawterm
     fbterm
     fontconfig
+    firefox-devedition-bin
     freetype
     gnome-builder
     gnome.dconf-editor
     gnome3.gnome-tweaks
     gnumake
+    google-chrome-dev
     google-chrome
     jdk
     jetbrains.clion
@@ -51,7 +54,9 @@
     lm_sensors
     lsof
     obs-studio
+    openrgb
     parted
+    picom
     qemu_full
     racket
     st

@@ -21,22 +21,23 @@
     cloc
     curl
     ed
-    ((emacsPackagesFor emacsNativeComp).emacsWithPackages
+    ((emacsPackagesFor emacs28NativeComp).emacsWithPackages
       (epkgs: with epkgs; [
         all-the-icons
         atom-one-dark-theme
         ayu-theme
         company
-        company-tabnine
         dashboard
         doom-modeline
         elcord
+        fzf
         go-mode
         haskell-mode
         lsp-haskell
         lsp-mode
         magit
         nix-mode
+        rainbow-delimiters
         org
         page-break-lines
         projectile

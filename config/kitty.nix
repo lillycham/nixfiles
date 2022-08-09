@@ -15,6 +15,7 @@ in
       foreground = "#d9d7ce";
       cursor = "#ffcc66";
       selection_background = "#343f4c";
+      window_padding_width = 10;
       color0 = "#191e2a";
       color8 = "#686868";
       color1 = "#ed8274";
