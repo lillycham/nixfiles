@@ -13,7 +13,7 @@ main = do
   xmproc <- spawnPipe "xmobar" -- Enable xmobar
   xmonad $ docks def
     { terminal    = "kitty" -- use Kitty terminal
-    , startupHook = spawnOnce "echo 'pointer = 1 2 3 5 4 7 6 8 9 10 11 12' > ~/.Xmodmap && xmodmap ~/.Xmodmap & feh --bg-fill ~/Pictures/macOS-Monterey-Dark.jpg &"          -- invert scroll wheel, enable wallpaper
+    , startupHook = spawnOnce "feh --bg-fill ~/Pictures/macOS-Monterey-Dark.jpg"          -- invert scroll wheel, enable wallpaper
     , layoutHook  = avoidStruts $ smartSpacing 4 $ layoutHook def
     , borderWidth = 0
     , logHook = dynamicLogWithPP xmobarPP

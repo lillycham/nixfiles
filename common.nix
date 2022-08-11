@@ -47,6 +47,7 @@
         slime
         smooth-scroll
         typescript-mode
+        js2-mode
         use-package
         vterm
         web-mode

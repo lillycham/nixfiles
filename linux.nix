@@ -40,6 +40,7 @@
     gnumake
     google-chrome-dev
     google-chrome
+    gwenview
     jdk
     jetbrains.clion
     jetbrains.datagrip
@@ -55,10 +56,12 @@
     lsof
     obs-studio
     openrgb
+    pamixer
     parted
     picom
     qemu_full
     racket
+    sbcl
     st
     stepmania
     tdesktop
