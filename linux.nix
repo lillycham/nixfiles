@@ -4,7 +4,7 @@
   # Import common.nix, with all of our packages and configs, then define any linux "platform specific" configs in here
   imports = [
     ./common.nix
-    ./config/xinit.nix
+    ./config/wm/xinit.nix
     ./config/wm/wms.nix
   ];
 
