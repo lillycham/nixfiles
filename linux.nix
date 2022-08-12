@@ -35,15 +35,16 @@
     doas
     drawterm
     fbterm
-    fontconfig
     firefox-devedition-bin
+    fontconfig
     freetype
+    glava
     gnome-builder
     gnome.dconf-editor
     gnome3.gnome-tweaks
     gnumake
-    google-chrome-dev
     google-chrome
+    google-chrome-dev
     gwenview
     jdk
     jetbrains.clion
@@ -72,8 +73,8 @@
     tdesktop
     transmission-gtk
     wayfire
-    winetricks
     wineWowPackages.staging
+    winetricks
     yaft
   ];
 }

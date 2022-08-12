@@ -30,28 +30,28 @@
         dashboard
         doom-modeline
         elcord
-        fzf
         flycheck
         flycheck-swift
+        fzf
         go-mode
         haskell-mode
+        js2-mode
         lsp-haskell
         lsp-mode
         magit
         nix-mode
-        rainbow-delimiters
         ob-swiftui
         org
         page-break-lines
         projectile
         python-mode
         racket-mode
+        rainbow-delimiters
         rust-mode
         slime
-        swift-mode
         smooth-scroll
+        swift-mode
         typescript-mode
-        js2-mode
         use-package
         vterm
         web-mode
@@ -84,17 +84,17 @@
   # Files to import.
   imports =
     [
+      ./config/alacritty.nix
+      ./config/editors/nvim.nix
       ./config/git.nix
       ./config/kitty.nix
       ./config/neofetch.nix
-      ./config/editors/nvim.nix
       ./config/plan9port/profile-plan9.nix
       ./config/shell/bash.nix
       ./config/shell/fish.nix
       ./config/shell/pwsh.nix
       ./config/shell/starship.nix
       ./config/tmux.nix
-      ./config/alacritty.nix
       # ./config/editors/emacs/emacs.nix
     ];
 }
