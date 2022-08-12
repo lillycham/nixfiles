@@ -31,6 +31,8 @@
         doom-modeline
         elcord
         fzf
+        flycheck
+        flycheck-swift
         go-mode
         haskell-mode
         lsp-haskell
@@ -38,6 +40,7 @@
         magit
         nix-mode
         rainbow-delimiters
+        ob-swiftui
         org
         page-break-lines
         projectile
@@ -45,12 +48,14 @@
         racket-mode
         rust-mode
         slime
+        swift-mode
         smooth-scroll
         typescript-mode
         js2-mode
         use-package
         vterm
         web-mode
+        zig-mode
       ]))
     fish
     fzf
