@@ -18,6 +18,10 @@
     );
   };
 
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball "https://github.com/PolyMC/PolyMC/archive/develop.tar.gz")).overlay
+  ];
+
   home.username = ("lillycham");
   home.homeDirectory = "/home/lillycham";
 
@@ -59,6 +63,7 @@
     pamixer
     parted
     picom
+    polymc
     qemu_full
     racket
     sbcl
