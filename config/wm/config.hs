@@ -9,6 +9,8 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.WallpaperSetter
 import XMonad.Layout.NoBorders
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 import System.IO
@@ -17,15 +19,10 @@ import Data.List
 
 main :: IO ()
 main = do
-  xmproc <- spawnPipe "xmobar" -- Enable xmobar
-  xmonad $ ewmhFullscreen $ ewmh $ docks def
+  xmonad . withSB myStatusBar . ewmhFullscreen . ewmh . docks $ def
     { terminal        = "kitty" -- use Kitty terminal
     , borderWidth     = 0
     , layoutHook      = myLayoutHook
-    , logHook         = dynamicLogWithPP xmobarPP
-           { ppOutput = hPutStrLn xmproc
-           , ppTitle  = xmobarColor "green" "" . shorten 50
-           }
     , modMask         = mod4Mask     -- Rebind Mod to the Windows key
     } `additionalKeys`
     [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
@@ -33,6 +30,8 @@ main = do
     , ((0, xK_Print), spawn "scrot") -- Screenshot
     , ((mod4Mask, xK_c), toggleFloat)
     ]
+
+myStatusBar = statusBarProp "xmobar" (pure xmobarPP)
 
 myManageHook = composeAll
   [ manageDocks

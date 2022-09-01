@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   # Import common.nix, with all of our packages and configs, then define any linux "platform specific" configs in here
@@ -33,6 +33,7 @@
     code-server
     discord
     doas
+    dosbox-staging
     drawterm
     fbterm
     firefox-devedition-bin
@@ -46,16 +47,10 @@
     google-chrome
     google-chrome-dev
     gwenview
-    jdk
-    jetbrains.clion
-    jetbrains.datagrip
-    jetbrains.idea-ultimate
-    jetbrains.pycharm-professional
-    jetbrains.rider
-    jetbrains.ruby-mine
-    jetbrains.webstorm
+
     kmscon
     konsole
+    kotatogram-desktop
     libsForQt5.qt5.qtwayland
     lm_sensors
     lsof
@@ -63,11 +58,14 @@
     openrgb
     pamixer
     parted
+    pcem
     picom
-    polymc
+    # polymc
     qemu_full
     racket
+    rust-analyzer
     sbcl
+    spotify
     st
     stepmania
     tdesktop
