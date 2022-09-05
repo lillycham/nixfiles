@@ -20,6 +20,7 @@
     cabal-install
     cloc
     curl
+    dotnet-runtime
     ed
     ((emacsPackagesFor emacs28NativeComp).emacsWithPackages
       (epkgs: with epkgs; [
@@ -27,9 +28,11 @@
         atom-one-dark-theme
         ayu-theme
         company
+        csharp-mode
         dashboard
         doom-modeline
         elcord
+        fsharp-mode
         flycheck
         flycheck-swift
         fzf
@@ -57,6 +60,7 @@
         web-mode
         zig-mode
       ]))
+    fsharp
     fish
     fzf
     git

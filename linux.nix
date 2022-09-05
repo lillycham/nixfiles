@@ -27,7 +27,6 @@
 
   # Packages to install - specific to linux
   home.packages = with pkgs; [
-    # swift
     appimage-run
     chrome-gnome-shell
     code-server
@@ -47,7 +46,6 @@
     google-chrome
     google-chrome-dev
     gwenview
-
     kmscon
     konsole
     kotatogram-desktop
@@ -60,7 +58,6 @@
     parted
     pcem
     picom
-    # polymc
     qemu_full
     racket
     rust-analyzer
@@ -69,6 +66,7 @@
     st
     stepmania
     tdesktop
+    tor-browser-bundle-bin
     transmission-gtk
     wayfire
     wineWowPackages.staging
