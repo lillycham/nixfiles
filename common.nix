@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the
@@ -8,6 +8,13 @@
     allowUnfree = true;
   };
 
+  /* services.emacs.package = pkgs.emacsGitNativeComp;
+  nixpkgs.overlays = [
+    (import (builtins.fetchTarball {
+      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    }))
+  ]; */
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -15,6 +22,7 @@
   home.packages = with pkgs; [
     # plan9port
     alacritty
+    auctex
     bash
     boxes
     cabal-install
@@ -22,11 +30,12 @@
     curl
     dotnet-runtime
     ed
-    ((emacsPackagesFor emacs28NativeComp).emacsWithPackages
-      (epkgs: with epkgs; [
+      # Optionally provide extra packages not in the configuration file.
+    ((emacsPackagesFor emacsNativeComp).emacsWithPackages (epkgs: with epkgs; [
         all-the-icons
         atom-one-dark-theme
         ayu-theme
+        auctex
         company
         csharp-mode
         dashboard
@@ -45,11 +54,18 @@
         nix-mode
         ob-swiftui
         org
+        org-bullets
+        org-roam
+        org-preview-html
         page-break-lines
         projectile
         python-mode
         racket-mode
+<<<<<<< HEAD
         rainbow-delimiters
+=======
+        latex-preview-pane
+>>>>>>> a80415b (add more emacs pkgs)
         rust-mode
         slime
         smooth-scroll
@@ -59,8 +75,15 @@
         vterm
         web-mode
         zig-mode
+<<<<<<< HEAD
       ]))
     fsharp
+=======
+        company-ipa
+        company-flx
+    ]))
+    texlive.combined.scheme-small
+>>>>>>> a80415b (add more emacs pkgs)
     fish
     fzf
     git
@@ -101,4 +124,5 @@
       ./config/tmux.nix
       # ./config/editors/emacs/emacs.nix
     ];
+    home.stateVersion = "22.05";
 }
