@@ -4,8 +4,8 @@
   # Import common.nix, with all of our packages and configs, then define any linux "platform specific" configs in here
   imports = [
     ./common.nix
-    ./config/wm/xinit.nix
-    ./config/wm/wms.nix
+    # ./config/wm/xinit.nix
+    # ./config/wm/wms.nix
   ];
 
   # Override Swift's tests, as they seem to be broken on Linux.
@@ -34,6 +34,7 @@
     doas
     dosbox-staging
     drawterm
+    element-desktop
     fbterm
     firefox-devedition-bin
     fontconfig
@@ -52,6 +53,7 @@
     libsForQt5.qt5.qtwayland
     lm_sensors
     lsof
+    libsForQt5.neochat
     obs-studio
     openrgb
     pamixer
@@ -67,6 +69,8 @@
     stepmania
     tdesktop
     tor-browser-bundle-bin
+    torsocks
+    tor
     transmission-gtk
     wayfire
     wineWowPackages.staging
