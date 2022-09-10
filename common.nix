@@ -61,11 +61,8 @@
         projectile
         python-mode
         racket-mode
-<<<<<<< HEAD
         rainbow-delimiters
-=======
         latex-preview-pane
->>>>>>> a80415b (add more emacs pkgs)
         rust-mode
         slime
         smooth-scroll
@@ -75,15 +72,11 @@
         vterm
         web-mode
         zig-mode
-<<<<<<< HEAD
-      ]))
-    fsharp
-=======
         company-ipa
         company-flx
-    ]))
+      ]))
+      fsharp
     texlive.combined.scheme-small
->>>>>>> a80415b (add more emacs pkgs)
     fish
     fzf
     git
