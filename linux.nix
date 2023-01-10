@@ -7,6 +7,8 @@
     # ./config/wm/xinit.nix
     # ./config/wm/wms.nix
   ];
+  
+  manual.manpages.enable = false;
 
   # Override Swift's tests, as they seem to be broken on Linux.
   nixpkgs.config.packageOverrides = pkgs: rec {
@@ -54,6 +56,7 @@
     lm_sensors
     lsof
     libsForQt5.neochat
+    lutris
     obs-studio
     openrgb
     pamixer
@@ -76,5 +79,8 @@
     wineWowPackages.staging
     winetricks
     yaft
+    p7zip
+    gnome.zenity
+    protontricks    
   ];
 }
