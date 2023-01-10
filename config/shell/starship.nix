@@ -27,6 +27,7 @@
       elm.symbol = " ";
       git_branch.symbol = " ";
       golang.symbol = " ";
+      haskell.symbol = " ";
       hg_branch.symbol = " ";
       java.symbol = " ";
       julia.symbol = " ";

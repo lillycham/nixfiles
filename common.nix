@@ -11,9 +11,9 @@
   /* services.emacs.package = pkgs.emacsGitNativeComp;
     nixpkgs.overlays = [
     (import (builtins.fetchTarball {
-      url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
+    url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
     }))
-  ]; */
+    ]; */
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -22,13 +22,17 @@
   home.packages = with pkgs; [
     # plan9port
     alacritty
-    auctex
     bash
+    (python3.withPackages (p: with p; [
+      pandas
+      requests
+    ]))
     boxes
     cabal-install
     cloc
     curl
     dotnet-runtime
+    direnv
     ed
     # Optionally provide extra packages not in the configuration file.
     ((emacsPackagesFor emacsNativeComp).emacsWithPackages (epkgs: with epkgs; [
@@ -38,6 +42,7 @@
       auctex
       company
       csharp-mode
+      corfu
       dashboard
       doom-modeline
       elcord
@@ -86,6 +91,7 @@
     ]))
     fsharp
     texlive.combined.scheme-small
+    idris2
     fish
     fzf
     git
@@ -94,9 +100,9 @@
     kitty
     neofetch
     nixpkgs-fmt
+    mypy
     onefetch
     powershell
-    rakudo
     rustup
     rnix-lsp
     smartmontools
@@ -116,7 +122,7 @@
   imports =
     [
       ./config/alacritty.nix
-      ./config/editors/nvim.nix
+      #./config/editors/nvim.nix
       ./config/git.nix
       ./config/kitty.nix
       ./config/neofetch.nix
