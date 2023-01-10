@@ -35,8 +35,20 @@ let
 
     # VSCode
     .vscode
+
+    # JetBrains
+    .idea
+    
+    # Vim
+    .swp
+
+    # Emacs
+    .#*
+    *~
+    \#*\#
   '';
-in {
+in
+{
   programs.git = {
     enable = true;
     # Git user information
