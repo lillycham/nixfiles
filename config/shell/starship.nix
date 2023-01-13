@@ -33,12 +33,17 @@
       julia.symbol = " ";
       memory_usage.symbol = " ";
       nim.symbol = " ";
-      nix_shell.symbol = " ";
+      nix_shell = {
+        symbol = " ";
+        impure_msg = "impure";
+        pure_msg = "pure";
+        format = "via [$symbol$state $name](bold blue) ";
+      };
       perl.symbol = " ";
       php.symbol = " ";
       python = {
         symbol = " ";
-        python_binary = [ "py" "python3.9" "python2.7" ];
+        python_binary = [ "py" "python3" "python2.7" ];
       };
 
       ruby.symbol = " ";
