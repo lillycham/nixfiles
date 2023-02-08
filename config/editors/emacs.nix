@@ -1,0 +1,65 @@
+{ config, pkgs, ... }:
+{
+  programs.emacs = {
+    enable = true;
+    package = ((pkgs.emacsPackagesFor pkgs.emacsNativeComp).emacsWithPackages (epkgs: with epkgs; [
+      apheleia
+      all-the-icons
+      treemacs-all-the-icons
+      atom-one-dark-theme
+      ayu-theme
+      auctex
+      company
+      csharp-mode
+      centaur-tabs
+      corfu
+      dashboard
+      doom-modeline
+      elcord
+      fsharp-mode
+      flycheck
+      flycheck-swift
+      fzf
+      go-mode
+      haskell-mode
+      js2-mode
+      lsp-haskell
+      lsp-mode
+      magit
+      nix-mode
+      ob-swiftui
+      org
+      org-bullets
+      org-roam
+      company-flx
+      company-ipa
+      dired-sidebar
+      evil
+      latex-preview-pane
+      llvm-mode
+      lsp-treemacs
+      lsp-ui
+      meow
+      org-preview-html
+      org-variable-pitch
+      page-break-lines
+      projectile
+      python-mode
+      racket-mode
+      rainbow-delimiters
+      rust-mode
+      slime
+      smooth-scroll
+      swift-mode
+      treemacs
+      treemacs-all-the-icons
+      treemacs-magit
+      typescript-mode
+      use-package
+      vterm
+      web-mode
+      which-key
+      zig-mode
+    ]));
+  };
+}

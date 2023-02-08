@@ -20,96 +20,39 @@
 
   # Packages to install
   home.packages = with pkgs; [
-    # plan9port
     alacritty
     bash
-    (python3.withPackages (p: with p; [
-      pandas
-      requests
-    ]))
     boxes
     cabal-install
+    cachix
     cloc
     curl
-    dotnet-runtime
     direnv
+    dotnet-runtime
     ed
-    # Optionally provide extra packages not in the configuration file.
-    ((emacsPackagesFor emacsNativeComp).emacsWithPackages (epkgs: with epkgs; [
-      all-the-icons
-      atom-one-dark-theme
-      ayu-theme
-      auctex
-      company
-      csharp-mode
-      corfu
-      dashboard
-      doom-modeline
-      elcord
-      fsharp-mode
-      flycheck
-      flycheck-swift
-      fzf
-      go-mode
-      haskell-mode
-      js2-mode
-      lsp-haskell
-      lsp-mode
-      magit
-      nix-mode
-      ob-swiftui
-      org
-      org-bullets
-      org-roam
-      org-preview-html
-      org-variable-pitch
-      evil
-      page-break-lines
-      projectile
-      python-mode
-      racket-mode
-      rainbow-delimiters
-      latex-preview-pane
-      rust-mode
-      slime
-      smooth-scroll
-      swift-mode
-      typescript-mode
-      use-package
-      vterm
-      web-mode
-      zig-mode
-      company-ipa
-      company-flx
-      dired-sidebar
-      treemacs
-      lsp-treemacs
-      lsp-ui
-      which-key
-      treemacs-magit
-      treemacs-all-the-icons
-    ]))
-    fsharp
-    texlive.combined.scheme-small
-    idris2
     fish
+    fsharp
     fzf
     git
-    gitAndTools.gh
+    gitAndTools.gh                   # GitHub CLI
     go
+    idris2
     kitty
+    mypy
     neofetch
     nixpkgs-fmt
-    mypy
+    nix-top
     onefetch
     powershell
-    rustup
+    racket
     rnix-lsp
+    rustup
     smartmontools
     spotify-tui
     spotifyd
     stack
     starship
+    texlive.combined.scheme-small    # LaTeX
     tmux
     tree
     vscode
@@ -122,9 +65,11 @@
   imports =
     [
       ./config/alacritty.nix
-      #./config/editors/nvim.nix
+      ./config/editors/emacs.nix
+      ./config/editors/nvim.nix
       ./config/git.nix
       ./config/kitty.nix
+      ./config/langs/python.nix
       ./config/neofetch.nix
       ./config/plan9port/profile-plan9.nix
       ./config/shell/bash.nix
@@ -132,7 +77,6 @@
       ./config/shell/pwsh.nix
       ./config/shell/starship.nix
       ./config/tmux.nix
-      # ./config/editors/emacs/emacs.nix
     ];
   home.stateVersion = "22.05";
 }
