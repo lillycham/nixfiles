@@ -7,6 +7,7 @@
       matplotlib
       numpy
       pandas
+      pygame
       requests
       scipy
       z3

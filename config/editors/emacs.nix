@@ -3,6 +3,7 @@
   programs.emacs = {
     enable = true;
     package = ((pkgs.emacsPackagesFor pkgs.emacsNativeComp).emacsWithPackages (epkgs: with epkgs; [
+      agda2-mode
       apheleia
       all-the-icons
       treemacs-all-the-icons

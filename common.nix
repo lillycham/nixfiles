@@ -20,6 +20,8 @@
 
   # Packages to install
   home.packages = with pkgs; [
+    (agda.withPackages (p: with p; [ standard-library cubical agda-categories ]))
+    agda-pkg
     alacritty
     bash
     boxes
