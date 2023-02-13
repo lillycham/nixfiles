@@ -30,11 +30,11 @@
   # Packages to install - specific to linux
   home.packages = with pkgs; [
     appimage-run
+    prismlauncher
     chrome-gnome-shell
-    code-server
+    #code-server
     discord
     doas
-    dosbox-staging
     drawterm
     element-desktop
     fbterm

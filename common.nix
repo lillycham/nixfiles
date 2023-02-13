@@ -29,6 +29,7 @@
     ]))
     boxes
     cabal-install
+    cabextract
     cloc
     curl
     dotnet-runtime
@@ -112,7 +113,7 @@
     starship
     tmux
     tree
-    vscode
+    #vscode
     wget
     yarn
     yt-dlp
