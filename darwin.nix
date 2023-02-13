@@ -5,6 +5,10 @@
   home.username = ("lillycham");
   home.homeDirectory = "/Users/lillycham";
   home.packages = with pkgs; [
+    iina
     iterm2
+    lima
+    # macvim
+    utm
   ];
 }

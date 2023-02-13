@@ -1,5 +1,4 @@
 {
-
   programs.fish = {
     enable = true;
     shellAbbrs = {
@@ -17,8 +16,11 @@
     shellInit = ''
       starship init fish | source
       set -U NIX_SSL_CERT_FILE /nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt
+      abbr -a nix_run_flake --position command --regex ".+#.+" --function nix_runner
+      abbr --set-cursor="%" --add nrn "nix run nixpkgs#%"
       direnv hook fish | source
     '';
+    
     functions = {
       # MOTD message
       fish_greeting = {
