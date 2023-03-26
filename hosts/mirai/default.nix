@@ -1,6 +1,6 @@
 { pkgs, config, lib, nixpkgs, ... }:
 {
-
+  imports = [ ./brew.nix ];
   # Make sure the nix daemon always runs
   services.nix-daemon.enable = true;
   
@@ -10,21 +10,26 @@
   fonts = {
     fontDir.enable = true;
     fonts = with pkgs; [
-      #fira-code
-      #iosevka
-      #aileron
+      fira-code
+      aileron
       go-font
-      #input-fonts
-      #roboto
+      input-fonts
+      roboto
     ];
   };
 
-  environment.systemPackages = with pkgs; [
-    home-manager
-    iina
-    iterm2
-    utm
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      home-manager
+      iina
+      iterm2
+      utm
+    ];
+
+    variables = {
+      NIX_SSL_CERT_FILE="/nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt";
+    };
+  };
 
   users = {
     users.lillycham = {
