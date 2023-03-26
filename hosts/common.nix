@@ -51,6 +51,7 @@
       kitty
       mypy
       neofetch
+      nodejs
       nix-top
       onefetch
       powershell
