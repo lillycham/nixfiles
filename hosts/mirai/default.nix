@@ -28,10 +28,7 @@
 
   users = {
     users.lillycham = {
-      home = {
-        username = ("lillycham");
-        homeDirectory = "/Users/lillycham";
-      };
+      home = /Users/lillycham;
     };
   };
 

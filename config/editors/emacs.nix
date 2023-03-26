@@ -2,7 +2,7 @@
 {
   programs.emacs = {
     enable = true;
-    package = ((pkgs.emacsPackagesFor pkgs.emacsNativeComp).emacsWithPackages (epkgs: with epkgs; [
+    package = ((pkgs.emacsPackagesFor pkgs.emacsUnstable).emacsWithPackages (epkgs: with epkgs; [
       agda2-mode
       apheleia
       all-the-icons

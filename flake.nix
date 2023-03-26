@@ -35,6 +35,27 @@
             ./hosts/ikigai/default.nix
           ];
         };
+        homeManagerConfFor = config:
+          { ... }: {
+            nixpkgs.overlays = [
+              nur.overlay
+              emacs-overlay.overlay
+              (final: prev: {
+                emacs29-pgtk = prev.emacsGit.overrideAttrs(old: {
+                  name = "emacs-pgtk";
+                  version = emacs-src.shortRev;
+                  src = emacs-src;
+                  withPgtk = true;
+                });
+                emacs29 = prev.emacsGit.overrideAttrs(old: {
+                  name = "emacs";
+                  version = emacs-src.shortRev;
+                  src = emacs-src;
+                });
+              })
+            ];
+            imports = [ config ];
+          };
     in
     {
       # Output for MacBook, hostname 'mirai'
@@ -43,6 +64,10 @@
           system = "aarch64-darwin";
           modules = [
             home-manager.darwinModules.home-manager
+            {
+              home-manager.users.lillycham =
+                homeManagerConfFor ./hosts/mirai/home.nix;
+            }
             ./hosts/mirai/default.nix
           ];
           inputs = { inherit darwin home-manager nixpkgs; };
