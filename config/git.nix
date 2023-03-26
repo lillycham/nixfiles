@@ -61,7 +61,7 @@ in
       co = "checkout";
       P  = "push";
       p  = "pull";
-      c  = "commit";      
+      c  = "commit -m";      
     };
     extraConfig = {
       core = {

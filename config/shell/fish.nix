@@ -12,6 +12,9 @@
       n = "nvim";
       nrs = "nixos-rebuild switch";
       o = "open";
+      s = "sudo";
+      b = "nix build";
+      r = "nix run";
     };
 
     # interactive init
@@ -19,8 +22,8 @@
       starship init fish | source
       # Fancy regex based flake run/build commands
       abbr -a nix_run_flake --position command --regex ".+#.+" --function nix_runner
-      abbr -a nix_build_flake --position command --regex "b.+#.+" --function nix_fbuilder
-      abbr --set-cursor="%" --add nrn "nix run nixpkgs#%"
+      abbr -a L --position anywhere --set-cursor "% | less"
+      abbr -a --position anywhere -- -sht --show-trace
       direnv hook fish | source
     '';
     
