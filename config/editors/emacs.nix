@@ -25,7 +25,6 @@
       haskell-mode
       js2-mode
       lsp-haskell
-      lsp-mode
       magit
       nix-mode
       ob-swiftui
@@ -48,7 +47,6 @@
       python-mode
       racket-mode
       rainbow-delimiters
-      rust-mode
       slime
       smooth-scroll
       swift-mode

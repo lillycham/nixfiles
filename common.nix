@@ -1,5 +1,19 @@
 { config, lib, pkgs, ... }:
-
+let
+  tex = (pkgs.texlive.combine {
+    inherit (pkgs.texlive) scheme-basic
+      dvisvgm dvipng # for preview and export as html
+      wrapfig amsmath ulem hyperref capt-of
+      pgf tikz-cd listings mathtools forloop
+      alphalph soul mathdesign xkeyval ly1
+      ebgaramond ebgaramond-maths newtx
+      etoolbox fontspec txfonts metafont
+      charter biblatex booktabs makecell
+      biblatex-mla stmaryrd polytable lazylist;
+      #(setq org-latex-compiler "lualatex")
+      #(setq org-preview-latex-default-process 'dvisvgm)
+  });
+in
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -7,13 +21,6 @@
   nixpkgs.config = {
     allowUnfree = true;
   };
-
-  /* services.emacs.package = pkgs.emacsGitNativeComp;
-    nixpkgs.overlays = [
-    (import (builtins.fetchTarball {
-    url = https://github.com/nix-community/emacs-overlay/archive/master.tar.gz;
-    }))
-    ]; */
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -25,16 +32,16 @@
     alacritty
     bash
     boxes
+    biber
     cabal-install
     cabextract
     cachix
+    cmake
     cloc
     curl
     direnv
-    dotnet-runtime
     ed
     fish
-    fsharp
     fzf
     git
     gitAndTools.gh                   # GitHub CLI
@@ -43,25 +50,25 @@
     kitty
     mypy
     neofetch
-    nixpkgs-fmt
     nix-top
     onefetch
     powershell
     racket
     rnix-lsp
-    rustup
     smartmontools
     spotify-tui
     spotifyd
     stack
     starship
-    texlive.combined.scheme-small    # LaTeX
+    tex
     tmux
     tree
-    #vscode
     wget
     yarn
     yt-dlp
+    lhs2tex
+    ispell
+    ltex-ls
   ];
 
   # Files to import.
