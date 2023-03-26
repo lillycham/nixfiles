@@ -2,15 +2,21 @@
 {
   homebrew = {
     enable = true;
+    # List of packages to install via homebrew casks (i.e. mac apps)
     casks = [
-      "google-chrome"
       "arc"
+      "copilot-for-xcode"
+      "discord"
+      "google-chrome"
+      "hex-fiend"
+      "keka"
       "prismlauncher"
       "protonvpn"
-      "telegram"
-      "keka"
       "spotify"
-      "copilot-for-xcode"
+      "skim"
+      "telegram"
+      "microsoft-teams"
+      "microsoft-onenote"
     ];
   };
 }

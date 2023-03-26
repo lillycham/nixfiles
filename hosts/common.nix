@@ -33,21 +33,21 @@
       alacritty
       bash
       boxes
-      biber
       cabal-install
       cabextract
       cachix
-      cmake
       cloc
+      cmake
       curl
-      direnv
+      direnv                    # Direnv, to use w/nix shells
       ed
       fish
       fzf
       git
-      gitAndTools.gh                   # GitHub CLI
+      gitAndTools.gh            # Github CLI
       go
       idris2
+      ispell
       kitty
       mypy
       neofetch
@@ -66,7 +66,6 @@
       wget
       yarn
       yt-dlp
-      ispell
     ];
 
     stateVersion = "22.05";

@@ -40,5 +40,5 @@ let
   });
 in
 {
-  home.packages = with pkgs; [ latex lhs2tex ltex-ls ];
+  home.packages = with pkgs; [ biber latex lhs2tex ltex-ls ];
 }

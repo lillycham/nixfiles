@@ -1,21 +1,25 @@
 {
   programs.fish = {
     enable = true;
-    shellAbbrs = {
+    shellAbbrs = {      
       a = "acme";
+      drs = "darwin-rebuild switch --flake ~/nixfiles";
+      e = "emacs";
+      g = "git";
+      gc = "nix store gc";
       hms = "home-manager switch";
       m = "make";
       n = "nvim";
-      nix-install = "nix-env -iA nixpkgs.";
-      nrun = "nix run nixpkgs#";
+      nrs = "nixos-rebuild switch";
       o = "open";
-      pwsh = "pwsh -nologo"; # Set powershell to start with nologo
     };
 
-    # Initialize starship, export Nix's SSL Cert to prevent SSL errors on macOS
+    # interactive init
     shellInit = ''
       starship init fish | source
+      # Fancy regex based flake run/build commands
       abbr -a nix_run_flake --position command --regex ".+#.+" --function nix_runner
+      abbr -a nix_build_flake --position command --regex "b.+#.+" --function nix_fbuilder
       abbr --set-cursor="%" --add nrn "nix run nixpkgs#%"
       direnv hook fish | source
     '';
@@ -41,6 +45,11 @@
       nix_runner = {
         description = "Run a nix flake";
         body = "echo nix run $argv";
+      };
+
+      nix_fbuilder = {
+        description = "Run a nix flake";
+        body = "echo nix build $argv";
       };
     };
   };

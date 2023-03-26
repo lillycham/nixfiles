@@ -53,10 +53,15 @@ in
     enable = true;
     # Git user information
     userName = "Lilly";
-    userEmail = "lilly@lillycat.tech";
+    userEmail = "lillycat332@gmail.com";
     aliases = {
+      a  = "add";
+      s  = "stage";
       st = "status";
       co = "checkout";
+      P  = "push";
+      p  = "pull";
+      c  = "commit";      
     };
     extraConfig = {
       core = {
