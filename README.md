@@ -1,4 +1,12 @@
 # nixfiles
-This is a replacement for my Dotfiles.
+My configs, using nix, home-manager and nix-darwin
 
-If you want to use these for some reason you just have to ln (hard/sym) the linux/darwin.nix file as home.nix and either put these files into your .config/nixpkgs or symlink the entire folder to that location.
+## bootstrap
+```
+$ git clone <this repo>
+$ cd nixfiles 
+$ nix build .#<insert desired attr here>
+$ ./result/sw/bin/darwin-rebuild switch --flake . # or nixos-rebuild switch on linux i guess
+```
+## subsequent runs
+just use darwin-rebuild/nixos-rebuild.
