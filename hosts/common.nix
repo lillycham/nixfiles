@@ -5,11 +5,13 @@
   imports =
     [
       ../config/alacritty.nix
-      ../config/editors/emacs.nix
+      #../config/editors/emacs.nix
       ../config/editors/nvim.nix
       ../config/git.nix
       ../config/kitty.nix
       ../config/langs/python.nix
+      ../config/langs/agda.nix
+      ../config/langs/latex.nix
       ../config/neofetch.nix
       ../config/plan9port/profile-plan9.nix
       ../config/shell/bash.nix

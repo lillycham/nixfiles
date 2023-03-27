@@ -1,64 +1,8 @@
 { config, pkgs, ... }:
+let epkgs = import ./epkgs.nix; in
 {
   programs.emacs = {
     enable = true;
-    package = ((pkgs.emacsPackagesFor pkgs.emacsUnstable).emacsWithPackages (epkgs: with epkgs; [
-      agda2-mode
-      apheleia
-      all-the-icons
-      treemacs-all-the-icons
-      atom-one-dark-theme
-      ayu-theme
-      auctex
-      company
-      csharp-mode
-      centaur-tabs
-      corfu
-      dashboard
-      doom-modeline
-      elcord
-      fsharp-mode
-      flycheck
-      flycheck-swift
-      fzf
-      go-mode
-      haskell-mode
-      js2-mode
-      lsp-haskell
-      magit
-      nix-mode
-      ob-swiftui
-      org
-      org-bullets
-      org-roam
-      company-flx
-      company-ipa
-      dired-sidebar
-      evil
-      latex-preview-pane
-      llvm-mode
-      lsp-treemacs
-      lsp-ui
-      meow
-      org-preview-html
-      org-variable-pitch
-      page-break-lines
-      projectile
-      python-mode
-      racket-mode
-      rainbow-delimiters
-      slime
-      smooth-scroll
-      swift-mode
-      treemacs
-      treemacs-all-the-icons
-      treemacs-magit
-      typescript-mode
-      use-package
-      vterm
-      web-mode
-      which-key
-      zig-mode
-    ]));
+    package = ((pkgs.emacsPackagesFor pkgs.emacsUnstable).emacsWithPackages epkgs);
   };
 }

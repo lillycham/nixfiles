@@ -18,5 +18,10 @@
       "microsoft-teams"
       "microsoft-onenote"
     ];
+    
+    masApps = {
+      "Step Two" = 1448916662;
+      "Hand Mirror" = 1502839586;
+    };
   };
 }

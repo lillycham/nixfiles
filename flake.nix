@@ -24,9 +24,14 @@
       url = "github:emacs-mirror/emacs/emacs-29";
       flake = false;
     };
+
+    nixpkgs-tny = {
+      url = "github:tnytown/nixpkgs-overlay-tny";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, nur, emacs-overlay, emacs-src}:
+  outputs = { self, nixpkgs, home-manager, darwin, nur, emacs-overlay, emacs-src, nixpkgs-tny }:
     let #mirai = 
         ikigai = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -59,19 +64,23 @@
     in
     {
       # Output for MacBook, hostname 'mirai'
-      darwinConfigurations = {
-        mirai = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          modules = [
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.users.lillycham =
-                homeManagerConfFor ./hosts/mirai/home.nix;
-            }
-            ./hosts/mirai/default.nix
-          ];
-          inputs = { inherit darwin home-manager nixpkgs; };
-        };
+      darwinConfigurations.mirai = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.users.lillycham =
+              homeManagerConfFor ./hosts/mirai/home.nix;
+          }
+          {nixpkgs.overlays = [
+             (_: _: {
+               emacsMacport = nixpkgs-tny.packages."aarch64-darwin".emacsMacport;
+             })
+           ];
+          }
+          ./hosts/mirai/default.nix
+        ];
+        inputs = { inherit darwin home-manager nixpkgs emacs-overlay; };
       };
   };
 }
