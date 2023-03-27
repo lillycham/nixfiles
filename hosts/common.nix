@@ -5,7 +5,7 @@
   imports =
     [
       ../config/alacritty.nix
-      #../config/editors/emacs.nix
+      ../config/editors/emacs.nix
       ../config/editors/nvim.nix
       ../config/git.nix
       ../config/kitty.nix

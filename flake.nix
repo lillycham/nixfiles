@@ -44,6 +44,9 @@
           { ... }: {
             nixpkgs.overlays = [
               nur.overlay
+              (_: _: {
+                emacsMacport = nixpkgs-tny.packages."aarch64-darwin".emacsMacport;
+              })
               emacs-overlay.overlay
               (final: prev: {
                 emacs29-pgtk = prev.emacsGit.overrideAttrs(old: {
@@ -58,6 +61,7 @@
                   src = emacs-src;
                 });
               })
+              emacs-overlay.overlay
             ];
             imports = [ config ];
           };
@@ -71,12 +75,6 @@
           {
             home-manager.users.lillycham =
               homeManagerConfFor ./hosts/mirai/home.nix;
-          }
-          {nixpkgs.overlays = [
-             (_: _: {
-               emacsMacport = nixpkgs-tny.packages."aarch64-darwin".emacsMacport;
-             })
-           ];
           }
           ./hosts/mirai/default.nix
         ];

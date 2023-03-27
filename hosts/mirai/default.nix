@@ -37,7 +37,7 @@
       bash
       zsh
       neovim
-      ((pkgs.emacsPackagesFor pkgs.emacsMacport).emacsWithPackages (import ../../config/editors/epkgs.nix))
+      #((pkgs.emacsPackagesFor pkgs.emacsMacport).emacsWithPackages (import ../../config/editors/epkgs.nix))
     ];
 
     # Set the Nix SSL cert. May not be necessary, but randomly had issues
