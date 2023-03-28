@@ -6,16 +6,27 @@ My configs, using nix, home-manager and nix-darwin
 
 Necessary due to flakes.
 
+### macOS
+```shell
+$ nix build
+$ sudo ./result/activate
 ```
-$ git clone <this repo>
-$ cd nixfiles 
-$ nix build .#<insert desired attr here>
-$ ./result/sw/bin/darwin-rebuild switch --flake . # or nixos-rebuild switch on nixos
+
+### NixOS
+```
+$ sudo nixos-rebuild switch --flake .
 ```
 
 ## subsequent runs
 
-just use darwin-rebuild/nixos-rebuild.
+
+```shell
+$ darwin-rebuild switch --flake .
+```
+
+```shell
+nixos-rebuild switch --flake .
+```
 
 ## structure
 

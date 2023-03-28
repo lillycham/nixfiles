@@ -62,7 +62,6 @@
       prismlauncher
       protontricks  
       qemu_full
-      racket
       rust-analyzer
       sbcl
       spotify

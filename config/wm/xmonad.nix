@@ -7,10 +7,10 @@
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
-      extraPackages = hp: [
-        hp.dbus
-        hp.monad-logger
-        hp.xmonad-contrib
+      extraPackages = hp: with hp; [
+        dbus
+        monad-logger
+        xmonad-contrib
       ];
       config = ./config.hs;
     };

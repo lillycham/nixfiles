@@ -32,14 +32,39 @@
   };
 
   outputs = { self, nixpkgs, home-manager, darwin, nur, emacs-overlay, emacs-src, nixpkgs-tny }:
-    let #mirai = 
+    # Output for MacBook, hostname 'mirai'
+    let mirai = darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.users.lillycham =
+                homeManagerConfFor ./hosts/mirai/home.nix;
+            }
+            ./hosts/mirai/default.nix
+          ];
+          inputs = { inherit darwin home-manager nixpkgs emacs-overlay; };
+        };
+        # Output for NixOS PC
         ikigai = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             home-manager.nixosModules.home-manager
             ./hosts/ikigai/default.nix
+            {
+              home-manager.users.lillycham =
+                homeManagerConfFor ./hosts/ikigai/home.nix;
+            }
           ];
         };
+        # Output for Linux, home manager only.
+        homeOnly = home-manager.lib.homeManagerConfiguration {
+          configuration = homeManagerConfFor ./hosts/generic-linux/home.nix;
+          system = "x86_64-linux";
+          homeDirectory = "/home/lillycham";
+          username = "lillycham";
+        };
+        # Call a home manager config with overlays
         homeManagerConfFor = config:
           { ... }: {
             nixpkgs.overlays = [
@@ -67,18 +92,7 @@
           };
     in
     {
-      # Output for MacBook, hostname 'mirai'
-      darwinConfigurations.mirai = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.users.lillycham =
-              homeManagerConfFor ./hosts/mirai/home.nix;
-          }
-          ./hosts/mirai/default.nix
-        ];
-        inputs = { inherit darwin home-manager nixpkgs emacs-overlay; };
-      };
+      darwinConfigurations.mirai = mirai;
+      defaultPackage.aarch64-darwin = mirai.system;
   };
 }
