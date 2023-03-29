@@ -60,7 +60,7 @@
         hmConfWith = conf: sys: user:
           home-manager.lib.homeManagerConfiguration { 
             configuration = conf;
-            pkgs = nixpkgs.legacyPackages.sys;
+            pkgs = nixpkgs.legacyPackages."${sys}";
             system = sys;
             homeDirectory = if ((builtins.substring 7 5 sys == "linux") || (builtins.substring 8 5 sys == "linux"))
                             then "/home/${user}"
