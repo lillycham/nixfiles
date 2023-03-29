@@ -57,20 +57,28 @@
             }
           ];
         };
+        hmConfWith = conf: sys: user:
+          home-manager.lib.homeManagerConfiguration { 
+            configuration = conf;
+            pkgs = nixpkgs.legacyPackages.sys;
+            system = sys;
+            homeDirectory = if ((builtins.substring 7 5 sys == "linux") || (builtins.substring 8 5 sys == "linux"))
+                            then "/home/${user}"
+                            else "/Users/${user}";
+            username = user;
+          };
         # Output for Linux, home manager only.
-        homeOnly = home-manager.lib.homeManagerConfiguration { inherit pkgs;
+        homeOnly = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           configuration = homeManagerConfFor ./hosts/generic-linux/home.nix;
           system = "x86_64-linux";
           homeDirectory = "/home/lillycham";
           username = "lillycham";
         };
-        oracleServer =
-          home-manager.lib.homeManagerConfiguration { inherit pkgs;
-            configuration = homeManagerConfFor ./hosts/generic-linux/home.nix;
-            system = "aarch64-linux";
-            homeDirectory = "/home/opc";
-            username = "opc";
-          };
+        oracleServer = hmConfWith
+          (homeManagerConfFor ./hosts/generic-linux/home.nix)
+          "aarch64-linux"
+          "opc";
         # Call a home manager config with overlays
         homeManagerConfFor = config:
           { ... }: {
@@ -101,7 +109,7 @@
     {
       darwinConfigurations.mirai = mirai;
       defaultPackage.aarch64-darwin = mirai.system;
-      homeManagerConfiguations.oracle = oracleServer;
-      defaultPackage.aarch64-linux = oracleServer.system;
+      homeConfigurations.oracle = oracleServer;
+      defaultPackage.aarch64-linux = oracleServer.activationPackage;
     };
 }
