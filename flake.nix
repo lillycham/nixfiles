@@ -94,5 +94,12 @@
     {
       darwinConfigurations.mirai = mirai;
       defaultPackage.aarch64-darwin = mirai.system;
-  };
+      homeManagerConfiguations.oracleServer =
+        home-manager.lib.homeManagerConfiguration {
+          configuration = homeManagerConfFor ./hosts/generic-linux/home.nix;
+          system = "aarch64-linux";
+          homeDirectory = "/home/opc";
+          username = "opc";
+        };
+    };
 }

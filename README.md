@@ -25,7 +25,7 @@ $ darwin-rebuild switch --flake .
 ```
 
 ```shell
-nixos-rebuild switch --flake .
+$ nixos-rebuild switch --flake .
 ```
 
 ## structure
