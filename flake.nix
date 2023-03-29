@@ -67,6 +67,7 @@
           modules = [            
             ./hosts/oracle-arm/home.nix
           ];
+          inputs = {inherit home-manager nixpkgs emacs-overlay;};
         };
         # Call a home manager config with overlays
         homeManagerConfFor = config:
