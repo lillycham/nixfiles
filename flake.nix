@@ -58,14 +58,14 @@
           ];
         };
         # Output for Linux, home manager only.
-        homeOnly = home-manager.lib.homeManagerConfiguration {
+        homeOnly = home-manager.lib.homeManagerConfiguration { inherit pkgs;
           configuration = homeManagerConfFor ./hosts/generic-linux/home.nix;
           system = "x86_64-linux";
           homeDirectory = "/home/lillycham";
           username = "lillycham";
         };
         oracleServer =
-          home-manager.lib.homeManagerConfiguration {
+          home-manager.lib.homeManagerConfiguration { inherit pkgs;
             configuration = homeManagerConfFor ./hosts/generic-linux/home.nix;
             system = "aarch64-linux";
             homeDirectory = "/home/opc";
