@@ -60,7 +60,10 @@
         oracle = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-linux;
           modules = [
-            homeManagerConfFor ./hosts/oracle-arm/home.nix
+            {
+              home-manager.users.opc =
+                homeManagerConfFor ./hosts/oracle-arm/home.nix;
+            }
           ];
         };
         # Call a home manager config with overlays
