@@ -57,14 +57,9 @@
             }
           ];
         };
-        # Output for Linux, home manager only.
-        homeOnly = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          configuration = homeManagerConfFor ./hosts/generic-linux/home.nix;
-        };
         oracle = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-linux;
-          modules = [            
+          modules = [
             homeManagerConfFor ./hosts/oracle-arm/home.nix
           ];
         };
