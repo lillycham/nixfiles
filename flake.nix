@@ -65,9 +65,8 @@
         oracle = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-linux;
           modules = [            
-            ./hosts/oracle-arm/home.nix
+            homeManagerConfFor ./hosts/oracle-arm/home.nix
           ];
-          inputs = {inherit home-manager nixpkgs emacs-overlay;};
         };
         # Call a home manager config with overlays
         homeManagerConfFor = config:
