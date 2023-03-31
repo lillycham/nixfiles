@@ -2,8 +2,7 @@
 
 {
   # Files to import.
-  imports =
-    [
+  imports = [
       ../config/alacritty.nix
       ../config/editors/emacs.nix
       ../config/editors/nvim.nix
@@ -20,7 +19,7 @@
       ../config/shell/starship.nix
       ../config/tmux.nix
       ../config/langs/latex.nix
-    ];
+  ];
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -51,6 +50,7 @@
       idris2
       ispell
       kitty
+      mercurial
       mypy
       neofetch
       nodejs
