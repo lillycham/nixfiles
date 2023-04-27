@@ -28,7 +28,10 @@
       git_branch.symbol = " ";
       golang.symbol = " ";
       haskell.symbol = " ";
-      hg_branch.symbol = " ";
+      hg_branch = {
+        symbol = " ";
+        disabled = false;
+      };
       java.symbol = " ";
       julia.symbol = " ";
       memory_usage.symbol = " ";

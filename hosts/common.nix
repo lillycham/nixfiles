@@ -6,6 +6,7 @@
       ../config/alacritty.nix
       ../config/editors/emacs.nix
       ../config/editors/nvim.nix
+      ../config/editors/hx.nix
       ../config/git.nix
       ../config/kitty.nix
       ../config/langs/python.nix
@@ -47,6 +48,7 @@
       git
       gitAndTools.gh            # Github CLI
       go
+      helix
       idris2
       ispell
       kitty
