@@ -50,7 +50,7 @@
           system = "x86_64-linux";
           modules = [
             home-manager.nixosModules.home-manager
-            ./hosts/ikigai/default.nix
+            ./hosts/ikigai/configuration.nix
             {
               home-manager.users.lillycham =
                 homeManagerConfFor ./hosts/ikigai/home.nix;
@@ -94,6 +94,7 @@
       darwinConfigurations.mirai = mirai;
       defaultPackage.aarch64-darwin = mirai.system;
       homeConfigurations.oracle = oracle;
+      nixosConfigurations."ikigai" = ikigai;
       defaultPackage.aarch64-linux = oracle.activationPackage;
     };
 }
