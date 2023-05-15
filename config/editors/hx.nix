@@ -9,6 +9,10 @@
         space.w = ":w";
         space.q = ":q";
       };
+      keys.insert = {
+        "C-j" = ["normal_mode" "copy_selection_on_next_line" "insert_mode"];
+        "C-k" = ["normal_mode" "copy_selection_on_prev_line" "insert_mode"];
+      };
       editor = {
         cursor-shape = {
           insert = "bar";
