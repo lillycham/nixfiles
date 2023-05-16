@@ -26,14 +26,14 @@
 
     openssh = {
       enable = true;
-      PasswordAuthentication = false;
-      PermitRootLogin = "no";
+      passwordAuthentication = false;
+      permitRootLogin = "no";
       banner = ''
       STOP! This system is for AUTHORIZED users ONLY.
       ALL activity is logged.
       Any unauthorized access will be result in termination with extreme prejudice.
       '';
-      X11Forwarding = false;
+      forwardX11 = false;
     };
 
     tailscale.enable = true;

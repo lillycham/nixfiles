@@ -44,18 +44,11 @@
 
   environment = {
     systemPackages = with pkgs; [
-      alacritty
-      arion
       clang_14
-      docker-client
-      docker-compose
-      egl-wayland
       killall
       kitty
-      musl
+      lutris
       openjdk17
-      oath-toolkit
-      tor-browser-bundle-bin
       swtpm
     ];
     sessionVariables.NIXOS_OZONE_WL = "1";
@@ -80,7 +73,6 @@
     opengl.enable = true;
     pulseaudio.enable = false;
     nvidia = {
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
       modesetting.enable = true;
     };
     enableAllFirmware = true;

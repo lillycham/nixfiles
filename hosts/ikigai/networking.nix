@@ -7,7 +7,9 @@
 
     interfaces.enp5s0.useDHCP = true;
     interfaces.wlp4s0.useDHCP = true;
-
+    
+    wireless.enable = true;
+    
     hostId = "e27b8bb6";
     hostName = "ikigai";
 

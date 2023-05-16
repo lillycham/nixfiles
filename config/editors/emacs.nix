@@ -3,6 +3,6 @@ let epkgs = import ./epkgs.nix; in
 {
   programs.emacs = {
     enable = true;
-    package = ((pkgs.emacsPackagesFor pkgs.emacsUnstable).emacsWithPackages epkgs);
+    package = ((pkgs.emacsPackagesFor pkgs.emacsNativeComp).emacsWithPackages epkgs);
   };
 }

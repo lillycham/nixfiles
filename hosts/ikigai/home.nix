@@ -31,27 +31,20 @@
       glava
       gnumake
       google-chrome-dev
-      gwenview
-      kmscon
       konsole
       libsForQt5.qt5.qtwayland
       lm_sensors
       lsof
-      lutris
+      # lutris
       obs-studio
       p7zip
       parted
       prismlauncher
-      protontricks  
+      # protontricks  
       qemu_full
       rust-analyzer
       spotify
-      stepmania
-      tdesktop
-      tor-browser-bundle-bin
-      torsocks
       transmission-gtk
-      wayfire
     ];
   };
 }
