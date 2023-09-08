@@ -20,7 +20,7 @@
       fira-code
       aileron
       go-font
-      input-fonts
+      # input-fonts
       roboto
       lmmath
     ];
@@ -37,6 +37,10 @@
       bash
       zsh
       neovim
+      gnupg
+      git
+      pinentry
+      nixd
       #((pkgs.emacsPackagesFor pkgs.emacsMacport).emacsWithPackages (import ../../config/editors/epkgs.nix))
     ];
 

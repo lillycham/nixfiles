@@ -39,6 +39,7 @@
       cmake
       curl
       direnv                    # Direnv, to use w/nix shells
+      dune_3
       fish
       fzf
       git

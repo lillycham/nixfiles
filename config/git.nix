@@ -53,7 +53,7 @@ in
     enable = true;
     # Git user information
     userName = "Lilly";
-    userEmail = "lillycat332@gmail.com";
+    userEmail = "me@lillycham.com";
     aliases = {
       a  = "add";
       s  = "stage";
