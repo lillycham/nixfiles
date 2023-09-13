@@ -35,5 +35,5 @@ let python =
     };
     in
 {
-  home.packages = [ python jupyterWithBatteries ];
+  #home.packages = [ python jupyterWithBatteries ];
 }

@@ -16,8 +16,6 @@
       "spotify"
       "skim"
       "telegram"
-      "microsoft-teams"
-      "microsoft-onenote"
     ];
     
     masApps = {
