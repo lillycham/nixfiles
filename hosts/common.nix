@@ -39,7 +39,7 @@
       cmake
       curl
       direnv                    # Direnv, to use w/nix shells
-      dune_3
+      # dune_3
       fish
       fzf
       git
@@ -47,8 +47,8 @@
       helix
       ispell
       kitty
-      mercurial
-      mypy
+      # mercurial
+      # mypy
       neofetch
       nix-top
       onefetch
