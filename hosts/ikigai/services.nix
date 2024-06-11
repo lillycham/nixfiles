@@ -31,7 +31,7 @@
       banner = ''
       STOP! This system is for AUTHORIZED users ONLY.
       ALL activity is logged.
-      Any unauthorized access will be result in termination with extreme prejudice.
+      Any unauthorized access will result in termination with extreme prejudice.
       '';
       forwardX11 = false;
     };
