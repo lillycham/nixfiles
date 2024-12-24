@@ -19,8 +19,8 @@
   };
   
   home = {
-    username = ("lillycham");
-    homeDirectory = "/home/lillycham";
+    username = ("lcham");
+    homeDirectory = "/home/lcham";
     # Packages to install - specific to linux
     packages = with pkgs; [
       appimage-run

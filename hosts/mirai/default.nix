@@ -1,16 +1,15 @@
-{ pkgs, config, lib, nixpkgs, nixpkgs-tny, ... }:
+{ pkgs, config, lib, nixpkgs, nixpkgs-tny, darwin, ... }:
 {
   # Import homebrew package config
   imports = [ ./brew.nix ];
-  
+
   # Make sure the nix daemon always runs
   services = {
     nix-daemon.enable = true;
     # emacs.enable = true;
-    
   };
-  
-  programs.zsh.enable  = true;
+
+  programs.zsh.enable = true;
   programs.fish.enable = true;
 
   # Install fonts
@@ -41,6 +40,10 @@
       git
       pinentry
       nixd
+      nixpkgs-fmt
+      sketchybar
+      lua5_4
+      jq
       #((pkgs.emacsPackagesFor pkgs.emacsMacport).emacsWithPackages (import ../../config/editors/epkgs.nix))
     ];
 
@@ -53,15 +56,15 @@
   };
 
   users = {
-    users.lillycham = {
-      home = /Users/lillycham;
+    users.lcham = {
+      home = /Users/lcham;
       shell = pkgs.fish;
       description = "Lilly Cham";
     };
 
     groups = {
       devel = {
-        members = ["lillycham"];
+        members = [ "lcham" ];
       };
     };
   };
@@ -74,10 +77,10 @@
 
   nix = {
     settings = {
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = false;
     };
-    
+
     package = pkgs.nixUnstable;
 
     # Enable automatic GC

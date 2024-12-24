@@ -205,7 +205,7 @@ let
     image_backend="ascii"
 
     # Image Source
-    image_source="/Users/lillycham/Untitled.png"
+    image_source="/Users/lcham/Untitled.png"
 
 
     # Ascii Options

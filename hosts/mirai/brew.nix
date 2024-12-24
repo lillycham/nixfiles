@@ -1,4 +1,4 @@
-{pkgs, config, ...}:
+{ pkgs, config, ... }:
 
 {
   homebrew = {
@@ -17,7 +17,7 @@
       "skim"
       "telegram"
     ];
-    
+
     masApps = {
       "Step Two" = 1448916662;
       "Hand Mirror" = 1502839586;

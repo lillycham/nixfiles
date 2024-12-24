@@ -3,22 +3,22 @@
 {
   # Files to import.
   imports = [
-      #../config/alacritty.nix
-      #../config/editors/emacs.nix
-      #../config/editors/nvim.nix
-      ../config/editors/hx.nix
-      ../config/git.nix
-      ../config/kitty.nix
-      #../config/langs/python.nix
-      #../config/langs/agda.nix
-      #../config/langs/latex.nix
-      ../config/neofetch.nix
-      ../config/plan9port/profile-plan9.nix
-      ../config/shell/bash.nix
-      ../config/shell/fish.nix
-      ../config/shell/pwsh.nix
-      ../config/shell/starship.nix
-      ../config/tmux.nix
+    #../config/alacritty.nix
+    #../config/editors/emacs.nix
+    #../config/editors/nvim.nix
+    ../config/editors/hx.nix
+    ../config/git.nix
+    ../config/kitty.nix
+    #../config/langs/python.nix
+    #../config/langs/agda.nix
+    #../config/langs/latex.nix
+    ../config/neofetch.nix
+    ../config/plan9port/profile-plan9.nix
+    ../config/shell/bash.nix
+    ../config/shell/fish.nix
+    ../config/shell/pwsh.nix
+    ../config/shell/starship.nix
+    ../config/tmux.nix
   ];
 
   nixpkgs.config = {
@@ -38,12 +38,12 @@
       cloc
       cmake
       curl
-      direnv                    # Direnv, to use w/nix shells
+      direnv # Direnv, to use w/nix shells
       # dune_3
       fish
       fzf
       git
-      gitAndTools.gh            # Github CLI
+      gitAndTools.gh # Github CLI
       helix
       ispell
       kitty
