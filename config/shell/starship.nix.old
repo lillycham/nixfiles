@@ -10,57 +10,49 @@
         vicmd_symbol = "[γ](bold #ffb6c1)";
       };
 
-      git_status = {
-        ahead = ">";
-behind = "<";
-diverged = "<>";
-renamed = "r";
-deleted = "x";
-      };
-
-      aws.symbol = "aws ";
-      conda.symbol = "conda ";
-      dart.symbol = "dart ";
+      aws.symbol = "  ";
+      conda.symbol = " ";
+      dart.symbol = " ";
 
       directory = {
-        read_only = " ro";
+        read_only = " ";
         format = "in [$path]($style)[$read_only]($read_only_style) ";
         style = "bold #f88278";
         truncation_symbol = "../";
-        home_symbol = "~";
+        home_symbol = " ~";
       };
 
-      docker_context.symbol = "docker ";
-      elixir.symbol = "ex ";
-      elm.symbol = "elm ";
-      git_branch.symbol = "git/";
-      golang.symbol = "go ";
-      haskell.symbol = "hs ";
+      docker_context.symbol = " ";
+      elixir.symbol = " ";
+      elm.symbol = " ";
+      git_branch.symbol = " ";
+      golang.symbol = " ";
+      haskell.symbol = " ";
       hg_branch = {
-        symbol = "hg/";
+        symbol = " ";
         disabled = false;
       };
-      java.symbol = "java ";
-      julia.symbol = "jl ";
-      memory_usage.symbol = "mem ";
-      nim.symbol = "nim ";
+      java.symbol = " ";
+      julia.symbol = " ";
+      memory_usage.symbol = " ";
+      nim.symbol = " ";
       nix_shell = {
-        symbol = "nix ";
+        symbol = " ";
         impure_msg = "impure";
         pure_msg = "pure";
         format = "via [$symbol$state $name](bold blue) ";
       };
-      perl.symbol = "pl ";
-      php.symbol = "php ";
+      perl.symbol = " ";
+      php.symbol = " ";
       python = {
-        symbol = "py ";
+        symbol = " ";
         python_binary = [ "py" "python3" "python2.7" ];
       };
 
-      ruby.symbol = "rb ";
-      rust.symbol = "rs ";
-      scala.symbol = "scala ";
-      swift.symbol = "swift ";
+      ruby.symbol = " ";
+      rust.symbol = " ";
+      scala.symbol = " ";
+      swift.symbol = "ﯣ ";
       hostname = {
         ssh_only = false;
         format = "on [$hostname](bold #fd6c9e) ";
@@ -95,7 +87,7 @@ deleted = "x";
 
       custom.tailscale = {
         description = "Shows the current tailscale status";
-        symbol = "tailscale";
+        symbol = "歷";
         format = "(connected to [Tailscale](bold #ff9899)) ";
         disabled = true;
         when =
