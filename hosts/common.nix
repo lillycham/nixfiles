@@ -43,7 +43,7 @@
       fish
       fzf
       git
-      gitAndTools.gh # Github CLI
+      gh # Github CLI
       helix
       ispell
       kitty
@@ -53,7 +53,6 @@
       nix-top
       onefetch
       powershell
-      racket
       smartmontools
       stack
       starship
@@ -62,6 +61,10 @@
       wget
       yarn
       yt-dlp
+      cargo
+      rustc
+      rust-analyzer
+      hydrus
     ];
 
     stateVersion = "22.05";

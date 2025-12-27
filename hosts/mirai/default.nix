@@ -5,7 +5,6 @@
 
   # Make sure the nix daemon always runs
   services = {
-    nix-daemon.enable = true;
     # emacs.enable = true;
   };
 
@@ -14,8 +13,7 @@
 
   # Install fonts
   fonts = {
-    fontDir.enable = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
       fira-code
       aileron
       go-font
@@ -38,7 +36,6 @@
       neovim
       gnupg
       git
-      pinentry
       nixd
       nixpkgs-fmt
       sketchybar
@@ -81,7 +78,7 @@
       auto-optimise-store = false;
     };
 
-    package = pkgs.nixUnstable;
+    package = pkgs.nixVersions.latest;
 
     # Enable automatic GC
     gc = {
@@ -89,4 +86,7 @@
       interval = { Weekday = 0; Hour = 0; Minute = 0; };
     };
   };
+
+  system.stateVersion = 6;
+  system.primaryUser = "lcham";
 }
