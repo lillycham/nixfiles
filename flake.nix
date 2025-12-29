@@ -55,7 +55,7 @@
       homeManagerConfFor = config:
         { ... }: {
           nixpkgs.overlays = [
-            nur.overlay
+            nur.overlays.default
           ];
           imports = [ config ];
         };

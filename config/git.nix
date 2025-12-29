@@ -38,7 +38,7 @@ let
 
     # JetBrains
     .idea
-    
+
     # Vim
     .swp
 
@@ -50,20 +50,20 @@ let
 in
 {
   programs.git = {
-    enable = true;
-    # Git user information
-    userName = "Lilly";
-    userEmail = "me@lillycham.com";
-    aliases = {
-      a  = "add";
-      s  = "stage";
-      st = "status";
-      co = "checkout";
-      P  = "push";
-      p  = "pull";
-      c  = "commit -m";      
-    };
-    extraConfig = {
+    settings = {
+      # Git user information
+      user.name = "Lilly";
+      user.email = "me@lillycham.com";
+      aliases = {
+        a  = "add";
+        s  = "stage";
+        st = "status";
+        co = "checkout";
+        P  = "push";
+        p  = "pull";
+        c  = "commit -m";
+      };
+
       core = {
         pager = "less";
         excludesfile = "~/.config/git/.gitignore_global";
@@ -71,6 +71,8 @@ in
       # Set default branch name to main, not master
       init = { defaultBranch = "main"; };
     };
+    enable = true;
+
   };
 
   home.file.gitignore_global = {
