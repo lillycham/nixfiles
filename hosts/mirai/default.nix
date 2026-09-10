@@ -1,4 +1,4 @@
-{ pkgs, config, lib, nixpkgs, nixpkgs-tny, darwin, ... }:
+{ pkgs, config, lib, nixpkgs, nixpkgs-tny, darwin, hermes-agent, ... }:
 {
   nix.package = pkgs.lixPackageSets.stable.lix;
   
@@ -48,6 +48,8 @@
       nixpkgs-fmt
       sketchybar
       jq
+      # mistral-vibe
+
       # ((pkgs.emacsPackagesFor pkgs.emacs-macport).emacsWithPackages (import ../../config/editors/epkgs.nix))
     ];
 

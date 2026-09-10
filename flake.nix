@@ -17,9 +17,11 @@
     };
 
     lem.url = "github:lem-project/lem";
+
+    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, nur, lem, ... }:
+  outputs = { self, nixpkgs, home-manager, darwin, nur, lem, hermes-agent, ... }:
     # Output for MacBook, hostname 'mirai'
     let
       mirai = darwin.lib.darwinSystem {

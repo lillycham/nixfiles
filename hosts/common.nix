@@ -67,10 +67,6 @@
       # rust-analyzer
       # hydrus
       racket
-
-      ### AI related tools
-      pi-coding-agent
-      # mistral-vibe
     ];
 
     stateVersion = "22.05";
