@@ -4,7 +4,7 @@
   # Files to import.
   imports = [
     #../config/alacritty.nix
-    #../config/editors/emacs.nix
+    ../config/editors/emacs.nix
     #../config/editors/nvim.nix
     ../config/editors/hx.nix
     ../config/git.nix
@@ -32,39 +32,45 @@
   home = {
     packages = with pkgs; [
       bash
-      cabal-install
-      cabextract
       cachix
       cloc
-      cmake
       curl
-      direnv # Direnv, to use w/nix shells
+      # direnv
       # dune_3
       fish
       fzf
+      ffmpeg
+      gallery-dl
+      ### git tools
       git
+      git-lfs
       gh # Github CLI
+      git-xet
+      
       helix
       ispell
       kitty
       # mercurial
       # mypy
-      neofetch
+      fastfetch
       nix-top
-      onefetch
       powershell
       smartmontools
-      stack
       starship
       tmux
       tree
       wget
-      yarn
       yt-dlp
-      cargo
-      rustc
-      rust-analyzer
-      hydrus
+      nh
+      # cargo
+      # rustc
+      # rust-analyzer
+      # hydrus
+      racket
+
+      ### AI related tools
+      pi-coding-agent
+      # mistral-vibe
     ];
 
     stateVersion = "22.05";

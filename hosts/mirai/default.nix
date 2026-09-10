@@ -1,11 +1,18 @@
 { pkgs, config, lib, nixpkgs, nixpkgs-tny, darwin, ... }:
 {
+  nix.package = pkgs.lixPackageSets.stable.lix;
+  
   # Import homebrew package config
   imports = [ ./brew.nix ];
 
   # Make sure the nix daemon always runs
   services = {
     # emacs.enable = true;
+  };
+
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
   };
 
   programs.zsh.enable = true;
@@ -23,25 +30,25 @@
     ];
   };
 
+  
+
   environment = {
     # Packages that should be available globally
     systemPackages = with pkgs; [
       home-manager
       iina
       iterm2
-      utm
       fish
       bash
       zsh
       neovim
-      gnupg
+      # gnupg
       git
       nixd
       nixpkgs-fmt
       sketchybar
-      lua5_4
       jq
-      #((pkgs.emacsPackagesFor pkgs.emacsMacport).emacsWithPackages (import ../../config/editors/epkgs.nix))
+      # ((pkgs.emacsPackagesFor pkgs.emacs-macport).emacsWithPackages (import ../../config/editors/epkgs.nix))
     ];
 
     # Set the Nix SSL cert. May not be necessary, but randomly had issues
@@ -77,8 +84,6 @@
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = false;
     };
-
-    package = pkgs.nixVersions.latest;
 
     # Enable automatic GC
     gc = {

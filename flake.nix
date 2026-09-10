@@ -15,9 +15,11 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    lem.url = "github:lem-project/lem";
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, nur }:
+  outputs = { self, nixpkgs, home-manager, darwin, nur, lem, ... }:
     # Output for MacBook, hostname 'mirai'
     let
       mirai = darwin.lib.darwinSystem {
@@ -56,6 +58,7 @@
         { ... }: {
           nixpkgs.overlays = [
             nur.overlays.default
+            lem.overlays.default
           ];
           imports = [ config ];
         };

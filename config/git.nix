@@ -71,6 +71,9 @@ in
       # Set default branch name to main, not master
       init = { defaultBranch = "main"; };
     };
+
+    lfs.enable = true;
+    
     enable = true;
 
   };
