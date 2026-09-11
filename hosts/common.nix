@@ -69,6 +69,12 @@
       racket
     ];
 
+    
+    # programs.pi-coding-agent = {
+    #   enable = true;
+    #   extraPackages = [ pkgs.nodejs pkgs.bun ];
+    # };
+
     stateVersion = "22.05";
   };
 }

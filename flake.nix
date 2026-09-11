@@ -16,12 +16,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lem.url = "github:lem-project/lem";
-
-    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, nur, lem, hermes-agent, ... }:
+  outputs = { self, nixpkgs, home-manager, darwin, nur, ... }:
     # Output for MacBook, hostname 'mirai'
     let
       mirai = darwin.lib.darwinSystem {
@@ -60,7 +57,6 @@
         { ... }: {
           nixpkgs.overlays = [
             nur.overlays.default
-            lem.overlays.default
           ];
           imports = [ config ];
         };

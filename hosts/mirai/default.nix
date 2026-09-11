@@ -1,4 +1,4 @@
-{ pkgs, config, lib, nixpkgs, nixpkgs-tny, darwin, hermes-agent, ... }:
+{ pkgs, config, lib, nixpkgs, nixpkgs-tny, darwin, ... }:
 {
   nix.package = pkgs.lixPackageSets.stable.lix;
   
@@ -48,6 +48,19 @@
       nixpkgs-fmt
       sketchybar
       jq
+
+      ### AI Tools
+      (pkgs.symlinkJoin {
+        name = "pi-coding-agent-wrapped";
+        paths = [ pkgs.pi-coding-agent ];
+
+        nativeBuildInputs = [ pkgs.makeWrapper ];
+        # Overwrite the symlinked 'pi' binary with an environment-aware wrapper
+        postBuild = ''
+          wrapProgram $out/bin/pi \
+            --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.nodejs pkgs.bun ]}
+        '';
+      })
       # mistral-vibe
 
       # ((pkgs.emacsPackagesFor pkgs.emacs-macport).emacsWithPackages (import ../../config/editors/epkgs.nix))
