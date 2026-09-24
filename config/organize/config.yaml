@@ -1,4 +1,4 @@
-# Sort ~/Downloads into folders by file type.
+# Sort ~/Downloads and ~/Pictures/memes into folders by file type.
 # Try changes with `organize sim` before `organize run`.
 #
 # Files that match no rule stay where they are. Partial downloads
@@ -82,3 +82,34 @@ rules:
       - extension: [ttf, otf, woff, woff2]
     actions:
       - move: { dest: ~/Downloads/Fonts/, on_conflict: rename_new }
+
+  # ~/Pictures/memes: images, GIFs and videos get their own folders. Any
+  # other folders go into Collections.
+  - name: Meme GIFs
+    locations: &memes ~/Pictures/memes
+    filters:
+      - extension: gif
+    actions:
+      - move: { dest: ~/Pictures/memes/GIFs/, on_conflict: rename_new }
+
+  - name: Meme images
+    locations: *memes
+    filters:
+      - extension: [png, webp, jpg, jpeg, jfif, heic, avif, bmp]
+    actions:
+      - move: { dest: ~/Pictures/memes/Images/, on_conflict: rename_new }
+
+  - name: Meme videos
+    locations: *memes
+    filters:
+      - extension: [mp4, mov, webm, mkv, m4v]
+    actions:
+      - move: { dest: ~/Pictures/memes/Video/, on_conflict: rename_new }
+
+  - name: Meme collections
+    locations: *memes
+    targets: dirs
+    filters:
+      - regex: '^(?!(Images|GIFs|Video|Collections)$)'
+    actions:
+      - move: { dest: ~/Pictures/memes/Collections/, on_conflict: rename_new }
