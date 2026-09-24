@@ -4,6 +4,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
+    # Emacs and its packages are built from this nixpkgs, not the main one.
+    # nixpkgs doesn't cache emacs packages, so updating it rebuilds them all.
+    # Update it on purpose with `nix flake update nixpkgs-emacs`.
+    nixpkgs-emacs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
     nur.url = "github:nix-community/nur";
 
     home-manager = {
@@ -18,7 +23,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, nur, ... }:
+  outputs = inputs@{ self, nixpkgs, home-manager, darwin, nur, ... }:
     # Output for MacBook, hostname 'mirai'
     let
       mirai = darwin.lib.darwinSystem {
@@ -26,6 +31,7 @@
         modules = [
           home-manager.darwinModules.home-manager
           {
+            home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.lcham =
               homeManagerConfFor ./hosts/mirai/home.nix;
           }
@@ -39,6 +45,7 @@
           home-manager.nixosModules.home-manager
           ./hosts/ikigai/configuration.nix
           {
+            home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.users.lcham =
               homeManagerConfFor ./hosts/ikigai/home.nix;
           }

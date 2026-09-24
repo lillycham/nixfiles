@@ -4,6 +4,8 @@
     shellAbbrs = {      
       a = "acme";
       drs = "darwin-rebuild switch --flake ~/nixfiles";
+      # Update every flake input except nixpkgs-emacs, so emacs doesn't rebuild
+      nfu = "nix flake update nixpkgs home-manager darwin nur --flake ~/nixfiles";
       e = "emacs";
       g = "git";
       gc = "nix store gc";
