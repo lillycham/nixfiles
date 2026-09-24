@@ -24,6 +24,9 @@
       # input-fonts
       roboto
       lmmath
+      # Icon fonts for emacs: nerd-icons (doom-modeline) and all-the-icons (treemacs)
+      nerd-fonts.symbols-only
+      emacs-all-the-icons-fonts
     ];
   };
 
