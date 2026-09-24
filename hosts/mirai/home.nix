@@ -41,6 +41,7 @@ in
   # Import shared nix configs
   imports = [
     ../common.nix
+    ../../config/hydrus.nix
     ../../config/organize.nix
   ];
   home = {
