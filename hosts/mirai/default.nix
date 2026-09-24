@@ -62,6 +62,8 @@
         '';
       })
 
+      claude-code
+
       # ((pkgs.emacsPackagesFor pkgs.emacs-macport).emacsWithPackages (import ../../config/editors/epkgs.nix))
     ];
 
