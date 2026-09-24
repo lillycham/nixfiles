@@ -1,59 +1,48 @@
 # This file defines a function which returns a list of emacs packages.
-epkgs: 
+# It is the only source of packages for ~/.emacs.d, which doesn't use package.el.
+epkgs:
 with epkgs; [
-  agda2-mode
-  apheleia
   all-the-icons
-  atom-one-dark-theme
-  ayu-theme
+  apheleia
   auctex
-  company
-  csharp-mode
-  centaur-tabs
   corfu
+  csharp-mode
   dashboard
   doom-modeline
-  elcord
-  fsharp-mode
   flycheck
   flycheck-swift
+  fsharp-mode
   fzf
   go-mode
   haskell-mode
   js2-mode
+  latex-preview-pane
+  ligature
   lsp-haskell
+  lsp-mode
+  lsp-treemacs
+  lsp-ui
   magit
   nix-mode
   ob-swiftui
   org
   org-bullets
-  org-roam
-  company-flx
-  company-ipa
-  dired-sidebar
-  evil
-  latex-preview-pane
-  llvm-mode
-  lsp-treemacs
-  lsp-ui
-  meow
   org-preview-html
+  org-roam
   org-variable-pitch
   page-break-lines
   projectile
   python-mode
   racket-mode
   rainbow-delimiters
+  rustic
   slime
-  smooth-scroll
   swift-mode
   treemacs
   treemacs-all-the-icons
   treemacs-magit
   typescript-mode
-  use-package
   vterm
   web-mode
-  which-key
   zig-mode
 ]
