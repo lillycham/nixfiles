@@ -1,9 +1,6 @@
-{ pkgs, config, lib, nixpkgs, nixpkgs-tny, darwin, ... }:
+{ pkgs, config, lib, ... }:
 {
   nix.package = pkgs.lixPackageSets.stable.lix;
-  
-  # Import homebrew package config
-  imports = [ ./brew.nix ];
 
   # Make sure the nix daemon always runs
   services = {
@@ -76,15 +73,9 @@
 
   users = {
     users.lcham = {
-      home = /Users/lcham;
+      home = "/Users/lcham";
       shell = pkgs.fish;
       description = "Lilly Cham";
-    };
-
-    groups = {
-      devel = {
-        members = [ "lcham" ];
-      };
     };
   };
 

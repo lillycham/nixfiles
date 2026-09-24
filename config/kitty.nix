@@ -6,7 +6,7 @@ in
   programs.kitty = { 
     enable = true;
     settings = {
-      font_size = if stdenv.isLinux then "12.0" else "14.0";
+      font_size = if stdenv.hostPlatform.isLinux then "12.0" else "14.0";
       font_family = "Liga SFMono Nerd Font";
       bold_font = "auto";
       italic_font = "auto";

@@ -31,7 +31,6 @@
           }
           ./hosts/mirai/default.nix
         ];
-        inputs = { inherit darwin home-manager nixpkgs; };
       };
       # Output for NixOS PC
       ikigai = nixpkgs.lib.nixosSystem {
@@ -45,13 +44,6 @@
           }
         ];
       };
-      oracle = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.aarch64-linux;
-        modules = [
-          homeManagerConfFor
-          ./hosts/oracle-arm/home.nix
-        ];
-      };
       # Call a home manager config with overlays
       homeManagerConfFor = config:
         { ... }: {
@@ -63,9 +55,7 @@
     in
     {
       darwinConfigurations.mirai = mirai;
-      defaultPackage.aarch64-darwin = mirai.system;
-      homeConfigurations.oracle = oracle;
+      packages.aarch64-darwin.default = mirai.system;
       nixosConfigurations."ikigai" = ikigai;
-      defaultPackage.aarch64-linux = oracle.activationPackage;
     };
 }

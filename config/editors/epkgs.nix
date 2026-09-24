@@ -4,7 +4,6 @@ with epkgs; [
   agda2-mode
   apheleia
   all-the-icons
-  treemacs-all-the-icons
   atom-one-dark-theme
   ayu-theme
   auctex

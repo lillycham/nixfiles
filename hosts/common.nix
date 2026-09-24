@@ -1,4 +1,4 @@
-{ config, pkgs, nixpkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Files to import.
@@ -9,7 +9,6 @@
     ../config/editors/hx.nix
     ../config/git.nix
     ../config/kitty.nix
-    #../config/langs/python.nix
     #../config/langs/agda.nix
     #../config/langs/latex.nix
     ../config/neofetch.nix
