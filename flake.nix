@@ -56,6 +56,7 @@
         { ... }: {
           nixpkgs.overlays = [
             nur.overlays.default
+            (import ./overlays)
           ];
           imports = [ config ];
         };

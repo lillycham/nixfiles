@@ -1,0 +1,84 @@
+# Sort ~/Downloads into folders by file type.
+# Try changes with `organize sim` before `organize run`.
+#
+# Files that match no rule stay where they are. Partial downloads
+# (.crdownload, .part, Safari's .download) match no rule, so they are safe.
+
+rules:
+  - name: Images
+    locations: &downloads ~/Downloads
+    filters:
+      - extension: [png, gif, webp, jpg, jpeg, jfif, heic, svg, avif, bmp, tiff]
+    actions:
+      - move: { dest: ~/Downloads/Images/, on_conflict: rename_new }
+
+  - name: Video
+    locations: *downloads
+    filters:
+      - extension: [webm, mkv, mp4, mov, avi, m4v]
+    actions:
+      - move: { dest: ~/Downloads/Video/, on_conflict: rename_new }
+
+  - name: Audio
+    locations: *downloads
+    filters:
+      - extension: [m4a, mp3, flac, wav, ogg, opus, aiff]
+    actions:
+      - move: { dest: ~/Downloads/Audio/, on_conflict: rename_new }
+
+  - name: Books
+    locations: *downloads
+    filters:
+      - extension: [azw3, epub, mobi, mhtml, djvu, cbz, cbr]
+    actions:
+      - move: { dest: ~/Downloads/Books/, on_conflict: rename_new }
+
+  - name: Documents
+    locations: *downloads
+    filters:
+      - extension: [pdf, csv, txt, md, html, json, m3u8, doc, docx, xls, xlsx, ppt, pptx, odt, rtf]
+    actions:
+      - move: { dest: ~/Downloads/Documents/, on_conflict: rename_new }
+
+  - name: Installers
+    locations: *downloads
+    filters:
+      - extension: [dmg, pkg, exe, msi, crx, xpi, jar, bin]
+    actions:
+      - move: { dest: ~/Downloads/Installers/, on_conflict: rename_new }
+
+  - name: Installer apps
+    locations: *downloads
+    targets: dirs
+    filters:
+      - regex: '\.app$'
+    actions:
+      - move: { dest: ~/Downloads/Installers/, on_conflict: rename_new }
+
+  - name: Archives
+    locations: *downloads
+    filters:
+      - extension: [zip, 7z, rar, gz, tgz, xz, bz2, zst, tar]
+    actions:
+      - move: { dest: ~/Downloads/Archives/, on_conflict: rename_new }
+
+  - name: Config
+    locations: *downloads
+    filters:
+      - extension: [mobileconfig, itermcolors, ttc, ttr, ttrm]
+    actions:
+      - move: { dest: ~/Downloads/Config/, on_conflict: rename_new }
+
+  - name: Code
+    locations: *downloads
+    filters:
+      - extension: [js, ts, py, c, h, rs, go, sh, el, nix, hs, lisp, rkt]
+    actions:
+      - move: { dest: ~/Downloads/Code/, on_conflict: rename_new }
+
+  - name: Fonts
+    locations: *downloads
+    filters:
+      - extension: [ttf, otf, woff, woff2]
+    actions:
+      - move: { dest: ~/Downloads/Fonts/, on_conflict: rename_new }

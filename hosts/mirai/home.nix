@@ -39,7 +39,10 @@ let
 in
 {
   # Import shared nix configs
-  imports = [ ../common.nix ];
+  imports = [
+    ../common.nix
+    ../../config/organize.nix
+  ];
   home = {
     packages = [ emacsClientApp ];
   };
