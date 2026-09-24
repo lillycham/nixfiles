@@ -58,7 +58,6 @@
             --prefix PATH : ${pkgs.lib.makeBinPath [ pkgs.nodejs pkgs.bun ]}
         '';
       })
-      # mistral-vibe
 
       # ((pkgs.emacsPackagesFor pkgs.emacs-macport).emacsWithPackages (import ../../config/editors/epkgs.nix))
     ];
