@@ -18,13 +18,11 @@
     };
 
     # interactive init
-    shellInit = ''
-      starship init fish | source
+    interactiveShellInit = ''
       # Fancy regex based flake run/build commands
       abbr -a nix_run_flake --position command --regex ".+#.+" --function nix_runner
       abbr -a L --position anywhere --set-cursor "% | less"
       abbr -a --position anywhere -- -sht --show-trace
-      direnv hook fish | source
     '';
     
     functions = {

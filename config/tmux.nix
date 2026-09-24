@@ -12,7 +12,6 @@
       # Statusbar style
       set -g window-status-current-format "#[fg=#ffb6c1]\ue0b6#[bg=#ffb6c1] #[fg=#9866C7]#I #[fg=black] λ #W #[fg=#9866C7]   #H   #[fg=black] %a %d %b #[fg=#9866C7]%R #[bg=default]#[fg=#ffb6c1]\ue0b4 "
       set -g window-status-format "#[fg=#ffb6c1]\ue0b6#[fg=#9866C7]#[fg=black]#[bg=#ffb6c1]#I #[bg=#ffb6c1]#[fg=black] #W#[fg=black]#[bg=default]#[bg=default]#[fg=#ffb6c1]\ue0b4"
-      set -g status-style bg='#ffb6c1',fg="#000000"
       set -g status-interval 1
       set -g status-style fg=black,bg=default
       set -g status-left ""
@@ -30,12 +29,12 @@
       set -g @plugin 'tmux-plugins/tmux-sensible'
       set -g @plugin 'tmux-plugins/tmux-resurrect'
 
-      # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-      run '~/.tmux/plugins/tpm/tpm'
-
       # so that escapes register immidiately in vim
       set -sg escape-time 1
       set -g focus-events on
+
+      # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+      run '~/.tmux/plugins/tpm/tpm'
     '';
   };
 }

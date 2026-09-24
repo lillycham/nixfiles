@@ -54,7 +54,7 @@ in
       # Git user information
       user.name = "Lilly";
       user.email = "me@lillycham.com";
-      aliases = {
+      alias = {
         a  = "add";
         s  = "stage";
         st = "status";
