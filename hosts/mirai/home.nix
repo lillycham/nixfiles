@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   emacs = config.services.emacs.package;
 
@@ -52,6 +52,13 @@ in
 
   # Run Emacs as a daemon under launchd. Uses the package from programs.emacs.
   services.emacs.enable = true;
+
+  # Start the daemon from inside Emacs.app, not bin/emacs, so macOS finds the
+  # app bundle and shows the Emacs icon instead of a blank one.
+  launchd.agents.emacs.config.ProgramArguments = lib.mkForce [
+    "${emacs}/Applications/Emacs.app/Contents/MacOS/Emacs"
+    "--fg-daemon"
+  ];
 
   # launchd starts agents with a minimal PATH, so give the daemon the Nix
   # profiles too (for git, language servers, etc.).
