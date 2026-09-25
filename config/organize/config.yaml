@@ -116,6 +116,18 @@ rules:
     actions:
       - move: { dest: ~/Pictures/memes/Video/, on_conflict: rename_new }
 
+  # Byte-identical copies in Images, GIFs and Video go to the Trash. The
+  # oldest copy stays. Collections are left alone, since they're curated.
+  - name: Trash duplicate memes
+    locations:
+      - ~/Pictures/memes/Images
+      - ~/Pictures/memes/GIFs
+      - ~/Pictures/memes/Video
+    filters:
+      - duplicate: { detect_original_by: created }
+    actions:
+      - trash
+
   - name: Meme collections
     locations: *memes
     targets: dirs
