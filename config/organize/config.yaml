@@ -124,3 +124,61 @@ rules:
       - regex: '^Screen(shot| Recording) (?P<year>\d{4})-(?P<month>\d{2})-'
     actions:
       - move: { dest: '~/Pictures/Screenshots/{regex.year}-{regex.month}/', on_conflict: rename_new }
+
+  # ~/Downloads clean-up. These rules depend on time, so the agent also runs
+  # once a day.
+
+  # Installers are rarely needed again after a month. Their modified time is
+  # the download time.
+  - name: Trash old installers
+    locations: &installers ~/Downloads/Installers
+    filters:
+      - lastmodified: { days: 30 }
+    actions:
+      - trash
+
+  - name: Trash old installer apps
+    locations: *installers
+    targets: dirs
+    filters:
+      - lastmodified: { days: 30 }
+    actions:
+      - trash
+
+  # Move things that nobody has opened or changed for 90 days into
+  # Old/<category>/. date_lastused fails on files that were never opened,
+  # so this checks both dates itself.
+  - name: Move stale downloads to Old
+    locations: &categories
+      - ~/Downloads/Images
+      - ~/Downloads/Video
+      - ~/Downloads/Audio
+      - ~/Downloads/Books
+      - ~/Downloads/Documents
+      - ~/Downloads/Archives
+      - ~/Downloads/Config
+      - ~/Downloads/Code
+      - ~/Downloads/Fonts
+      - ~/Downloads/Apps & Tools
+      - ~/Downloads/Misc
+    filters: &stale
+      - python: |
+          import subprocess
+          from datetime import datetime, timedelta, timezone
+          last = datetime.fromtimestamp(path.stat().st_mtime, timezone.utc)
+          used = subprocess.run(
+              ["mdls", "-raw", "-name", "kMDItemLastUsedDate", str(path)],
+              capture_output=True, text=True,
+          ).stdout.strip()
+          if used and used != "(null)":
+              last = max(last, datetime.strptime(used, "%Y-%m-%d %H:%M:%S %z"))
+          return last < datetime.now(timezone.utc) - timedelta(days=90)
+    actions:
+      - move: { dest: '~/Downloads/Old/{path.parent.name}/', on_conflict: rename_new }
+
+  - name: Move stale download folders to Old
+    locations: *categories
+    targets: dirs
+    filters: *stale
+    actions:
+      - move: { dest: '~/Downloads/Old/{path.parent.name}/', on_conflict: rename_new }
