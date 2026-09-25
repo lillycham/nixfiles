@@ -2,6 +2,7 @@
 let
   home = config.home.homeDirectory;
   webPort = "45880";
+  memeFolders = map (d: "${home}/Pictures/memes/${d}") [ "Images" "GIFs" "Video" ];
 in
 {
   home.packages = [ pkgs.hydrus ];
@@ -37,6 +38,25 @@ in
       RunAtLoad = true;
       KeepAlive = true;
       StandardErrorPath = "${home}/Library/Logs/hydrus-web.log";
+    };
+  };
+
+  # Import new memes into hydrus with WD tagger and OCR tags. It runs when a
+  # meme folder changes, and every hour in case hydrus was closed before.
+  # It needs an API key in ~/.config/hydrus-tagger/api-key and an "ai tags"
+  # tag service in hydrus.
+  launchd.agents.hydrus-tagger = {
+    enable = true;
+    config = {
+      ProgramArguments = [ "${pkgs.hydrus-tagger}/bin/hydrus-tagger" ] ++ memeFolders;
+      WatchPaths = memeFolders;
+      StartInterval = 3600;
+      RunAtLoad = true;
+      ProcessType = "Background";
+      LowPriorityIO = true;
+      Nice = 10;
+      StandardOutPath = "${home}/Library/Logs/hydrus-tagger.log";
+      StandardErrorPath = "${home}/Library/Logs/hydrus-tagger.log";
     };
   };
 }
