@@ -14,6 +14,7 @@
         "${config.home.homeDirectory}/Downloads"
         "${config.home.homeDirectory}/Pictures/memes"
         "${config.home.homeDirectory}/Pictures/Screenshots"
+        "${config.home.homeDirectory}/Documents"
       ];
       StartInterval = 86400;
       RunAtLoad = true;

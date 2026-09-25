@@ -1,5 +1,5 @@
-# Sort ~/Downloads and ~/Pictures/memes into folders by file type, and
-# ~/Pictures/Screenshots into folders by month.
+# Sort ~/Downloads and ~/Pictures/memes into folders by file type,
+# ~/Pictures/Screenshots into folders by month, and ~/Documents by content.
 # Try changes with `organize sim` before `organize run`.
 #
 # Files that match no rule stay where they are. Partial downloads
@@ -27,17 +27,26 @@ rules:
     actions:
       - move: { dest: ~/Downloads/Audio/, on_conflict: rename_new }
 
+  # Books and documents go to ~/Documents. The "Sort documents" rule below
+  # sorts PDFs and office files there by content.
   - name: Books
     locations: *downloads
     filters:
       - extension: [azw3, epub, mobi, mhtml, djvu, cbz, cbr]
     actions:
-      - move: { dest: ~/Downloads/Books/, on_conflict: rename_new }
+      - move: { dest: ~/Documents/Books/, on_conflict: rename_new }
+
+  - name: Documents to sort
+    locations: *downloads
+    filters:
+      - extension: [pdf, doc, docx, odt, rtf, pages]
+    actions:
+      - move: { dest: ~/Documents/, on_conflict: rename_new }
 
   - name: Documents
     locations: *downloads
     filters:
-      - extension: [pdf, csv, txt, md, html, json, m3u8, doc, docx, xls, xlsx, ppt, pptx, odt, rtf]
+      - extension: [csv, txt, md, html, json, m3u8, xls, xlsx, ppt, pptx]
     actions:
       - move: { dest: ~/Downloads/Documents/, on_conflict: rename_new }
 
@@ -153,7 +162,6 @@ rules:
       - ~/Downloads/Images
       - ~/Downloads/Video
       - ~/Downloads/Audio
-      - ~/Downloads/Books
       - ~/Downloads/Documents
       - ~/Downloads/Archives
       - ~/Downloads/Config
@@ -182,3 +190,40 @@ rules:
     filters: *stale
     actions:
       - move: { dest: '~/Downloads/Old/{path.parent.name}/', on_conflict: rename_new }
+
+  # ~/Documents: sort documents at the top level into Books, Papers,
+  # Receipts, Bank Statements or Misc. PDFs are sorted by page count and the
+  # text on their first two pages. Folders and other files stay put.
+  - name: Sort documents
+    locations: ~/Documents
+    filters:
+      - extension: [pdf, epub, mobi, azw3, djvu, cbz, cbr, doc, docx, odt, rtf, pages]
+      - python: |
+          import re
+          from pdfminer.high_level import extract_text
+          from pdfminer.pdfpage import PDFPage
+          ext = path.suffix.lower()
+          if ext in {".epub", ".mobi", ".azw3", ".djvu", ".cbz", ".cbr"}:
+              return {"category": "Books"}
+          if ext != ".pdf":
+              return {"category": "Misc"}
+          try:
+              with path.open("rb") as f:
+                  pages = sum(1 for _ in PDFPage.get_pages(f))
+              text = extract_text(str(path), maxpages=2)
+          except Exception:
+              return {"category": "Misc"}
+          text = " ".join(text.split())
+          def has(pattern):
+              return re.search(pattern, text, re.IGNORECASE)
+          if pages <= 20 and has(r"opening balance|closing balance|statement period|sort code"):
+              return {"category": "Bank Statements"}
+          if pages <= 5 and has(r"\b(receipt|invoice|order (number|confirmation)|amount paid|date paid|total due)\b"):
+              return {"category": "Receipts"}
+          if has(r"\babstract\b|thesis submitted|proceedings|\bdoi\b|arxiv") or "proceedings" in path.name.lower():
+              return {"category": "Papers"}
+          if pages >= 100:
+              return {"category": "Books"}
+          return {"category": "Misc"}
+    actions:
+      - move: { dest: '~/Documents/{python.category}/', on_conflict: rename_new }
