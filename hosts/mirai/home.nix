@@ -45,7 +45,10 @@ in
     ../../config/organize.nix
   ];
   home = {
-    packages = [ emacsClientApp ];
+    packages = [
+      emacsClientApp
+      pkgs.czkawka # Duplicate and similar-file finder. Run krokiet for the GUI.
+    ];
   };
 
   # Copy apps instead of symlinking them, so Spotlight indexes them.
