@@ -4,7 +4,7 @@
 
   xdg.configFile."organize/config.yaml".source = ./organize/config.yaml;
 
-  # Sort ~/Downloads and ~/Pictures/memes each time something in them changes.
+  # Sort the watched folders each time something in them changes.
   launchd.agents.organize = {
     enable = true;
     config = {
@@ -12,6 +12,7 @@
       WatchPaths = [
         "${config.home.homeDirectory}/Downloads"
         "${config.home.homeDirectory}/Pictures/memes"
+        "${config.home.homeDirectory}/Pictures/Screenshots"
       ];
       RunAtLoad = true;
       StandardOutPath = "${config.home.homeDirectory}/Library/Logs/organize.log";

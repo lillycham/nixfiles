@@ -1,4 +1,5 @@
-# Sort ~/Downloads and ~/Pictures/memes into folders by file type.
+# Sort ~/Downloads and ~/Pictures/memes into folders by file type, and
+# ~/Pictures/Screenshots into folders by month.
 # Try changes with `organize sim` before `organize run`.
 #
 # Files that match no rule stay where they are. Partial downloads
@@ -113,3 +114,13 @@ rules:
       - regex: '^(?!(Images|GIFs|Video|Collections)$)'
     actions:
       - move: { dest: ~/Pictures/memes/Collections/, on_conflict: rename_new }
+
+  # ~/Pictures/Screenshots: file screenshots and screen recordings by the
+  # month in their name, e.g. 2026-09/. macOS writes a hidden temp file
+  # first, and organize skips hidden files.
+  - name: Screenshots by month
+    locations: ~/Pictures/Screenshots
+    filters:
+      - regex: '^Screen(shot| Recording) (?P<year>\d{4})-(?P<month>\d{2})-'
+    actions:
+      - move: { dest: '~/Pictures/Screenshots/{regex.year}-{regex.month}/', on_conflict: rename_new }
