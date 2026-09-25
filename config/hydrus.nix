@@ -1,8 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   home = config.home.homeDirectory;
   webPort = "45880";
   memeFolders = map (d: "${home}/Pictures/memes/${d}") [ "Images" "GIFs" "Video" ];
+  # Files dropped here are imported, then moved to the Trash.
+  inbox = "${home}/Pictures/Hydrus Inbox";
 in
 {
   home.packages = [ pkgs.hydrus ];
@@ -41,15 +43,16 @@ in
     };
   };
 
-  # Import new memes into hydrus with WD tagger and OCR tags. It runs when a
-  # meme folder changes, and every hour in case hydrus was closed before.
+  # Import new memes, and anything in the inbox, into hydrus with WD tagger and
+  # OCR tags. It runs when a watched folder changes, and every hour in case
+  # hydrus was closed before.
   # It needs an API key in ~/.config/hydrus-tagger/api-key and an "ai tags"
   # tag service in hydrus.
   launchd.agents.hydrus-tagger = {
     enable = true;
     config = {
-      ProgramArguments = [ "${pkgs.hydrus-tagger}/bin/hydrus-tagger" ] ++ memeFolders;
-      WatchPaths = memeFolders;
+      ProgramArguments = [ "${pkgs.hydrus-tagger}/bin/hydrus-tagger" ] ++ memeFolders ++ [ "--inbox" inbox ];
+      WatchPaths = memeFolders ++ [ inbox ];
       StartInterval = 3600;
       RunAtLoad = true;
       ProcessType = "Background";
@@ -59,4 +62,8 @@ in
       StandardErrorPath = "${home}/Library/Logs/hydrus-tagger.log";
     };
   };
+
+  home.activation.hydrusInbox = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run mkdir -p "${inbox}"
+  '';
 }
