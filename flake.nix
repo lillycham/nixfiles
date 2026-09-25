@@ -11,6 +11,13 @@
 
     nur.url = "github:nix-community/nur";
 
+    # My NUR repository, used directly until nix-community/NUR#1235 is merged.
+    # After that, use pkgs.nur.repos.lillycham and remove this input.
+    lillycham-nur = {
+      url = "github:lillycham/nur-packages";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,6 +63,9 @@
         { ... }: {
           nixpkgs.overlays = [
             nur.overlays.default
+            (final: prev: {
+              inherit (inputs.lillycham-nur.legacyPackages.${prev.stdenv.hostPlatform.system}) hydrus-tagger;
+            })
             (import ./overlays)
           ];
           imports = [ config ];

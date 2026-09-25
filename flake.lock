@@ -61,7 +61,43 @@
         "type": "github"
       }
     },
+    "lillycham-nur": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790303924,
+        "narHash": "sha256-ksc/l6oq/kPlqwM/nYCDGEK0fWyr6cDTQ3vJ5cGbZ0Y=",
+        "owner": "lillycham",
+        "repo": "nur-packages",
+        "rev": "0cffbcb874292713aeb241a6b22c3a53caac42ee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lillycham",
+        "repo": "nur-packages",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1790178388,
+        "narHash": "sha256-kK3t7gwoz4Nx8RF46cs1Xz/skKNcK7y3KYP+gGqX6W8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "00455b0a3690d3f5dc61e9aef4277dc86235b73f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-emacs": {
       "locked": {
         "lastModified": 1790178388,
         "narHash": "sha256-kK3t7gwoz4Nx8RF46cs1Xz/skKNcK7y3KYP+gGqX6W8=",
@@ -116,25 +152,10 @@
       "inputs": {
         "darwin": "darwin",
         "home-manager": "home-manager",
+        "lillycham-nur": "lillycham-nur",
         "nixpkgs": "nixpkgs",
-        "nur": "nur",
-        "nixpkgs-emacs": "nixpkgs-emacs"
-      }
-    },
-    "nixpkgs-emacs": {
-      "locked": {
-        "lastModified": 1790178388,
-        "narHash": "sha256-kK3t7gwoz4Nx8RF46cs1Xz/skKNcK7y3KYP+gGqX6W8=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "00455b0a3690d3f5dc61e9aef4277dc86235b73f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
+        "nixpkgs-emacs": "nixpkgs-emacs",
+        "nur": "nur"
       }
     }
   },
