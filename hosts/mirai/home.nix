@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
   emacs = config.services.emacs.package;
 
@@ -43,7 +43,22 @@ in
     ../common.nix
     ../../config/hydrus.nix
     ../../config/organize.nix
+    inputs.nibble.homeModules.default
   ];
+
+  # A small local model on demand. `nibble serve` runs under launchd and holds
+  # no model until something connects. Settings live here, so nibble's own
+  # settings page is read-only.
+  services.nibble = {
+    enable = true;
+    gui.enable = true;
+    # Models stay outside the store: they are large, and easy to swap.
+    model = "${config.home.homeDirectory}/.local/share/nibble/models/Qwen3-4B-Instruct-2507-4bit";
+    # What chats and Claude's delegated tasks may read. launchd starts the
+    # server in /, so without this they could read nothing.
+    settings.roots = [ "~/devel" "~/nixfiles" "~/Writing" ];
+  };
+
   home = {
     packages = [
       emacsClientApp

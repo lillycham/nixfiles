@@ -81,6 +81,26 @@
         "type": "github"
       }
     },
+    "nibble": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790984124,
+        "narHash": "sha256-jlOtonssX89bk+EkkIaeKhpZe2yBvxa1qiXRAPvdyqY=",
+        "owner": "lillycham",
+        "repo": "nibble",
+        "rev": "caeb62b74ce550251f97b7060810a426acb06f96",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lillycham",
+        "repo": "nibble",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1790178388,
@@ -153,6 +173,7 @@
         "darwin": "darwin",
         "home-manager": "home-manager",
         "lillycham-nur": "lillycham-nur",
+        "nibble": "nibble",
         "nixpkgs": "nixpkgs",
         "nixpkgs-emacs": "nixpkgs-emacs",
         "nur": "nur"

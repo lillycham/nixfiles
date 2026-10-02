@@ -28,6 +28,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # My local-model harness. Taken as a flake, not from NUR, for its
+    # home-manager module.
+    nibble = {
+      url = "github:lillycham/nibble";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, darwin, nur, ... }:
