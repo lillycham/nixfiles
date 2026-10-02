@@ -2,9 +2,11 @@
 {
   nix.package = pkgs.lixPackageSets.stable.lix;
 
-  # Make sure the nix daemon always runs
   services = {
     # emacs.enable = true;
+
+    # Run tailscaled and install the tailscale CLI. Log in with `tailscale up`.
+    tailscale.enable = true;
   };
 
   programs.gnupg.agent = {
