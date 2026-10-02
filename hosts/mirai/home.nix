@@ -48,6 +48,7 @@ in
     packages = [
       emacsClientApp
       pkgs.czkawka # Duplicate and similar-file finder. Run krokiet for the GUI.
+      pkgs.grandperspective # Disk usage shown as a treemap.
       pkgs.sillytavern # Chat frontend for LLMs. Serves on http://localhost:8000.
     ];
   };
