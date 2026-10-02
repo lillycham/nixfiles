@@ -23,8 +23,10 @@ with epkgs; [
   lsp-treemacs
   lsp-ui
   magit
+  markdown-mode
   nix-mode
   ob-swiftui
+  olivetti
   org
   org-bullets
   org-preview-html
@@ -32,7 +34,6 @@ with epkgs; [
   org-variable-pitch
   page-break-lines
   projectile
-  python-mode
   racket-mode
   rainbow-delimiters
   rustic
@@ -44,5 +45,6 @@ with epkgs; [
   typescript-mode
   vterm
   web-mode
+  writeroom-mode
   zig-mode
 ]
