@@ -95,14 +95,27 @@
     settings = {
       experimental-features = [ "nix-command" "flakes" ];
       auto-optimise-store = false;
+      max-jobs = "auto";
+      cores = 0;
+      builders-use-substitutes = true;
     };
+
+    # Dedupe the store with hardlinks on a schedule. This is safer than
+    # auto-optimise-store on macOS.
+    optimise.automatic = true;
 
     # Enable automatic GC
     gc = {
       automatic = true;
       interval = { Weekday = 0; Hour = 0; Minute = 0; };
+      options = "--delete-older-than 14d";
     };
   };
+
+  # Spotlight indexing of the Nix store wastes CPU and IO.
+  system.activationScripts.postActivation.text = ''
+    /usr/bin/mdutil -i off /nix >/dev/null 2>&1 || true
+  '';
 
   system.stateVersion = 6;
   system.primaryUser = "lcham";
