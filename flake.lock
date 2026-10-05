@@ -88,15 +88,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1790984124,
-        "narHash": "sha256-jlOtonssX89bk+EkkIaeKhpZe2yBvxa1qiXRAPvdyqY=",
+        "lastModified": 1790992611,
+        "narHash": "sha256-yFTyHIwRW/xrb/oouOKRiITOJlifCghh1rxYkj9aMDc=",
         "owner": "lillycham",
         "repo": "nibble",
-        "rev": "caeb62b74ce550251f97b7060810a426acb06f96",
+        "rev": "668fa601755f5c55b2928d576ff6a1f3565c4df6",
         "type": "github"
       },
       "original": {
         "owner": "lillycham",
+        "ref": "dev",
         "repo": "nibble",
         "type": "github"
       }

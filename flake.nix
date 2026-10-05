@@ -29,9 +29,9 @@
     };
 
     # My local-model harness. Taken as a flake, not from NUR, for its
-    # home-manager module.
+    # home-manager module. Tracks the dev branch, ahead of releases.
     nibble = {
-      url = "github:lillycham/nibble";
+      url = "github:lillycham/nibble/dev";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
