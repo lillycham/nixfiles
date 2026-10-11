@@ -46,6 +46,14 @@ in
     inputs.nibble.homeModules.default
   ];
 
+  # Load each project's .envrc when I enter it. nix-direnv caches `use flake`
+  # and keeps its devShell from being garbage collected. Fish picks the hook
+  # up on its own.
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   # A small local model on demand. `nibble serve` runs under launchd and holds
   # no model until something connects. Settings live here, so nibble's own
   # settings page is read-only.
