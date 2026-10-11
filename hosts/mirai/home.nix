@@ -71,8 +71,10 @@ in
   # A store of memories for agents. AKYUU_ROOT points at it, so `akyuu` and
   # `akyuu mcp` find it from any shell. GC and the backup run once a day under
   # launchd. The web UI is not a service: run `akyuu serve` when needed.
+  # policyRef is the ref that `akyuu mcp` tells a client to read first.
   programs.akyuu = {
     enable = true;
+    policyRef = "claude/memory-policy";
     gc.enable = true;
     backup.enable = true;
   };
