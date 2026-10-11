@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "akyuu": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791677832,
+        "narHash": "sha256-T0G5DkgNX9Vv4vxJ1JomD2ZcmEVPwuIDNOYeAgjibjE=",
+        "ref": "refs/heads/main",
+        "rev": "6e163b6196d89377238b16e4c696af5c76586154",
+        "revCount": 79,
+        "type": "git",
+        "url": "https://github.com/lillycham/akyuu"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://github.com/lillycham/akyuu"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -171,6 +191,7 @@
     },
     "root": {
       "inputs": {
+        "akyuu": "akyuu",
         "darwin": "darwin",
         "home-manager": "home-manager",
         "lillycham-nur": "lillycham-nur",
