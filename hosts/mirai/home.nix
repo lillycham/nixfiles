@@ -77,6 +77,8 @@ in
     policyRef = "claude/memory-policy";
     gc.enable = true;
     backup.enable = true;
+    # A git repository of the memories in the store root, one commit a day (04:15).
+    versioning.enable = true;
   };
 
   home = {
