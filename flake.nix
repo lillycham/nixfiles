@@ -35,6 +35,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # My memory store for agents. The repository is private, so this is a git
+    # URL: nix then fetches it with git, which uses my GitHub credentials. The
+    # `github:` form would need an access token in nix.conf.
+    akyuu = {
+      url = "git+https://github.com/lillycham/akyuu";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, darwin, nur, ... }:

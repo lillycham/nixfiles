@@ -44,6 +44,7 @@ in
     ../../config/hydrus.nix
     ../../config/organize.nix
     inputs.nibble.homeModules.default
+    inputs.akyuu.homeModules.default
   ];
 
   # Load each project's .envrc when I enter it. nix-direnv caches `use flake`
@@ -65,6 +66,15 @@ in
     # What chats and Claude's delegated tasks may read. launchd starts the
     # server in /, so without this they could read nothing.
     settings.roots = [ "~/devel" "~/nixfiles" "~/Writing" ];
+  };
+
+  # A store of memories for agents. AKYUU_ROOT points at it, so `akyuu` and
+  # `akyuu mcp` find it from any shell. GC and the backup run once a day under
+  # launchd. The web UI is not a service: run `akyuu serve` when needed.
+  programs.akyuu = {
+    enable = true;
+    gc.enable = true;
+    backup.enable = true;
   };
 
   home = {
