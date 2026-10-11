@@ -79,6 +79,8 @@ in
     backup.enable = true;
     # A git repository of the memories in the store root, one commit a day (04:15).
     versioning.enable = true;
+    # Push each commit to the private remote (github.com/lillycham/akyuu-mem).
+    versioning.push = true;
   };
 
   home = {
