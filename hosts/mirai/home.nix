@@ -81,6 +81,18 @@ in
     versioning.enable = true;
     # Push each commit to the private remote (github.com/lillycham/akyuu-mem).
     versioning.push = true;
+    # Search by meaning (docs/embeddings.md in the akyuu repo). Nix runs the
+    # model (nomic-embed-text v1.5, Q8_0) with llama.cpp when a search needs it,
+    # and stops it after 2 minutes idle. No other program has to be open.
+    # Run `akyuu embed` once after the first switch.
+    embed = {
+      enable = true;
+      local.enable = true;
+      model = "nix-llama:nomic-v1.5-q8_0";
+      queryPrefix = "search_query: ";
+      documentPrefix = "search_document: ";
+      minScore = 0.55;
+    };
   };
 
   home = {
