@@ -209,17 +209,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1791963490,
-        "narHash": "sha256-mN8EZqRchN3wlpwe0kpopzc5yHbkmfN9Or5tzBN/Dz4=",
-        "ref": "refs/heads/main",
-        "rev": "d8b99009b42c243f754dd108b7e6200b47aa82cd",
-        "revCount": 2,
-        "type": "git",
-        "url": "https://github.com/lillycham/shiki"
+        "lastModified": 1791994949,
+        "narHash": "sha256-F1LJT7b1W2n2bsO92kpSLNMnhMSZ8wSroHiz6fsWAJs=",
+        "owner": "lillycham",
+        "repo": "shiki",
+        "rev": "981dbdae9dca62ff4b30f23e210d20b1ebe3e00d",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://github.com/lillycham/shiki"
+        "owner": "lillycham",
+        "repo": "shiki",
+        "type": "github"
       }
     }
   },

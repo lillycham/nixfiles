@@ -43,10 +43,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # The probes behind the dashboard (config/dashboard). Private, so a git
-    # URL, as for akyuu.
+    # The probes behind the dashboard (config/dashboard).
     shiki = {
-      url = "git+https://github.com/lillycham/shiki";
+      url = "github:lillycham/shiki";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
