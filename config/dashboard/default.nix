@@ -13,9 +13,11 @@ let
   day = 24 * hour;
 
   # The look: akyuu's embedded fonts, then the Manuscript rules for Glance.
+  # Also the safety worker for hydrus-web: see home.activation.tailscaleServe.
   assets = pkgs.runCommand "glance-assets" { } ''
     mkdir $out
     cat ${inputs.akyuu}/web/fonts.css ${./manuscript.css} > $out/manuscript.css
+    cp ${./hydrus-web-safety-worker.js} $out/hydrus-web-safety-worker.js
   '';
 
   # The tile for shiki: one line per group, then only the probes that are not ok.
@@ -223,6 +225,9 @@ in
     if [ -x "$ts" ]; then
       run "$ts" serve --bg --https=443 http://127.0.0.1:${toString glancePort} > /dev/null \
         || warnEcho "tailscale serve failed for the dashboard"
+      run "$ts" serve --bg --https=443 --set-path=/ngsw-worker.js \
+        http://127.0.0.1:${toString glancePort}/assets/hydrus-web-safety-worker.js > /dev/null \
+        || warnEcho "tailscale serve failed for the hydrus-web safety worker"
       run "$ts" serve --bg --https=8443 http://127.0.0.1:${toString hydrusWebPort} > /dev/null \
         || warnEcho "tailscale serve failed for hydrus-web"
     else
