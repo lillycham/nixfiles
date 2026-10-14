@@ -5,8 +5,11 @@
   services = {
     # emacs.enable = true;
 
-    # Run tailscaled and install the tailscale CLI. Log in with `tailscale up`.
-    tailscale.enable = true;
+    # Tailscale comes from the standalone app (pkgs.tailscale.com), not from
+    # Nix: the open-source tailscaled on macOS could not set DNS, and phones
+    # could not reach `tailscale serve`. Its CLI is
+    # /Applications/Tailscale.app/Contents/MacOS/Tailscale.
+    tailscale.enable = false;
   };
 
   programs.gnupg.agent = {
