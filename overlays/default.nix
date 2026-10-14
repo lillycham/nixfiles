@@ -1,6 +1,7 @@
 final: prev: {
   organize-tool = final.callPackage ../pkgs/organize-tool.nix { };
   hydrus-web = final.callPackage ../pkgs/hydrus-web.nix { };
+  omp = final.callPackage ../pkgs/omp.nix { };
 
   pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
     (pyfinal: pyprev: {

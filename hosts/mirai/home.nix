@@ -101,6 +101,7 @@ in
       emacsClientApp
       pkgs.czkawka # Duplicate and similar-file finder. Run krokiet for the GUI.
       pkgs.grandperspective # Disk usage shown as a treemap.
+      pkgs.omp # oh-my-pi coding agent, a fork of pi. Config lives in ~/.omp.
       pkgs.telegram-desktop # Qt client. The Mac App Store one leaks memory and crashes.
       pkgs.sillytavern # Chat frontend for LLMs. Serves on http://localhost:8000.
     ];
