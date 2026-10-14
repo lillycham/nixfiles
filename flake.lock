@@ -198,7 +198,28 @@
         "nibble": "nibble",
         "nixpkgs": "nixpkgs",
         "nixpkgs-emacs": "nixpkgs-emacs",
-        "nur": "nur"
+        "nur": "nur",
+        "shiki": "shiki"
+      }
+    },
+    "shiki": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791963490,
+        "narHash": "sha256-mN8EZqRchN3wlpwe0kpopzc5yHbkmfN9Or5tzBN/Dz4=",
+        "ref": "refs/heads/main",
+        "rev": "d8b99009b42c243f754dd108b7e6200b47aa82cd",
+        "revCount": 2,
+        "type": "git",
+        "url": "https://github.com/lillycham/shiki"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://github.com/lillycham/shiki"
       }
     }
   },

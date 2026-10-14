@@ -43,6 +43,7 @@ in
     ../common.nix
     ../../config/hydrus.nix
     ../../config/organize.nix
+    ../../config/dashboard
     inputs.nibble.homeModules.default
     inputs.akyuu.homeModules.default
   ];

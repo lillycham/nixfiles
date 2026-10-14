@@ -1,0 +1,103 @@
+/* Akyuu Manuscript for Glance: washi by day, ai by night, following the system
+   setting. dashboard.nix puts akyuu's web/fonts.css (the embedded fonts) before
+   this file. The selectors follow the HTML of Glance 0.8; check them after an
+   update of Glance. */
+:root[data-theme] {
+  --ms-ai: #f4f2ec; --ms-raised: #efece4; --ms-ink: #0f1a3a; --ms-muted: #4c5878; --ms-dim: #7d88a6;
+  --ms-rule: #dde2ec; --ms-frame: #c9d1e2; --ms-sora: #2a62bd; --ms-fuji: #6a52c9;
+  --ms-shu: #b3361f; --ms-matsu: #2a7451; --ms-kin: #8f6a0e; --ms-seal-fg: #f4f2ec;
+  --ms-display: 'Shippori Mincho B1', 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif CJK JP', Georgia, serif;
+  --ms-mono: 'Spline Sans Mono', ui-monospace, Menlo, monospace;
+
+  --border-radius: 3px;
+  --color-background: var(--ms-ai);
+  --color-widget-background: var(--ms-raised);
+  --color-widget-content-border: var(--ms-frame);
+  --color-widget-background-highlight: var(--ms-rule);
+  --color-separator: var(--ms-rule);
+  --color-popover-background: var(--ms-raised);
+  --color-popover-border: var(--ms-frame);
+  --color-progress-border: var(--ms-frame);
+  --color-text-highlight: var(--ms-ink);
+  --color-text-base: var(--ms-muted);
+  --color-text-base-muted: var(--ms-dim);
+  --color-text-subdue: var(--ms-dim);
+  --color-primary: var(--ms-sora);
+  --color-positive: var(--ms-matsu);
+  --color-negative: var(--ms-shu);
+}
+@media (prefers-color-scheme: dark) {
+  :root[data-theme] {
+    --scheme: ;
+    --ms-ai: #0a1226; --ms-raised: #0e1833; --ms-ink: #e9eef8; --ms-muted: #9aa8c8; --ms-dim: #7482a6;
+    --ms-rule: #1a2a52; --ms-frame: #24345e; --ms-sora: #8fc0ff; --ms-fuji: #b3a3f2;
+    --ms-shu: #ff8a70; --ms-matsu: #86d4a8; --ms-kin: #e8c66a; --ms-seal-fg: #0a1226;
+    color-scheme: dark;
+  }
+  :root[data-theme] .flat-icon { filter: invert(1); }
+}
+
+body { font-family: var(--ms-mono); background: var(--ms-ai); color: var(--ms-muted); }
+
+/* Header: the seal, and the page names in Mincho. */
+.header { align-items: center; }
+.logo {
+  height: 3.4rem; width: 3.4rem; line-height: 3.4rem; padding: 0; margin-right: .4rem;
+  text-align: center; border: 0; border-radius: 3px;
+  background: var(--ms-shu); color: var(--ms-seal-fg);
+  font-family: var(--ms-display); font-weight: 700; font-size: 2.1rem;
+}
+.nav-item { font-family: var(--ms-display); font-size: 1.9rem; letter-spacing: .02em; }
+.nav-item.nav-item-current { border-bottom-color: var(--ms-sora); }
+
+/* Widgets: a ruled ledger page rather than a floating card. */
+.widget-content-frame, .widget-content:not(.widget-content-frameless) { box-shadow: none; }
+.widget-content-frame { border-top: 2px solid var(--ms-ink); }
+.widget-header { margin-bottom: .8rem; }
+.widget-header h2 {
+  font-family: var(--ms-mono); font-size: 1.15rem; font-weight: 500;
+  letter-spacing: .16em; color: var(--ms-muted);
+  display: flex; align-items: baseline; gap: .9rem;
+}
+.widget-header h2::before {
+  font-family: var(--ms-display); font-weight: 700; font-size: 1.7rem; letter-spacing: .06em;
+  color: var(--ms-sora);
+}
+.widget-type-weather .widget-header h2::before { content: "天気"; }
+.widget-type-server-stats .widget-header h2::before { content: "機"; }
+.widget-type-monitor .widget-header h2::before { content: "番"; }
+.widget-type-hacker-news .widget-header h2::before { content: "報"; }
+.widget-type-custom-api .widget-header h2::before { content: "式神"; }
+.widget-type-repository .widget-header h2::before { content: "庫"; }
+.widget-type-rss .widget-header h2::before { content: "記"; }
+
+/* Titles in Mincho, everything around them in mono. */
+.size-title-dynamic, .color-primary-if-not-visited, .monitor-site .size-h3, .widget-type-repository .size-h3 {
+  font-family: var(--ms-display); font-weight: 600; letter-spacing: .01em;
+}
+.size-h1, .size-h2 { font-family: var(--ms-display); font-weight: 700; color: var(--ms-ink); }
+.widget-type-weather .size-h2 { font-size: 2.2rem; }
+.color-primary-if-not-visited:not(:visited) { color: var(--ms-ink); }
+.color-primary-if-not-visited:not(:visited):hover { color: var(--ms-sora); }
+.list-horizontal-text, .size-h6 { font-family: var(--ms-mono); }
+
+/* Weather bars and progress bars in sora. */
+.weather-bar, .progress-value { background: var(--ms-sora); }
+.progress-value-notice { background: var(--ms-shu); }
+
+/* Sample probe rows for the agents tile. */
+.probe-row { display: flex; align-items: baseline; gap: 1rem; }
+.probe-row .color-highlight { font-family: var(--ms-display); font-weight: 600; font-size: 1.6rem; }
+.probe-dot { width: .8rem; height: .8rem; border-radius: 50%; flex: none; align-self: center; }
+.probe-ok { background: var(--ms-matsu); }
+.probe-warn { background: var(--ms-kin); }
+.probe-fail { background: var(--ms-shu); }
+
+/* The shiki tile: one line per group, then only the probes that are not ok. */
+.probe-unknown { background: var(--ms-dim); }
+.shiki-group { display: flex; align-items: baseline; gap: 1rem; }
+.shiki-name { font-family: var(--ms-display); font-weight: 600; font-size: 1.6rem; }
+.shiki-probe { margin: .3rem 0 0 1.8rem; }
+.shiki-warn { color: var(--ms-kin); }
+.shiki-fail { color: var(--ms-shu); }
+.shiki-unknown { color: var(--ms-dim); }
