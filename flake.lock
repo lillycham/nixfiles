@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791948644,
-        "narHash": "sha256-H1Lfzid5N6GM0cxhphkBSztO6Pn9fvBZ7soz6thHsSw=",
+        "lastModified": 1791957445,
+        "narHash": "sha256-D8gQVo/V0qRf0bFWM11ifSvSnrIcmGWyafbjb1EGhAc=",
         "ref": "refs/heads/main",
-        "rev": "f00103c8b7b3e639eabb13ad4a0514a52925b429",
-        "revCount": 174,
+        "rev": "570b012866c76b9c209fb19c8cf43a7bc3042a95",
+        "revCount": 182,
         "type": "git",
         "url": "https://github.com/lillycham/akyuu"
       },
