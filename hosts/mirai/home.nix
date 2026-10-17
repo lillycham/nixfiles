@@ -74,6 +74,34 @@ in
   # `akyuu mcp` find it from any shell. GC and the backup run once a day under
   # launchd. The web UI is not a service: run `akyuu serve` when needed.
   # policyRef is the ref that `akyuu mcp` tells a client to read first.
+  # Put ~/.local/bin on PATH (Hermes Agent installs its commands there).
+  # The Hermes installer appends this line to the shell rc files, unless a
+  # PATH=...~/.local/bin line is already there. Home Manager makes those files
+  # read-only, so the append fails and the install stops. The login shell is
+  # bash, so it touches .bashrc, .profile and .bash_profile.
+  programs.bash =
+    let
+      pathLine = ''
+        case ":$PATH:" in *":$HOME/.local/bin:"*) ;; *) export PATH="$HOME/.local/bin:$PATH" ;; esac
+      '';
+    in
+    {
+      bashrcExtra = pathLine;
+      profileExtra = pathLine;
+    };
+
+  # Home Manager generates .bash_profile with no option to extend it.
+  home.file.".bash_profile".source = lib.mkForce (pkgs.writeText "bash_profile" ''
+    # include .profile if it exists
+    [[ -f ~/.profile ]] && . ~/.profile
+
+    # include .bashrc if it exists
+    [[ -f ~/.bashrc ]] && . ~/.bashrc
+
+    # Hermes Agent command
+    case ":$PATH:" in *":$HOME/.local/bin:"*) ;; *) export PATH="$HOME/.local/bin:$PATH" ;; esac
+  '');
+
   programs.akyuu = {
     enable = true;
     policyRef = "claude/memory-policy";
