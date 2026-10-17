@@ -44,6 +44,7 @@ in
     ../../config/hydrus.nix
     ../../config/organize.nix
     ../../config/dashboard
+    ../../config/akyuu-dev.nix
     inputs.nibble.homeModules.default
     inputs.akyuu.homeModules.default
   ];
