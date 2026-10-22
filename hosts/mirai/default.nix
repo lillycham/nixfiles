@@ -72,17 +72,19 @@
       # ((pkgs.emacsPackagesFor pkgs.emacs-macport).emacsWithPackages (import ../../config/editors/epkgs.nix))
     ];
 
-    # Set the Nix SSL cert. May not be necessary, but randomly had issues
-    # w/this, so leaving in.
-    variables = {
+    # Use the same filtered CA bundle for Nix and OpenSSL clients such as curl.
+    variables = let
       # Eight eMudhra intermediates have tiny private keys (2026-10-20), so
       # distrust their two roots. Drop the blacklist once cacert is 3.131.1+.
-      NIX_SSL_CERT_FILE = "${pkgs.cacert.override {
+      caBundle = "${pkgs.cacert.override {
         blacklist = [
           "Comodo AAA Services root"
           "emSign ECC Root CA - G3"
         ];
       }}/etc/ssl/certs/ca-bundle.crt";
+    in {
+      NIX_SSL_CERT_FILE = caBundle;
+      SSL_CERT_FILE = caBundle;
       EDITOR = "hx";
     };
   };
