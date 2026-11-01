@@ -51,7 +51,6 @@
       git
       nixd
       nixpkgs-fmt
-      sketchybar
       jq
 
       ### AI Tools
@@ -128,6 +127,9 @@
   system.activationScripts.postActivation.text = ''
     /usr/bin/mdutil -i off /nix >/dev/null 2>&1 || true
   '';
+
+  # Sketchybar replaces the menu bar, so hide the macOS one.
+  system.defaults.NSGlobalDomain._HIHideMenuBar = true;
 
   system.stateVersion = 6;
   system.primaryUser = "lcham";

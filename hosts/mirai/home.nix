@@ -46,6 +46,7 @@ in
     ../../config/dashboard
     ../../config/akyuu-dev.nix
     ../../config/obsidian.nix
+    ../../config/sketchybar.nix
     inputs.nibble.homeModules.default
     inputs.akyuu.homeModules.default
   ];
