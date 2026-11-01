@@ -14,6 +14,14 @@
     # Spicetify
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
+    # Apple Silicon support for omoide. Pinned to a release, because there is no
+    # binary cache and a new kernel builds from source on the laptop.
+    nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon/release-2026-07-30";
+
+    # omoide uses the nixpkgs that nixos-apple-silicon is locked to, so a normal
+    # update of nixpkgs does not rebuild its kernel.
+    nixpkgs-asahi.follows = "nixos-apple-silicon/nixpkgs";
+
     # My NUR repository, used directly until nix-community/NUR#1235 is merged.
     # After that, use pkgs.nur.repos.lillycham and remove this input.
     lillycham-nur = {
@@ -82,6 +90,14 @@
           }
         ];
       };
+      # Output for M1 MacBook Air (Asahi)
+      omoide = inputs.nixpkgs-asahi.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
+          ./hosts/omoide/configuration.nix
+        ];
+      };
       # Call a home manager config with overlays
       homeManagerConfFor = config:
         { ... }: {
@@ -99,5 +115,6 @@
       darwinConfigurations.mirai = mirai;
       packages.aarch64-darwin.default = mirai.system;
       nixosConfigurations."ikigai" = ikigai;
+      nixosConfigurations."omoide" = omoide;
     };
 }
