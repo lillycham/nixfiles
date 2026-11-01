@@ -49,9 +49,6 @@
       neovim
       # gnupg
       git
-      nixd
-      nixpkgs-fmt
-      jq
 
       ### AI Tools
       (pkgs.symlinkJoin {
@@ -84,7 +81,6 @@
     in {
       NIX_SSL_CERT_FILE = caBundle;
       SSL_CERT_FILE = caBundle;
-      EDITOR = "hx";
     };
   };
 

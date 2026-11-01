@@ -43,6 +43,7 @@ in
   # Import shared nix configs
   imports = [
     ../common.nix
+    ../../config/editors/emacs.nix
     ../../config/hydrus.nix
     ../../config/organize.nix
     ../../config/dashboard
@@ -53,14 +54,6 @@ in
     inputs.spicetify-nix.homeManagerModules.default
     inputs.akyuu.homeModules.default
   ];
-
-  # Load each project's .envrc when I enter it. nix-direnv caches `use flake`
-  # and keeps its devShell from being garbage collected. Fish picks the hook
-  # up on its own.
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
 
   programs.spicetify = {
     enable = true;
@@ -160,6 +153,7 @@ in
       pkgs.omp # oh-my-pi coding agent, a fork of pi. Config lives in ~/.omp.
       pkgs.telegram-desktop # Qt client. The Mac App Store one leaks memory and crashes.
       pkgs.sillytavern # Chat frontend for LLMs. Serves on http://localhost:8000.
+      pkgs.spicetify-cli
     ];
   };
 

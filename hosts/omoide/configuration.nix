@@ -21,6 +21,8 @@
 
   time.timeZone = "Europe/London";
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   services.xserver.enable = true;
 
   security.polkit.enable = true;

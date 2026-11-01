@@ -4,7 +4,6 @@
   # Files to import.
   imports = [
     #../config/alacritty.nix
-    ../config/editors/emacs.nix
     #../config/editors/nvim.nix
     ../config/editors/hx.nix
     ../config/git.nix
@@ -27,6 +26,14 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  # Load each project's .envrc when I enter it. nix-direnv caches `use flake`
+  # and keeps its devShell from being garbage collected. Fish picks the hook
+  # up on its own.
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   # Packages to install
   home = {
     packages = with pkgs; [
@@ -48,14 +55,16 @@
       
       helix
       ispell
+      jq
       kitty
       # mercurial
       # mypy
       fastfetch
       nix-top
+      nixd
+      nixpkgs-fmt
       powershell
       smartmontools
-      spicetify-cli
       starship
       tmux
       tree
@@ -74,6 +83,8 @@
     #   enable = true;
     #   extraPackages = [ pkgs.nodejs pkgs.bun ];
     # };
+
+    sessionVariables.EDITOR = "hx";
 
     stateVersion = "22.05";
   };

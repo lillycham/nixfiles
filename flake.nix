@@ -95,7 +95,13 @@
         system = "aarch64-linux";
         modules = [
           inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
+          home-manager.nixosModules.home-manager
           ./hosts/omoide/configuration.nix
+          {
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.lcham =
+              homeManagerConfFor ./hosts/omoide/home.nix;
+          }
         ];
       };
       # Call a home manager config with overlays
