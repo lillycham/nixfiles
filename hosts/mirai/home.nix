@@ -90,6 +90,16 @@ in
       profileExtra = pathLine;
     };
 
+  # The GnuPG agent has no pinentry of its own on macOS, so a signature asked for
+  # from a GUI app or an agent has nowhere to prompt. pinentry-mac opens a window,
+  # and the passphrase stays cached for an hour (eight at most). After a switch:
+  # gpgconf --kill gpg-agent
+  home.file.".gnupg/gpg-agent.conf".text = ''
+    pinentry-program ${pkgs.pinentry_mac}/Applications/pinentry-mac.app/Contents/MacOS/pinentry-mac
+    default-cache-ttl 3600
+    max-cache-ttl 28800
+  '';
+
   # Home Manager generates .bash_profile with no option to extend it.
   home.file.".bash_profile".source = lib.mkForce (pkgs.writeText "bash_profile" ''
     # include .profile if it exists

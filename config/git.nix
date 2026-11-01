@@ -50,6 +50,15 @@ let
 in
 {
   programs.git = {
+    # Sign every commit and tag with this key. Lilly approves each commit, so the
+    # signature means "approved by Lilly". An agent's commit asks for the
+    # passphrase through pinentry (see hosts/mirai/home.nix); nothing commits
+    # unattended.
+    signing = {
+      key = "E50AC50C97CEFD74";
+      signByDefault = true;
+    };
+
     settings = {
       # Git user information
       user.name = "Lilly";
