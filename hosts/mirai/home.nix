@@ -45,6 +45,7 @@ in
     ../../config/organize.nix
     ../../config/dashboard
     ../../config/akyuu-dev.nix
+    ../../config/obsidian.nix
     inputs.nibble.homeModules.default
     inputs.akyuu.homeModules.default
   ];
