@@ -55,6 +55,7 @@
       nix-top
       powershell
       smartmontools
+      spicetify-cli
       starship
       tmux
       tree

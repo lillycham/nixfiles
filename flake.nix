@@ -11,6 +11,9 @@
 
     nur.url = "github:nix-community/nur";
 
+    # Spicetify
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
     # My NUR repository, used directly until nix-community/NUR#1235 is merged.
     # After that, use pkgs.nur.repos.lillycham and remove this input.
     lillycham-nur = {

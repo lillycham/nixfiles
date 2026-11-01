@@ -36,6 +36,8 @@ let
     </plist>
     EOF
   '';
+
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in
 {
   # Import shared nix configs
@@ -48,6 +50,7 @@ in
     ../../config/obsidian.nix
     ../../config/sketchybar.nix
     inputs.nibble.homeModules.default
+    inputs.spicetify-nix.homeManagerModules.default
     inputs.akyuu.homeModules.default
   ];
 
@@ -57,6 +60,18 @@ in
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+  };
+
+  programs.spicetify = {
+    enable = true;
+    enabledExtensions = with spicePkgs.extensions; [
+      adblockify
+      shuffle
+      {
+        name = "colourmush.js";
+        src = ../../config/spicetify;
+      }
+    ];
   };
 
   # A small local model on demand. `nibble serve` runs under launchd and holds
