@@ -23,6 +23,13 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Eight eMudhra intermediates have tiny private keys (2026-10-20), so distrust
+  # their two roots, as on mirai. Drop the blacklist once cacert is 3.131.1+.
+  security.pki.caCertificateBlacklist = [
+    "Comodo AAA Services root"
+    "emSign ECC Root CA - G3"
+  ];
+
   services.xserver.enable = true;
 
   security.polkit.enable = true;
