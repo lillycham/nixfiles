@@ -30,9 +30,10 @@
   security.pam.services.swaylock = { };
 
   programs.niri.enable = true;
-  programs.waybar.enable = true;
   programs.firefox.enable = true;
 
+  # niri's config.kdl starts waybar, so don't set programs.waybar.enable: its
+  # systemd unit would start a second bar.
   environment.systemPackages = with pkgs; [
     alacritty
     fuzzel
@@ -41,8 +42,19 @@
     swayidle
     swaylock
     vim
+    waybar
     wget
   ];
+
+  # The icons in waybar's default config.
+  fonts.packages = with pkgs; [
+    font-awesome
+    nerd-fonts.symbols-only
+    roboto
+  ];
+
+  # pinentry-gnome3 prompts through gcr.
+  services.dbus.packages = [ pkgs.gcr ];
 
   services.pipewire = {
     enable = true;
