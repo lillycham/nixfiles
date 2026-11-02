@@ -39,6 +39,10 @@
   programs.niri.enable = true;
   programs.firefox.enable = true;
 
+  # niri has no X server here, so Electron apps such as Signal must use
+  # Wayland. The nixpkgs Electron wrappers read this.
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # niri's config.kdl starts waybar, so don't set programs.waybar.enable: its
   # systemd unit would start a second bar.
   environment.systemPackages = with pkgs; [

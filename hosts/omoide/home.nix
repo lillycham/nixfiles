@@ -1,8 +1,9 @@
 { lib, pkgs, inputs, ... }:
 let
   # The system stays on the nixpkgs of nixos-apple-silicon, which lags behind.
-  # The coding agents move fast, so take them from the main nixpkgs.
-  pkgsAgents = import inputs.nixpkgs {
+  # Take apps that move fast from the main nixpkgs. Signal Desktop refuses to
+  # run once its build is about 90 days old.
+  pkgsLatest = import inputs.nixpkgs {
     inherit (pkgs.stdenv.hostPlatform) system;
     config.allowUnfree = true;
   };
@@ -34,7 +35,9 @@ in
   };
 
   home.packages = [
-    pkgsAgents.claude-code
-    pkgsAgents.codex
+    pkgsLatest.claude-code
+    pkgsLatest.codex
+    pkgsLatest.signal-desktop
+    pkgsLatest.telegram-desktop
   ];
 }
