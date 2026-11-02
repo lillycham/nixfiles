@@ -8,7 +8,18 @@ let
   };
 in
 {
-  imports = [ ../common.nix ];
+  imports = [
+    ../common.nix
+    ../../config/nine.nix
+  ];
+
+  nine.enable = true;
+
+  # Acme's dark blue, since Bell blue is faint on the cream windows.
+  bell-system = {
+    enable = true;
+    bannerColour = "000099";
+  };
 
   # omoide has its own signing key, so mirai's key never leaves mirai.
   programs.git.signing.key = lib.mkForce "105B0B1AED319B8E";
