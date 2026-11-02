@@ -1,7 +1,10 @@
 { lib, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./login.nix
+  ];
 
   # The firmware comes from /boot/vendorfw and must stay out of this repository,
   # so build this host on omoide with --impure.
@@ -30,7 +33,8 @@
     "emSign ECC Root CA - G3"
   ];
 
-  services.xserver.enable = true;
+  # No services.xserver: it was only there for LightDM, and greetd and niri
+  # need no X server.
 
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
