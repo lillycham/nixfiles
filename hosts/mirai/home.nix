@@ -55,6 +55,8 @@ in
     inputs.akyuu.homeModules.default
   ];
 
+  bell-system.enable = true;
+
   programs.spicetify = {
     enable = true;
     enabledExtensions = with spicePkgs.extensions; [

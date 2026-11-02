@@ -28,6 +28,7 @@
       go-font
       # input-fonts
       roboto
+      ibm-plex
       lmmath
       # Icon fonts for emacs: nerd-icons (doom-modeline) and all-the-icons (treemacs)
       nerd-fonts.symbols-only

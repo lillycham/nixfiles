@@ -8,6 +8,7 @@
     ../config/editors/hx.nix
     ../config/git.nix
     ../config/kitty.nix
+    ../config/bell-system.nix
     #../config/langs/agda.nix
     #../config/langs/latex.nix
     ../config/neofetch.nix
