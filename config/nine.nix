@@ -1,21 +1,11 @@
 # A Plan 9 acme look for the niri desktop: cream window bodies, pale cyan tag
-# lines, purple-blue borders on rio's grey. The colours are the constants from
-# Plan 9's draw.h that acme itself uses.
+# lines, purple-blue borders on rio's grey. The colours are in
+# acme-colours.nix, which the sketchybar theme on mirai shares.
 { config, lib, pkgs, ... }:
 let
   cfg = config.nine;
 
-  c = {
-    desk = "#777777";     # rio's background
-    body = "#FFFFEA";     # acme window body
-    tag = "#EAFFFF";      # acme tag line
-    border = "#8888CC";   # DPurpleblue, acme's column border
-    dim = "#CCCCEE";      # unfocused border
-    bodysel = "#EEEE9E";  # DDarkyellow, a selection in a body
-    tagsel = "#9EEEEE";   # DPalegreygreen, a selection in a tag
-    dirty = "#000099";    # the box acme fills when a file is modified
-    ink = "#000000";
-  };
+  c = import ./acme-colours.nix;
 
   font = "Go Mono";
 
