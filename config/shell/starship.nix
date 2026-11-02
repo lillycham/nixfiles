@@ -1,6 +1,25 @@
+{ config, lib, ... }:
+let
+  starship = lib.getExe config.programs.starship.package;
+in
 {
+  # Home Manager's hooks only skip starship when TERM=dumb. These also skip it
+  # when NO_STARSHIP is set, for a plain prompt: NO_STARSHIP=1 bash
+  programs.bash.initExtra = ''
+    if [[ $TERM != dumb && -z ''${NO_STARSHIP-} ]]; then
+      eval "$(${starship} init bash --print-full-init)"
+    fi
+  '';
+  programs.fish.interactiveShellInit = ''
+    if test "$TERM" != dumb; and not set -q NO_STARSHIP
+      ${starship} init fish | source
+    end
+  '';
+
   programs.starship = {
     enable = true;
+    enableBashIntegration = false;
+    enableFishIntegration = false;
     settings = {
       format = "$shell$all";
 
