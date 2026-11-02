@@ -45,6 +45,22 @@ let
       "Mod+Shift+4 { screenshot; }"
       "Mod+Shift+5 { screenshot-window; }"
     ]))
+    # The panel counts brightness in nits, and eyes see light on a log scale,
+    # so linear steps give one dim level and many bright ones. -e4 spaces the
+    # steps as they look, and -n2 keeps the screen from going black. If the
+    # screen only has a dark and a bright level after boot, suspend and wake
+    # once: https://github.com/AsahiLinux/linux/issues/499
+    # The M1 Air has no keyboard backlight keys either, so Command with the
+    # screen brightness keys sets the keyboard backlight.
+    (patch (lib.concatMapStrings (l: "    ${l}\n") [
+      "XF86MonBrightnessUp allow-when-locked=true { spawn \"brightnessctl\" \"--class=backlight\" \"set\" \"+10%\"; }"
+      "XF86MonBrightnessDown allow-when-locked=true { spawn \"brightnessctl\" \"--class=backlight\" \"set\" \"10%-\"; }"
+    ]) (lib.concatMapStrings (l: "    ${l}\n") [
+      "XF86MonBrightnessUp allow-when-locked=true { spawn \"brightnessctl\" \"--class=backlight\" \"-e4\" \"-n2\" \"set\" \"5%+\"; }"
+      "XF86MonBrightnessDown allow-when-locked=true { spawn \"brightnessctl\" \"--class=backlight\" \"-e4\" \"-n2\" \"set\" \"5%-\"; }"
+      "Mod+XF86MonBrightnessUp allow-when-locked=true { spawn \"brightnessctl\" \"--device=kbd_backlight\" \"set\" \"+10%\"; }"
+      "Mod+XF86MonBrightnessDown allow-when-locked=true { spawn \"brightnessctl\" \"--device=kbd_backlight\" \"set\" \"10%-\"; }"
+    ]))
   ];
 
   # fuzzel wants RRGGBBAA without the hash.

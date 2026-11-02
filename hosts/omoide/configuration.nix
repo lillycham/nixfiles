@@ -43,6 +43,9 @@
   # systemd unit would start a second bar.
   environment.systemPackages = with pkgs; [
     alacritty
+    # niri's brightness keys call it. It goes through logind, so it needs no
+    # udev group.
+    brightnessctl
     fuzzel
     git
     mako
@@ -50,6 +53,8 @@
     swaylock
     vim
     waybar
+    # Shows the key names that niri binds use.
+    wev
     wget
   ];
 
