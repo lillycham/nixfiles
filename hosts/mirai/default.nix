@@ -65,16 +65,10 @@
       codex
     ];
 
-    # Use the same filtered CA bundle for Nix and OpenSSL clients such as curl.
+    # Use the same CA bundle for Nix and OpenSSL clients such as curl. cacert
+    # 3.131.1 dropped the eMudhra roots that mirai once had to blocklist.
     variables = let
-      # Eight eMudhra intermediates have tiny private keys (2026-10-20), so
-      # distrust their two roots. Drop the blacklist once cacert is 3.131.1+.
-      caBundle = "${pkgs.cacert.override {
-        blacklist = [
-          "Comodo AAA Services root"
-          "emSign ECC Root CA - G3"
-        ];
-      }}/etc/ssl/certs/ca-bundle.crt";
+      caBundle = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
     in {
       NIX_SSL_CERT_FILE = caBundle;
       SSL_CERT_FILE = caBundle;

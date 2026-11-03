@@ -4,10 +4,12 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
-    # Emacs and its packages are built from this nixpkgs, not the main one.
-    # nixpkgs doesn't cache emacs packages, so updating it rebuilds them all.
-    # Update it on purpose with `nix flake update nixpkgs-emacs`.
-    nixpkgs-emacs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # hydrus doesn't build on macOS 15 from nixpkgs of 2026-11: mpv needs a
+    # Swift runtime symbol (_swift_coroFrameAlloc) that macOS 15 lacks, and
+    # pyqt6 fails its import check (Hydra can't build it either). So mirai
+    # takes hydrus from the last nixpkgs that worked. Drop this once mirai is
+    # on macOS 26 and nixpkgs builds hydrus again.
+    nixpkgs-hydrus.url = "github:nixos/nixpkgs/00455b0a3690d3f5dc61e9aef4277dc86235b73f";
 
     nur.url = "github:nix-community/nur";
 
@@ -111,6 +113,14 @@
             nur.overlays.default
             (final: prev: {
               inherit (inputs.lillycham-nur.legacyPackages.${prev.stdenv.hostPlatform.system}) hydrus-tagger;
+            })
+            # See the nixpkgs-hydrus input. Only macOS is affected. The pinned
+            # set gets the same overlay, which hydrus needs on macOS.
+            (final: prev: prev.lib.optionalAttrs prev.stdenv.hostPlatform.isDarwin {
+              inherit (import inputs.nixpkgs-hydrus {
+                inherit (prev.stdenv.hostPlatform) system;
+                overlays = [ (import ./overlays) ];
+              }) hydrus;
             })
             (import ./overlays)
           ];
