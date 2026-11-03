@@ -3,8 +3,6 @@
   nix.package = pkgs.lixPackageSets.stable.lix;
 
   services = {
-    # emacs.enable = true;
-
     # Tailscale comes from the standalone app (pkgs.tailscale.com), not from
     # Nix: the open-source tailscaled on macOS could not set DNS, and phones
     # could not reach `tailscale serve`. Its CLI is
@@ -30,9 +28,8 @@
       roboto
       ibm-plex
       lmmath
-      # Icon fonts for emacs: nerd-icons (doom-modeline) and all-the-icons (treemacs)
+      # Nerd Font symbols, for terminal programs that draw icons.
       nerd-fonts.symbols-only
-      emacs-all-the-icons-fonts
     ];
   };
 
@@ -66,8 +63,6 @@
 
       claude-code
       codex
-
-      # ((pkgs.emacsPackagesFor pkgs.emacs-macport).emacsWithPackages (import ../../config/editors/epkgs.nix))
     ];
 
     # Use the same filtered CA bundle for Nix and OpenSSL clients such as curl.

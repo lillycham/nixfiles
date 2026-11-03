@@ -4,9 +4,9 @@
     shellAbbrs = {      
       a = "acme";
       drs = "darwin-rebuild switch --flake ~/nixfiles";
-      # Update every flake input except nixpkgs-emacs, so emacs doesn't rebuild
+      # Update the upstream inputs. Lilly's own projects and the Asahi inputs
+      # move on their own, so update those on purpose.
       nfu = "nix flake update nixpkgs home-manager darwin nur --flake ~/nixfiles";
-      e = "emacs";
       g = "git";
       gc = "nix store gc";
       hms = "home-manager switch";

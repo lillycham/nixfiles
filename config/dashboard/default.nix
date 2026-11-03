@@ -188,7 +188,6 @@ in
         (launchd "nibble" "serve" (hm "nibble") { running = true; every = minute; })
         { group = "nibble"; name = "proxy"; kind = "http"; url = "http://127.0.0.1:8765/"; }
 
-        (launchd "mirai" "emacs" (hm "emacs") { running = true; every = minute; })
         (launchd "mirai" "organize" (hm "organize") { })
         (launchd "mirai" "glance" (hm "glance") { running = true; every = minute; })
         {
