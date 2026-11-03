@@ -39,6 +39,7 @@
   home = {
     packages = with pkgs; [
       bash
+      bun # tern's Claude Code and Codex integration runs on it
       cachix
       cloc
       curl
