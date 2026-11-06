@@ -88,6 +88,7 @@ in
 
   programs.akyuu = {
     enable = true;
+    package = inputs.lillycham-nur.packages.${pkgs.stdenv.hostPlatform.system}.akyuu;
     policyRef = "claude/memory-policy";
     gc.enable = true;
     backup.enable = true;

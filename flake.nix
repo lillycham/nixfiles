@@ -48,11 +48,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # My memory store for agents. The repository is private, so this is a git
-    # URL: nix then fetches it with git, which uses my GitHub credentials. The
-    # `github:` form would need an access token in nix.conf.
+    # The module, service helpers and dashboard fonts still come from upstream.
+    # The normal CLI comes from NUR; this input also supports local dev builds.
     akyuu = {
-      url = "git+https://github.com/lillycham/akyuu";
+      url = "github:lillycham/akyuu";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -129,6 +128,12 @@
     in
     {
       darwinConfigurations.mirai = mirai;
+      darwinConfigurations.mirai-akyuu-dev = mirai.extendModules {
+        modules = [{
+          home-manager.users.lcham.programs.akyuu.package =
+            nixpkgs.lib.mkForce inputs.akyuu.packages.aarch64-darwin.default;
+        }];
+      };
       packages.aarch64-darwin.default = mirai.system;
       nixosConfigurations."ikigai" = ikigai;
       nixosConfigurations."omoide" = omoide;

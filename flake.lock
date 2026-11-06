@@ -7,17 +7,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1793324016,
-        "narHash": "sha256-A72OF52PFgM1LJRsNkOuxv97JmQxQXUOR6gktsIBPvo=",
-        "ref": "refs/heads/main",
-        "rev": "73dda89c417ff38729a161e7e1d771ec82150ac5",
-        "revCount": 218,
-        "type": "git",
-        "url": "https://github.com/lillycham/akyuu"
+        "lastModified": 1793918099,
+        "narHash": "sha256-rRK1fG1h0IeepdEt6zr+sHA6MWGFAFGrrMhxssifOJI=",
+        "owner": "lillycham",
+        "repo": "akyuu",
+        "rev": "d6094b09243a66806736f4545036d47ddd1f816b",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "https://github.com/lillycham/akyuu"
+        "owner": "lillycham",
+        "repo": "akyuu",
+        "type": "github"
       }
     },
     "darwin": {
@@ -103,11 +103,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790305777,
-        "narHash": "sha256-lnE0mXJZ+buLpfHjtiQUbPNCzWCXZMD98aHoDSBSwtU=",
+        "lastModified": 1793918378,
+        "narHash": "sha256-CO4A1gEJk7VmV1TyNfHjq68eZ7sdGXqtEUJUpZtgGXI=",
         "owner": "lillycham",
         "repo": "nur-packages",
-        "rev": "5be1ed1f94ddfb018cc5ec44d60a28f94e565942",
+        "rev": "c85843b1c426123fcd7080bc7208b2dbf4157db3",
         "type": "github"
       },
       "original": {

@@ -3,8 +3,8 @@
 # The build takes the tracked files of the checkout, with uncommitted edits,
 # but not new untracked files.
 #
-# The lock still names the old akyuu, so a plain switch later goes back to it.
-# After a push, run `nix flake update akyuu` in ~/nixfiles as usual.
+# A plain switch restores the NUR package. After publication, update
+# lillycham-nur for the CLI and akyuu for its module, helpers and fonts.
 { pkgs, ... }:
 {
   home.packages = [
@@ -17,8 +17,8 @@
           exit 1
         fi
         echo "akyuu from $src ($(git -C "$src" rev-parse --short HEAD)$(git -C "$src" diff --quiet || echo ', with uncommitted edits'))"
-        echo "The lock is not changed: after a push, run nix flake update akyuu."
-        exec nh darwin switch "$HOME/nixfiles" -H "$(hostname -s)" --ask "$@" -- --override-input akyuu "git+file://$src"
+        echo "The lock is not changed: a normal switch restores the NUR package."
+        exec nh darwin switch "$HOME/nixfiles" -H "$(hostname -s)-akyuu-dev" --ask "$@" -- --no-write-lock-file --override-input akyuu "git+file://$src"
       '';
     })
   ];
