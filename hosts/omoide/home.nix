@@ -34,6 +34,13 @@ in
     maxCacheTtl = 28800;
   };
 
+  # Syncthing runs as a user service. Its web UI is at http://127.0.0.1:8384.
+  # Pair the devices and folders there, because the device IDs are not in this repository.
+  services.syncthing.enable = true;
+
+  # Not the Secret Service provider: gnome-keyring keeps that role (see configuration.nix).
+  programs.keepassxc.enable = true;
+
   home.packages = [
     pkgsLatest.claude-code
     pkgsLatest.codex
