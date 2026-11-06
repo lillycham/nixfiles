@@ -118,6 +118,9 @@ in
       pkgs.telegram-desktop # Qt client. The Mac App Store one leaks memory and crashes.
       pkgs.sillytavern # Chat frontend for LLMs. Serves on http://localhost:8000.
       pkgs.spicetify-cli
+      # My own command-line tools, from my NUR repository.
+      inputs.lillycham-nur.packages.${pkgs.stdenv.hostPlatform.system}.lambdash
+      inputs.lillycham-nur.packages.${pkgs.stdenv.hostPlatform.system}.why
     ];
   };
 
