@@ -268,28 +268,7 @@
         ],
         "nixpkgs-hydrus": "nixpkgs-hydrus",
         "nur": "nur",
-        "shiki": "shiki",
         "spicetify-nix": "spicetify-nix"
-      }
-    },
-    "shiki": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1791994949,
-        "narHash": "sha256-F1LJT7b1W2n2bsO92kpSLNMnhMSZ8wSroHiz6fsWAJs=",
-        "owner": "lillycham",
-        "repo": "shiki",
-        "rev": "981dbdae9dca62ff4b30f23e210d20b1ebe3e00d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lillycham",
-        "repo": "shiki",
-        "type": "github"
       }
     },
     "spicetify-nix": {

@@ -55,12 +55,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # The probes behind the dashboard (config/dashboard).
-    shiki = {
-      url = "github:lillycham/shiki";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, darwin, nur, ... }:

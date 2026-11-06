@@ -140,7 +140,7 @@ let
   '';
 in
 {
-  imports = [ inputs.shiki.homeModules.default ];
+  imports = [ inputs.lillycham-nur.homeModules.shiki ];
 
   # The probes behind the Shikigami tile. Durations are in seconds.
   services.shiki = {
