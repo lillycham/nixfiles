@@ -8,6 +8,7 @@ in
     ../common.nix
     ../../config/hydrus.nix
     ../../config/organize.nix
+    ../../config/engi.nix
     ../../config/dashboard
     ../../config/akyuu-dev.nix
     ../../config/obsidian.nix

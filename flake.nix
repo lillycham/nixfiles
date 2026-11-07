@@ -55,6 +55,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Archives agent sessions (config/engi.nix). From the local checkout until
+    # it is published in NUR. After that, use lillycham-nur and remove this.
+    engi = {
+      url = "git+file:///Users/lcham/devel/engi";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, darwin, nur, ... }:
