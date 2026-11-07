@@ -8,12 +8,9 @@
 #   are set. Then a second agent runs each time a volume is mounted, and sends
 #   the new files, encrypted with age, if the destination folder exists. It
 #   needs only the public key. Keep the private key off this Mac.
-#
-# engi comes from the local checkout until it is published in NUR. After that,
-# take it from `inputs.lillycham-nur` like akyuu and remove the `engi` input.
 { config, pkgs, lib, inputs, ... }:
 let
-  engi = inputs.engi.packages.${pkgs.stdenv.hostPlatform.system}.engi;
+  engi = inputs.lillycham-nur.packages.${pkgs.stdenv.hostPlatform.system}.engi;
   home = config.home.homeDirectory;
 
   archive = "${home}/.local/share/engi/archive";

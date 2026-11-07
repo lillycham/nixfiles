@@ -40,26 +40,6 @@
         "type": "github"
       }
     },
-    "engi": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1794046678,
-        "narHash": "sha256-5Z5vpIa+nUioV8EX9IpU2EdstKFK1GgWCzQ5dYkz8c8=",
-        "ref": "refs/heads/main",
-        "rev": "d6b79a3e3026794bc7f8511a6f47ee0c0f514974",
-        "revCount": 2,
-        "type": "git",
-        "url": "file:///Users/lcham/devel/engi"
-      },
-      "original": {
-        "type": "git",
-        "url": "file:///Users/lcham/devel/engi"
-      }
-    },
     "flake-compat": {
       "locked": {
         "lastModified": 1761640442,
@@ -277,7 +257,6 @@
       "inputs": {
         "akyuu": "akyuu",
         "darwin": "darwin",
-        "engi": "engi",
         "home-manager": "home-manager",
         "lillycham-nur": "lillycham-nur",
         "nibble": "nibble",
