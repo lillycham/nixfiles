@@ -32,8 +32,11 @@ let
   # Set both to turn on the export. The recipient is a public key (age1...).
   # The destination is a folder on the drive. It must exist, so a drive that is
   # not mounted is never written to the internal disk.
-  exportRecipient = null;
-  exportDest = null;
+  # The private key is not on this Mac.
+  exportRecipient = "age1equ37c706ca4t4f7x9pc462zvxn8hg57uq0etxhj84pj43tlfdks4vzhnc";
+  # The export runs only when this folder exists. Make it with
+  # `mkdir /Volumes/Ext/engi` when you want the export to start.
+  exportDest = "/Volumes/Ext/engi";
   exportOn = exportRecipient != null && exportDest != null;
 
   logFile = "${home}/Library/Logs/engi.log";
