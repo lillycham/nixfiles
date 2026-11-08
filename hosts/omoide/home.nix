@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, ... }:
+{ lib, pkgs, inputs, config, ... }:
 let
   # The system stays on the nixpkgs of nixos-apple-silicon, which lags behind.
   # Take apps that move fast from the main nixpkgs. Signal Desktop refuses to
@@ -12,7 +12,17 @@ in
   imports = [
     ../common.nix
     ../../config/nine.nix
+    inputs.akyuu.homeModules.default
   ];
+
+  # The sync v2 build of akyuu on a copy of the mirai store, for the two-device
+  # test. No GC, backup, versioning or embeddings: this is a test store.
+  programs.akyuu = {
+    enable = true;
+    package = inputs.akyuu.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    policyRef = "claude/memory-policy";
+    root = "${config.home.homeDirectory}/.local/share/akyuu-dogfood";
+  };
 
   nine.enable = true;
 

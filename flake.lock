@@ -7,15 +7,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1793918099,
-        "narHash": "sha256-rRK1fG1h0IeepdEt6zr+sHA6MWGFAFGrrMhxssifOJI=",
+        "lastModified": 1794108468,
+        "narHash": "sha256-MqfYcBytzT5XRVWf30lCpQY2ZJdgy/JfivQ2L2KBBMY=",
         "owner": "lillycham",
         "repo": "akyuu",
-        "rev": "d6094b09243a66806736f4545036d47ddd1f816b",
+        "rev": "a2974552cc3c081d0d6704ed12b764675397a3e7",
         "type": "github"
       },
       "original": {
         "owner": "lillycham",
+        "ref": "codex/sync-v2-validation",
         "repo": "akyuu",
         "type": "github"
       }

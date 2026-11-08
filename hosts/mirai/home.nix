@@ -122,6 +122,11 @@ in
       # My own command-line tools, from my NUR repository.
       inputs.lillycham-nur.packages.${pkgs.stdenv.hostPlatform.system}.lambdash
       inputs.lillycham-nur.packages.${pkgs.stdenv.hostPlatform.system}.why
+      # The sync v2 build of akyuu on a copy of the store, for the two-device test.
+      (pkgs.writeShellScriptBin "akyuu-dogfood" ''
+        exec ${inputs.akyuu.packages.${pkgs.stdenv.hostPlatform.system}.default}/bin/akyuu \
+          --root "$HOME/.local/share/akyuu-dogfood" "$@"
+      '')
     ];
   };
 

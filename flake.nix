@@ -50,8 +50,10 @@
 
     # The module, service helpers and dashboard fonts still come from upstream.
     # The normal CLI comes from NUR; this input also supports local dev builds.
+    # It tracks the sync v2 validation branch for the two-device test (mirai and
+    # omoide, on a copy of the store). Go back to the default branch after it.
     akyuu = {
-      url = "github:lillycham/akyuu";
+      url = "github:lillycham/akyuu/codex/sync-v2-validation";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
