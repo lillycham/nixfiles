@@ -21,6 +21,10 @@ in
 
   bell-system.enable = true;
 
+  # Keep Hugging Face models on the external drive. With the drive unplugged,
+  # HF fails to create the folder instead of filling the internal disk.
+  home.sessionVariables.HF_HOME = "/Volumes/Ext/hf";
+
   programs.spicetify = {
     enable = false;
     enabledExtensions = with spicePkgs.extensions; [

@@ -96,6 +96,11 @@
       max-jobs = "auto";
       cores = 0;
       builders-use-substitutes = true;
+      # While Nix builds or downloads, if the disk has less than 5 GiB free,
+      # collect garbage until it has 20 GiB free. On 2026-11-12 a lock bump
+      # filled the disk to 1 GiB before the weekly GC could run.
+      min-free = 5 * 1024 * 1024 * 1024;
+      max-free = 20 * 1024 * 1024 * 1024;
     };
 
     # Dedupe the store with hardlinks on a schedule. This is safer than
