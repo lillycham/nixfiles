@@ -27,14 +27,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Load each project's .envrc when I enter it. nix-direnv caches `use flake`
-  # and keeps its devShell from being garbage collected. Fish picks the hook
-  # up on its own.
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
-
   # Packages to install
   home = {
     packages = with pkgs; [
@@ -43,7 +35,6 @@
       cachix
       cloc
       curl
-      # direnv
       # dune_3
       fish
       fzf
