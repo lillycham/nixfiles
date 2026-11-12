@@ -72,6 +72,20 @@
           ./hosts/mirai/default.nix
         ];
       };
+      # Output for the M1 MacBook Air in macOS, hostname 'omoide-mac'.
+      # The same machine boots NixOS as 'omoide'.
+      omoide-mac = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.lcham =
+              homeManagerConfFor ./hosts/omoide-mac/home.nix;
+          }
+          ./hosts/omoide-mac/default.nix
+        ];
+      };
       # Output for NixOS PC
       ikigai = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -128,6 +142,7 @@
             nixpkgs.lib.mkForce inputs.akyuu.packages.aarch64-darwin.default;
         }];
       };
+      darwinConfigurations.omoide-mac = omoide-mac;
       packages.aarch64-darwin.default = mirai.system;
       nixosConfigurations."ikigai" = ikigai;
       nixosConfigurations."omoide" = omoide;
