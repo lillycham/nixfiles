@@ -11,6 +11,7 @@ in
     ../../config/engi.nix
     ../../config/dashboard
     ../../config/akyuu-dev.nix
+    ../../config/nixpkgs-sync.nix
     ../../config/obsidian.nix
     ../../config/sketchybar.nix
     inputs.nibble.homeModules.default
