@@ -279,11 +279,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794578999,
-        "narHash": "sha256-/KcoOEzzo8wsKzcqeHD8yYGK9Vrj2KzzAb9Z6Lu441A=",
+        "lastModified": 1794580464,
+        "narHash": "sha256-lItu2IhZAzzDy62ijA2qTHTifD+oAU3Mo5yB3/tjniI=",
         "owner": "lillycham",
         "repo": "skillx",
-        "rev": "7212fe82dd1e16399d9949cc894aabfc7d20b2c4",
+        "rev": "ef900bf973ce84c1468fab79ced926c34ea4d078",
         "type": "github"
       },
       "original": {
