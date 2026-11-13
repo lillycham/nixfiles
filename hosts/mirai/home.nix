@@ -14,6 +14,7 @@ in
     ../../config/nixpkgs-sync.nix
     ../../config/obsidian.nix
     ../../config/sketchybar.nix
+    ../../config/skillx.nix
     inputs.nibble.homeModules.default
     inputs.spicetify-nix.homeManagerModules.default
     inputs.akyuu.homeModules.default

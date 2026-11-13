@@ -55,6 +55,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Declarative multi-harness skill graph compiler and Home Manager module.
+    skillx = {
+      url = "github:lillycham/skillx";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, darwin, nur, ... }:
